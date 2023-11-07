@@ -9,7 +9,7 @@ export default defineConfig({
   output: 'static',
   integrations: [
     expressiveCode({
-      theme: 'dracula-soft',
+      themes: ['dracula-soft'],
     }),
     starlight({
       title: 'EFP',
@@ -30,10 +30,17 @@ export default defineConfig({
         github: 'https://github.com/ethereumfollowprotocol',
         twitter: 'https://twitter.com/ethfollowpr',
       },
+      tableOfContents: {
+        maxHeadingLevel: 4,
+      },
       sidebar: [
         {
           label: 'Design Specification',
           link: '/spec',
+        },
+        {
+          label: 'Public API',
+          link: '/api',
         },
       ],
       customCss: [

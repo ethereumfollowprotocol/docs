@@ -3,6 +3,17 @@
   --sl-sidebar-width: 16rem;
 }
 
+pre,
+.ec-line,
+.copy {
+  margin-top: 0px !important;
+}
+
+code:not([dir="auto"]) {
+  padding-top: 10px !important;
+  padding-bottom: 10px !important;
+}
+
 /* Dark mode colors. */
 :root {
   --sl-color-text: #fafafafa;
