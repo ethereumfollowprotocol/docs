@@ -10,6 +10,16 @@ export default defineConfig({
   integrations: [
     expressiveCode({
       themes: ['dracula-soft'],
+      shiki: true,
+      tabWidth: 2,
+      minSyntaxHighlightingColorContrast: 0,
+      textMarkers: true,
+      styleOverrides: {
+        borderRadius: '0.2rem',
+        uiPaddingBlock: '0.1rem',
+        codePaddingBlock: '0.5rem',
+      },
+      plugins: [],
     }),
     starlight({
       title: 'EFP',
@@ -46,6 +56,7 @@ export default defineConfig({
       customCss: [
         './src/styles/custom.css',
         './src/styles/tailwind.css',
+        '@fontsource/inter/300.css',
         '@fontsource/inter/400.css',
         '@fontsource/inter/700.css',
         '@fontsource/ibm-plex-serif/400.css',

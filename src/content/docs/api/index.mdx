@@ -3,11 +3,27 @@ title: API (v1)
 description: Ethereum Follow Protocol API
 ---
 
+:::note
+
 This is currently a test API with fake data and will receive updates with additional functionality over time. It is intended to be used to test integrations in preparation for EFP's mainnet launch.
+
+:::
 
 API URL: `https://api.ethfollow.xyz/v1`
 
 ### Available Endpoints
+
+```sh
+GET /stats/:address
+GET /followers/:address
+GET /following/:address
+```
+
+:::caution
+
+Address must be [checksummed](https://eips.ethereum.org/EIPS/eip-55). You can use [viem](https://viem.sh/docs/utilities/getAddress.html#usage) or [ethers](https://docs.ethers.org/v5/api/utils/address/#utils-getAddress) to checksum an address.
+
+:::
 
 #### Get number of followers and following
 
@@ -39,8 +55,7 @@ curl --request 'GET' \
   "data": [
     {
       "actor_address": "0x0483499Fac8C6EaCcD64c5D316762af172f5Eb4A",
-      "action_timestamp": "2023-11-02T11:58:15+00:00",
-      "created_at": "2023-11-06T09:27:46.449521+00:00"
+      "action_timestamp": "2023-11-02T11:58:15+00:00"
     }
   ]
 }
@@ -59,8 +74,11 @@ curl --request 'GET' \
   "data": [
     {
       "target_address": "0x983110309620D911731Ac0932219af06091b6744",
-      "action_timestamp": "2023-11-07T21:34:56+00:00",
-      "created_at": "2023-11-07T21:35:01.851408+00:00"
+      "action_timestamp": "2023-11-07T21:34:56+00:00"
+    },
+    {
+      "target_address": "0xf4212614C7Fe0B3feef75057E88b2E77a7E23e83",
+      "action_timestamp": "2023-11-07T21:33:59+00:00"
     }
   ]
 }
