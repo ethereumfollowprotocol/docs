@@ -9,6 +9,11 @@ pre,
   margin-right: 20px;
 }
 
+a.action {
+  font-size: 1.2rem;
+  color: #ffffff;
+}
+
 [data-page-title] {
   font-weight: 900 !important;
 }
@@ -23,6 +28,7 @@ pre,
   --sl-color-text: #fafafafa;
   --sl-color-accent-low: #2c230a;
   --sl-color-accent: #846500;
+  --sl-color-bg-nav: #17181c;
   --sl-color-accent-high: #ffff96;
   --sl-color-white: #ffffff;
   --sl-color-gray-1: #eceef2;
@@ -66,13 +72,7 @@ pre,
 }
 
 p {
-  font-size: 1.1rem;
   line-height: 1.5;
-}
-
-[data-has-hero] header,
-header {
-  background-color: transparent !important;
 }
 
 [data-has-hero] .hero > img {
@@ -80,7 +80,6 @@ header {
 }
 
 .tagline {
-  font-size: 2.5rem;
   font-family: Inter, sans-serif;
   font-weight: 600;
   line-height: 1.2;
