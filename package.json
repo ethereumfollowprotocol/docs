@@ -1,9 +1,9 @@
 {
   "name": "docs",
   "description": "Ethereum Follow Protocol Documentation",
+  "homepage": "https://docs.ethfollow.xyz",
   "type": "module",
   "version": "0.0.1",
-  "homepage": "https://docs.ethfollow.xyz",
   "scripts": {
     "dev": "astro dev --port 4321",
     "start": "astro dev",
@@ -12,7 +12,6 @@
     "astro": "astro",
     "lint": "eslint --fix . --ext='js,cjs,ts,tsx,astro,md,mdx,json' --report-unused-disable-directives --max-warnings=0 --cache",
     "format": "prettier --write . --ignore-path='.eslintignore' --ignore-unknown --cache",
-    "typecheck": "tsc --project tsconfig.json --noEmit",
     "clean": "rm -rf .astro dist node_modules bun.lockb"
   },
   "dependencies": {
@@ -41,12 +40,14 @@
     "eslint-plugin-mdx": "^2.2.0",
     "eslint-plugin-prettier": "^5.0.1",
     "eslint-plugin-unicorn": "^49.0.0",
-    "hastscript": "^8.0.0",
     "prettier": "^3.0.3",
     "prettier-plugin-astro": "^0.12.1",
     "sharp": "^0.32.6",
     "tailwindcss": "^3.3.5",
     "typed-query-selector": "^2.11.0",
     "typescript": "^5.2.2"
-  }
+  },
+  "repository": "github:ethereumfollowprotocol/docs",
+  "sideEffects": false,
+  "private": true
 }

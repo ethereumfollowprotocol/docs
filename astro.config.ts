@@ -13,25 +13,29 @@ export default defineConfig({
       themes: ['dracula-soft'],
       shiki: true,
       tabWidth: 2,
-      minSyntaxHighlightingColorContrast: 0,
       textMarkers: true,
       styleOverrides: {
         borderRadius: '0.2rem',
         uiPaddingBlock: '0.1rem',
         codePaddingBlock: '0.5rem',
       },
+      minSyntaxHighlightingColorContrast: 0,
       plugins: [],
     }),
     starlight({
       title: 'EFP',
       description: 'Ethereum Follow Protocol',
+      tagline: 'Ethereum Follow Protocol',
       favicon: '/favicon.ico',
-      defaultLocale: 'en',
+      editLink: {
+        baseUrl: 'https://github.com/ethereumfollowprotocol/docs/tree/main',
+      },
       lastUpdated: true,
+      defaultLocale: 'en',
       locales: {
         root: {
           label: 'English',
-          lang: 'en-US',
+          lang: 'en',
         },
       },
       logo: {
@@ -39,19 +43,29 @@ export default defineConfig({
       },
       social: {
         github: 'https://github.com/ethereumfollowprotocol',
-        twitter: 'https://twitter.com/ethfollowpr',
+        'x.com': 'https://x.com/ethfollowpr',
       },
       tableOfContents: {
         maxHeadingLevel: 4,
       },
       sidebar: [
         {
-          label: 'Design Specification',
-          link: '/spec',
+          label: 'Design',
+          collapsed: true,
+          items: [
+            {
+              label: 'Specefication',
+              link: '/design/spec',
+            },
+          ],
         },
         {
           label: 'Public API',
           link: '/api',
+          badge: {
+            text: 'v1',
+            variant: 'note',
+          },
         },
       ],
       customCss: [
@@ -60,6 +74,7 @@ export default defineConfig({
         '@fontsource/inter/300.css',
         '@fontsource/inter/400.css',
         '@fontsource/inter/700.css',
+        '@fontsource/inter/900.css',
         '@fontsource/ibm-plex-serif/400.css',
         '@fontsource/ibm-plex-serif/600.css',
         '@fontsource/ibm-plex-mono/400.css',

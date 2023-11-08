@@ -1,6 +1,6 @@
 {
   "extends": "astro/tsconfigs/strict",
   "include": ["src/**/*"],
-  "exclude": ["dist", ".astro", "**/node_modules/**"],
+  "exclude": ["dist", ".astro", "node_modules"],
   "files": [".eslintrc.cjs", ".prettierrc.cjs", "astro.config.ts", "tailwind.config.ts"]
 }

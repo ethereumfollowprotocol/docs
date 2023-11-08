@@ -1,16 +1,25 @@
-:root {
-  --sl-font: 'Inter', sans-serif;
-  --sl-sidebar-width: 16rem;
-}
-
 pre,
 .ec-line,
 .copy {
   margin-top: 0px !important;
 }
 
-/* Dark mode colors. */
+.hero {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+[data-page-title] {
+  font-weight: 900 !important;
+}
+
+.tagline {
+  font-size: 2rem !important;
+}
+
 :root {
+  --sl-font: 'Inter', sans-serif;
+  --sl-sidebar-width: 14rem;
   --sl-color-text: #fafafafa;
   --sl-color-accent-low: #2c230a;
   --sl-color-accent: #846500;
@@ -53,35 +62,21 @@ pre,
 
 .site-title {
   font-size: 2rem;
-  /* font-family: IBM Plex Mono, sans-serif; */
   font-weight: 900;
 }
 
 p {
   font-size: 1.1rem;
-  /* font-family: IBM Plex Mono, sans-serif; */
   line-height: 1.5;
 }
 
-/* TODO: nice bg */
-/* [data-has-hero] .page {
-} */
-
-[data-has-hero] header {
-  border-bottom: 1px solid transparent;
-  background-color: transparent;
-  -webkit-backdrop-filter: blur(16px);
-  backdrop-filter: blur(16px);
+[data-has-hero] header,
+header {
+  background-color: transparent !important;
 }
 
 [data-has-hero] .hero > img {
   filter: drop-shadow(0 0 3rem var(--overlay-blurple));
-}
-
-[data-page-title] {
-  font-size: 7rem;
-  font-family: Inter, sans-serif;
-  font-weight: 700;
 }
 
 .tagline {
@@ -125,7 +120,7 @@ a.primary {
 /** scrollbar */
 *::-webkit-scrollbar {
   height: 0.3rem;
-  width: 0.5rem;
+  width: 0rem;
 }
 
 *::-webkit-scrollbar-track {
