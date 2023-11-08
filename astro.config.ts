@@ -7,6 +7,7 @@ import { defineConfig, passthroughImageService } from 'astro/config'
 export default defineConfig({
   site: 'https://docs.ethfollow.xyz',
   output: 'static',
+  trailingSlash: 'ignore',
   integrations: [
     expressiveCode({
       themes: ['dracula-soft'],
