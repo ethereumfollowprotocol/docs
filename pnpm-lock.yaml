@@ -76,9 +76,6 @@ devDependencies:
   eslint-plugin-unicorn:
     specifier: ^49.0.0
     version: 49.0.0(eslint@8.53.0)
-  hastscript:
-    specifier: ^8.0.0
-    version: 8.0.0
   prettier:
     specifier: ^3.0.3
     version: 3.0.3
