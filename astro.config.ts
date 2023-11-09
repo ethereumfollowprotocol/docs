@@ -55,7 +55,7 @@ export default defineConfig({
           collapsed: true,
           items: [
             {
-              label: 'Specefication',
+              label: 'Specification',
               link: '/design/spec',
             },
           ],
