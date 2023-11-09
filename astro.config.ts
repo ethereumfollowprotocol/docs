@@ -44,6 +44,7 @@ export default defineConfig({
       social: {
         github: 'https://github.com/ethereumfollowprotocol',
         'x.com': 'https://x.com/ethfollowpr',
+        discord: 'https://discord.ethfollow.xyz',
       },
       tableOfContents: {
         maxHeadingLevel: 4,
