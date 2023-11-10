@@ -9,11 +9,6 @@ pre,
   margin-right: 20px;
 }
 
-a.action {
-  font-size: 1.2rem;
-  color: #ffffff;
-}
-
 [data-page-title] {
   font-weight: 900 !important;
 }
@@ -111,9 +106,21 @@ p {
   line-height: 1.2;
 }
 
-a.action,
+a.action {
+  font-size: 1.5rem;
+  color: #ffffff;
+  font-weight: 600;
+}
+
 a.primary {
   background-image: linear-gradient(45deg, #ff79c9, #ffff96) !important;
+}
+
+a.minimal {
+  background: -webkit-linear-gradient(45deg, #ff79c9, #ffff96) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
 }
 
 /** scrollbar */

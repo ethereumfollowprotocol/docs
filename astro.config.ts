@@ -8,6 +8,10 @@ export default defineConfig({
   site: 'https://docs.ethfollow.xyz',
   output: 'static',
   trailingSlash: 'ignore',
+  prefetch: true,
+  experimental: {
+    devOverlay: true,
+  },
   integrations: [
     expressiveCode({
       themes: ['dracula-soft'],
@@ -76,8 +80,6 @@ export default defineConfig({
         '@fontsource/inter/400.css',
         '@fontsource/inter/700.css',
         '@fontsource/inter/900.css',
-        '@fontsource/ibm-plex-serif/400.css',
-        '@fontsource/ibm-plex-serif/600.css',
         '@fontsource/ibm-plex-mono/400.css',
         '@fontsource/ibm-plex-mono/600.css',
       ],
