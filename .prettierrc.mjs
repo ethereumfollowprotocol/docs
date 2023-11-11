@@ -1,5 +1,5 @@
 /** @type {import('prettier').Config} */
-module.exports = {
+export default {
   semi: false,
   tabWidth: 2,
   printWidth: 100,
@@ -10,7 +10,7 @@ module.exports = {
   arrowParens: 'avoid',
   trailingComma: 'es5',
   singleAttributePerLine: true,
-  plugins: [require.resolve('prettier-plugin-astro')],
+  plugins: ['prettier-plugin-astro', 'prettier-plugin-tailwindcss'],
   overrides: [
     {
       files: '*.mdx',

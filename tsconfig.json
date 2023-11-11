@@ -1,6 +1,9 @@
 {
   "extends": "astro/tsconfigs/strict",
+  "compilerOptions": {
+    "skipLibCheck": true
+  },
   "include": ["src/**/*"],
   "exclude": ["dist", ".astro", "node_modules"],
-  "files": [".eslintrc.cjs", ".prettierrc.cjs", "astro.config.ts", "tailwind.config.ts"]
+  "files": [".eslintrc.cjs", ".prettierrc.mjs", "astro.config.ts", "tailwind.config.ts"]
 }

@@ -12,6 +12,7 @@
     "astro": "astro",
     "lint": "eslint --fix . --ext='js,cjs,ts,tsx,astro,md,mdx,json' --report-unused-disable-directives --max-warnings=0 --cache",
     "format": "prettier --write . --ignore-path='.eslintignore' --ignore-unknown --cache",
+    "typecheck": "tsc --project tsconfig.json --noEmit",
     "clean": "rm -rf .astro dist node_modules bun.lockb"
   },
   "dependencies": {
@@ -42,6 +43,7 @@
     "eslint-plugin-unicorn": "^49.0.0",
     "prettier": "^3.0.3",
     "prettier-plugin-astro": "^0.12.1",
+    "prettier-plugin-tailwindcss": "^0.5.7",
     "sharp": "^0.32.6",
     "tailwindcss": "^3.3.5",
     "typed-query-selector": "^2.11.0",
