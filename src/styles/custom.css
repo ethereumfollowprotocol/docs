@@ -4,6 +4,25 @@ pre,
   margin-top: 0px !important;
 }
 
+pre,
+code {
+  font-size: 16px !important;
+  background-color: #0f111a !important;
+}
+
+p > code {
+  color: #ff79c9 !important;
+}
+
+p > a {
+  text-decoration: none !important;
+}
+
+p > a:hover {
+  color: #ff79c9 !important;
+  text-decoration: none !important;
+}
+
 .hero {
   margin-left: 20px;
   margin-right: 20px;

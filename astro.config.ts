@@ -14,7 +14,7 @@ export default defineConfig({
   },
   integrations: [
     expressiveCode({
-      themes: ['dracula-soft'],
+      themes: ['material-theme-ocean'],
       shiki: true,
       tabWidth: 2,
       textMarkers: true,
