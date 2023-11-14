@@ -3,9 +3,11 @@ import starlight from '@astrojs/starlight'
 import expressiveCode from 'astro-expressive-code'
 import { defineConfig, passthroughImageService } from 'astro/config'
 
+const SITE_URL = 'https://docs.ethfollow.xyz'
+
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://docs.ethfollow.xyz',
+  site: SITE_URL,
   output: 'static',
   trailingSlash: 'ignore',
   prefetch: true,
@@ -30,6 +32,30 @@ export default defineConfig({
       title: 'EFP Docs',
       description: 'Technical documentation',
       tagline: 'Ethereum Follow Protocol',
+      head: [
+        {
+          tag: 'meta',
+          attrs: {
+            property: 'og:image',
+            content: `${SITE_URL}/og.png`,
+          },
+        },
+        {
+          tag: 'meta',
+          attrs: {
+            name: 'twitter:image',
+            content: `${SITE_URL}/og.png`,
+          },
+        },
+        {
+          tag: 'script',
+          attrs: {
+            src: 'https://static.cloudflareinsights.com/beacon.min.js',
+            'data-cf-beacon': '{"token": "80940575779d42e2bade60c3c4d5c8d1"}',
+            defer: true,
+          },
+        },
+      ],
       favicon: '/favicon.ico',
       editLink: {
         baseUrl: 'https://github.com/ethereumfollowprotocol/docs/tree/main',
