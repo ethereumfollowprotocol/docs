@@ -29,7 +29,7 @@ p > a:hover {
 }
 
 [data-page-title] {
-  font-weight: 900 !important;
+  font-weight: 600 !important;
 }
 
 .tagline {
@@ -37,11 +37,11 @@ p > a:hover {
 }
 
 :root {
-  --sl-font: 'Inter', sans-serif;
+  --sl-font: 'Roboto', sans-serif;
   --sl-sidebar-width: 14rem;
   --sl-color-text: #fafafafa;
   --sl-color-accent-low: #2c230a;
-  --sl-color-accent: #846500;
+  --sl-color-accent: #ffffff;
   --sl-color-bg-nav: #17181c;
   --sl-color-accent-high: #ffff96;
   --sl-color-white: #ffffff;
@@ -58,9 +58,9 @@ p > a:hover {
   --sl-color-bg: #fbfbfbfa;
   --sl-color-text: #17181c;
   --sl-color-accent-low: #dfd6c0;
-  --sl-color-accent: #ff63c1;
+  --sl-color-accent: #333333;
   --sl-color-accent-high: #ff79c9;
-  --sl-color-white: #17181c;
+  --sl-color-white: #333333;
   --sl-color-gray-1: #24272f;
   --sl-color-gray-2: #353841;
   --sl-color-gray-3: #545861;
@@ -81,8 +81,9 @@ p > a:hover {
 }
 
 .site-title {
-  font-size: 2rem;
-  font-weight: 900;
+  font-family: Roboto, sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
 }
 
 p {
@@ -94,7 +95,7 @@ p {
 }
 
 .tagline {
-  font-family: Inter, sans-serif;
+  font-family: Roboto, sans-serif;
   font-weight: 600;
   line-height: 1.2;
 }
