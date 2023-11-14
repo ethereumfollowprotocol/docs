@@ -27,8 +27,8 @@ export default defineConfig({
       plugins: [],
     }),
     starlight({
-      title: 'EFP',
-      description: 'Ethereum Follow Protocol',
+      title: 'EFP Docs',
+      description: 'Technical documentation',
       tagline: 'Ethereum Follow Protocol',
       favicon: '/favicon.ico',
       editLink: {
