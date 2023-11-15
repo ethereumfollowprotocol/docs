@@ -53,10 +53,17 @@ export default defineConfig({
         {
           tag: 'script',
           attrs: {
-            type: 'text/javascript',
-            src: `${SITE_URL}/cf-rocketloader.js`,
-            defer: true,
+            type: 'module',
           },
+          content: /* js */ `
+            let inCloudflare = true
+            window.addEventListener('DOMContentLoaded', () => { inCloudflare = false })
+            if(document.readyState === 'loading') {
+              window.addEventListener('load', () => {
+                if(inCloudflare) window.dispatchEvent(new Event("DOMContentLoaded"))
+              })
+            }
+          `,
         },
         {
           tag: 'script',
