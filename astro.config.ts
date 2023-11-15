@@ -20,6 +20,9 @@ export default defineConfig({
       shiki: true,
       tabWidth: 2,
       textMarkers: true,
+      frames: {
+        showCopyToClipboardButton: true,
+      },
       styleOverrides: {
         borderRadius: '0.2rem',
         uiPaddingBlock: '0.1rem',
@@ -45,6 +48,13 @@ export default defineConfig({
           attrs: {
             name: 'twitter:image',
             content: `${SITE_URL}/og.png`,
+          },
+        },
+        {
+          tag: 'script',
+          attrs: {
+            type: 'module',
+            src: `${SITE_URL}/cf-rocketloader.js`,
           },
         },
         {
