@@ -3,7 +3,8 @@
   "compilerOptions": {
     "skipLibCheck": true,
     "allowJs": true,
-    "checkJs": true
+    "checkJs": true,
+    "types": ["node", "typed-query-selector/strict"]
   },
   "include": ["src/**/*", "public/**/*"],
   "files": [
