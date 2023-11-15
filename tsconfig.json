@@ -4,6 +4,6 @@
     "skipLibCheck": true
   },
   "include": ["src/**/*"],
-  "exclude": ["dist", ".astro", "node_modules"],
+  "exclude": ["dist", ".astro", "node_modules", "_"],
   "files": [".eslintrc.cjs", ".prettierrc.mjs", "astro.config.ts", "tailwind.config.ts"]
 }
