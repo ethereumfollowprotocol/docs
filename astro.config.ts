@@ -21,7 +21,13 @@ export default defineConfig({
       tabWidth: 2,
       textMarkers: true,
       frames: {
-        showCopyToClipboardButton: true,
+        /**
+         * TODO: fix
+         * issue:
+         * on phone the copy button is always visible
+         * we want it to be visible only on hover or focus/click
+         */
+        showCopyToClipboardButton: false,
       },
       styleOverrides: {
         borderRadius: '0.2rem',

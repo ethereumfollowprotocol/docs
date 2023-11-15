@@ -8,6 +8,11 @@ pre,
   background: #0f111a !important;
 }
 
+a svg {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
 pre,
 code {
   font-size: 16px !important;
