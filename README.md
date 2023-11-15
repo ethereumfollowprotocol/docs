@@ -12,11 +12,3 @@
 <br />
 
 <h1 align="center" style="font-size: 2.75rem; font-weight: 900; color: white;">Ethereum Follow Protocol ⚡</h1>
-
-## Supported by grants from
-
-<p align="center">
-  <a target="_blank" href="https://ensdao.org">
-    <img alt="sponsors" src="https://docs.ethfollow.xyz/ensdao.png" width="175" alt="ENS DAO" />
-  </a>
-</p>
