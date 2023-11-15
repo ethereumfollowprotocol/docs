@@ -53,6 +53,14 @@ export default defineConfig({
         {
           tag: 'script',
           attrs: {
+            src: 'https://static.cloudflareinsights.com/beacon.min.js',
+            'data-cf-beacon': '{"token": "80940575779d42e2bade60c3c4d5c8d1"}',
+            defer: true,
+          },
+        },
+        {
+          tag: 'script',
+          attrs: {
             type: 'module',
           },
           content: /* js */ `
@@ -64,14 +72,6 @@ export default defineConfig({
               })
             }
           `,
-        },
-        {
-          tag: 'script',
-          attrs: {
-            src: 'https://static.cloudflareinsights.com/beacon.min.js',
-            'data-cf-beacon': '{"token": "80940575779d42e2bade60c3c4d5c8d1"}',
-            defer: true,
-          },
         },
       ],
       favicon: '/favicon.ico',
@@ -120,10 +120,10 @@ export default defineConfig({
       customCss: [
         './src/styles/custom.css',
         './src/styles/tailwind.css',
-        '@fontsource/inter/300.css',
-        '@fontsource/inter/400.css',
-        '@fontsource/inter/700.css',
-        '@fontsource/inter/900.css',
+        '@fontsource/roboto/300.css',
+        '@fontsource/roboto/400.css',
+        '@fontsource/roboto/700.css',
+        '@fontsource/roboto/900.css',
         '@fontsource/ibm-plex-mono/400.css',
         '@fontsource/ibm-plex-mono/600.css',
       ],
