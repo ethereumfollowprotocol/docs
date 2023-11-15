@@ -21,8 +21,8 @@ export default {
       },
       fontFamily: {
         mono: ['"IBM Plex Mono"'],
-        serif: ['Inter'],
-        sans: ['Inter'],
+        serif: ['Roboto'],
+        sans: ['Roboto'],
       },
     },
   },

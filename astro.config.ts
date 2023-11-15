@@ -12,7 +12,7 @@ export default defineConfig({
   trailingSlash: 'ignore',
   prefetch: true,
   experimental: {
-    devOverlay: true,
+    devOverlay: false,
   },
   integrations: [
     expressiveCode({
@@ -72,6 +72,12 @@ export default defineConfig({
               })
             }
           `,
+        },
+        {
+          tag: 'script',
+          attrs: {
+            content: `${SITE_URL}/cf-rocketloader.js`,
+          },
         },
       ],
       favicon: '/favicon.ico',

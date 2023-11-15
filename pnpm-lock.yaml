@@ -17,9 +17,9 @@ dependencies:
   '@fontsource/ibm-plex-serif':
     specifier: ^5.0.8
     version: 5.0.8
-  '@fontsource/inter':
-    specifier: ^5.0.15
-    version: 5.0.15
+  '@fontsource/roboto':
+    specifier: ^5.0.8
+    version: 5.0.8
   astro:
     specifier: ^3.5.2
     version: 3.5.2(@types/node@20.9.0)(typescript@5.2.2)
@@ -896,8 +896,8 @@ packages:
     resolution: {integrity: sha512-KUp1E9Wzf2Umhr2SbpcF9HwgFJmuxvKAARmpl7GDDkIG30R1PMFJWxfSfQ7oX/oVBtomGq5RUTaMMUeE0ngEgw==}
     dev: false
 
-  /@fontsource/inter@5.0.15:
-    resolution: {integrity: sha512-/IoWYEXl8lqJEx50JqNPT+bI4VNwxb/bg2oOfvG8PiEsDsmHRFvWBVHlohBNn1+QdBf+KbAjU/gb4vlGOSsVWw==}
+  /@fontsource/roboto@5.0.8:
+    resolution: {integrity: sha512-XxPltXs5R31D6UZeLIV1td3wTXU3jzd3f2DLsXI8tytMGBkIsGcc9sIyiupRtA8y73HAhuSCeweOoBqf6DbWCA==}
     dev: false
 
   /@humanwhocodes/config-array@0.11.13:

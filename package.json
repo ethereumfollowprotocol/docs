@@ -10,7 +10,7 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "lint": "eslint --fix . --ext='js,cjs,ts,tsx,astro,md,mdx,json' --report-unused-disable-directives --max-warnings=0 --cache",
+    "lint": "eslint --fix . --ext='js,cjs,mjs,ts,tsx,d.ts,astro,md,mdx,json' --report-unused-disable-directives --max-warnings=0 --cache",
     "format": "prettier --write . --ignore-path='.eslintignore' --ignore-unknown --cache",
     "typecheck": "tsc --project tsconfig.json --noEmit",
     "clean": "rm -rf .astro dist node_modules bun.lockb"
@@ -20,11 +20,10 @@
     "@expressive-code/plugin-collapsible-sections": "^0.27.1",
     "@fontsource/ibm-plex-mono": "^5.0.8",
     "@fontsource/ibm-plex-serif": "^5.0.8",
-    "@fontsource/inter": "^5.0.15",
+    "@fontsource/roboto": "^5.0.8",
     "astro": "^3.5.2",
     "astro-expressive-code": "^0.27.1",
-    "expressive-code": "^0.27.1",
-    "hast-util-to-html": "^9.0.0"
+    "expressive-code": "^0.27.1"
   },
   "devDependencies": {
     "@astrojs/starlight-tailwind": "^2.0.1",
