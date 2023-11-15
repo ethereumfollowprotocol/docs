@@ -10,7 +10,9 @@ window.addEventListener('DOMContentLoaded', () => {
       link.setAttribute('target', '_blank')
       link.setAttribute('rel', 'noopener noreferrer')
     }
-  } catch {
-    /* empty */
+  } catch (error) {
+    const errorMessage =
+      error instanceof Error ? error.message : 'Unknown error' + JSON.stringify(error, undefined, 2)
+    console.error('Error in anchor-targets.js:', errorMessage)
   }
 })

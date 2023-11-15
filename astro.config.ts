@@ -79,10 +79,8 @@ export default defineConfig({
       lastUpdated: true,
       defaultLocale: 'en',
       locales: {
-        root: {
-          label: 'English',
-          lang: 'en'
-        }
+        root: { label: 'English', lang: 'en' }
+        // ar: { label: 'العربية', dir: 'rtl' },
       },
       logo: {
         src: './src/assets/logo.png'
@@ -95,10 +93,15 @@ export default defineConfig({
       tableOfContents: {
         maxHeadingLevel: 4
       },
+
       sidebar: [
         {
+          label: 'Introduction',
+          link: '/intro'
+        },
+        {
           label: 'Design',
-          collapsed: true,
+          collapsed: false,
           items: [
             {
               label: 'Specification',
