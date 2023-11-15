@@ -62,7 +62,7 @@ export default defineConfig({
           tag: 'script',
           attrs: {
             type: 'module',
-            src: '/anchor-targets.js',
+            src: `${SITE_URL}/anchor-targets.js`,
           },
         },
       ],
