@@ -53,8 +53,9 @@ export default defineConfig({
         {
           tag: 'script',
           attrs: {
-            type: 'module',
+            type: 'text/javascript',
             src: `${SITE_URL}/cf-rocketloader.js`,
+            defer: true,
           },
         },
         {
