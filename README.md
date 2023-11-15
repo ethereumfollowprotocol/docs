@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://vitejs.dev" target="_blank" rel="noopener noreferrer">
-    <img width="200" src="https://docs.ethfollow.xyz/logo.png" alt="Vite logo" />
+    <img width="300" src="https://docs.ethfollow.xyz/logo.png" alt="Vite logo" />
   </a>
 </p>
 <br />
@@ -11,12 +11,12 @@
 </p>
 <br />
 
-<p align="center" style="font-size: 2.75rem; font-weight: 900; color: white;">Ethereum Follow Protocol ⚡</p>
+<h1 align="center" style="font-size: 2.75rem; font-weight: 900; color: white;">Ethereum Follow Protocol ⚡</h1>
 
 ## Supported by grants from
 
 <p align="center">
   <a target="_blank" href="https://ensdao.org">
-    <img alt="sponsors" src="https://docs.ethfollow.xyz/ensdao.png" width="250" />
+    <img alt="sponsors" src="https://docs.ethfollow.xyz/ensdao.png" width="175" alt="ENS DAO" />
   </a>
 </p>
