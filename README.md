@@ -1,25 +1,22 @@
 <p align="center">
   <a href="https://vitejs.dev" target="_blank" rel="noopener noreferrer">
-    <img width="200" src="https://docs.ethfollow.xyz/logo.png" alt="Vite logo">
+    <img width="200" src="https://docs.ethfollow.xyz/logo.png" alt="Vite logo" />
   </a>
 </p>
-<br/>
+<br />
 <p align="center">
-  <a href="https://pr.new/ethereumfollowprotocol/docs"><img src="https://developer.stackblitz.com/img/start_pr_dark_small.svg" alt="Start new PR in StackBlitz Codeflow"></a>
-  <a href="https://discord.ethfollow.xyz"><img src="https://img.shields.io/badge/chat-discord-blue?style=flat&logo=discord" alt="discord chat"></a>
-  <a href="https://x.com/ethfollowpr"><img src="https://img.shields.io/twitter/follow/ethfollowpr?label=%40ethfollowpr&style=social&link=https%3A%2F%2Fx.com%2Fethfollowpr
-" alt="x account"></a>
+  <a href="https://pr.new/ethereumfollowprotocol/docs"><img src="https://developer.stackblitz.com/img/start_pr_dark_small.svg" alt="Start new PR in StackBlitz Codeflow" /></a>
+  <a href="https://discord.ethfollow.xyz"><img src="https://img.shields.io/badge/chat-discord-blue?style=flat&logo=discord" alt="discord chat" /></a>
+  <a href="https://x.com/ethfollowpr"><img src="https://img.shields.io/twitter/follow/ethfollowpr?label=%40ethfollowpr&style=social&link=https%3A%2F%2Fx.com%2Fethfollowpr" alt="x account" /></a>
 </p>
-<br/>
+<br />
 
-<div align="center" >
-  <a style="font-size: 2.75rem; font-weight: 900; color: white; text-decoration: none;" href="https://docs.ethfollow.xyz">Ethereum Follow Protocol ⚡</a>
-</div>
+<p align="center" style="font-size: 2.75rem; font-weight: 900; color: white;">Ethereum Follow Protocol ⚡</p>
 
 ## Supported by grants from
 
 <p align="center">
   <a target="_blank" href="https://ensdao.org">
-    <img alt="sponsors" src="https://docs.ethfollow.xyz/ensdao.png" width="250">
+    <img alt="sponsors" src="https://docs.ethfollow.xyz/ensdao.png" width="250" />
   </a>
 </p>
