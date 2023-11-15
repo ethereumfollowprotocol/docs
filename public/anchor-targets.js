@@ -11,6 +11,6 @@ window.addEventListener('DOMContentLoaded', () => {
       link.setAttribute('rel', 'noopener noreferrer')
     }
   } catch {
-    // ignore
+    /* empty */
   }
 })

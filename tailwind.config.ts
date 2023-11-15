@@ -15,16 +15,16 @@ export default {
           '300': '#f9a8d4',
           '400': '#f472b6',
           '500': '#ec4899',
-          '600': '#ff63c1',
+          '600': '#ff63c1'
         },
-        gray: colors.zinc,
+        gray: colors.zinc
       },
       fontFamily: {
         mono: ['"IBM Plex Mono"'],
         serif: ['Roboto'],
-        sans: ['Roboto'],
-      },
-    },
+        sans: ['Roboto']
+      }
+    }
   },
-  plugins: [starlightPlugin()],
+  plugins: [starlightPlugin()]
 } satisfies Config

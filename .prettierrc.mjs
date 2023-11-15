@@ -8,7 +8,7 @@ export default {
   proseWrap: 'never',
   jsxSingleQuote: true,
   arrowParens: 'avoid',
-  trailingComma: 'es5',
+  trailingComma: 'none',
   singleAttributePerLine: true,
   plugins: ['prettier-plugin-astro', 'prettier-plugin-tailwindcss'],
   overrides: [
@@ -16,8 +16,8 @@ export default {
       files: '*.mdx',
       options: {
         useTabs: false,
-        tabWidth: 2,
-      },
-    },
-  ],
+        tabWidth: 2
+      }
+    }
+  ]
 }

@@ -5,7 +5,7 @@ module.exports = {
   parserOptions: {
     ecmaVersion: 'latest',
     sourceType: 'module',
-    warnOnUnsupportedTypeScriptVersion: true,
+    warnOnUnsupportedTypeScriptVersion: true
   },
   env: { node: true, browser: true },
   reportUnusedDisableDirectives: true,
@@ -15,15 +15,15 @@ module.exports = {
     'plugin:@typescript-eslint/recommended',
     'plugin:jsonc/prettier',
     'plugin:astro/recommended',
-    'prettier',
+    'prettier'
   ],
   plugins: ['@typescript-eslint', 'prettier'],
   overrides: [
     {
       files: ['*.ts', '*.d.ts'],
       rules: {
-        '@typescript-eslint/no-namespace': ['off'],
-      },
+        '@typescript-eslint/no-namespace': ['off']
+      }
     },
     {
       files: ['*.mdx', '*.md'],
@@ -31,12 +31,12 @@ module.exports = {
       rules: {
         '@typescript-eslint/no-unused-vars': ['off'],
         'no-unused-vars': ['off'],
-        'mdx/no-unused-expressions': ['off'],
+        'mdx/no-unused-expressions': ['off']
       },
       settings: {
         'mdx/code-blocks': true,
-        'mdx/language-mapper': {},
-      },
+        'mdx/language-mapper': {}
+      }
     },
     {
       files: ['*.js', '*.cjs', '*.mjs'],
@@ -46,18 +46,18 @@ module.exports = {
       rules: {
         'no-unused-vars': ['off'],
         '@typescript-eslint/no-unused-vars': ['warn'],
-        'no-undef': ['off'],
-      },
+        'no-undef': ['off']
+      }
     },
     {
       files: ['*.astro'],
       parser: 'astro-eslint-parser',
       parserOptions: {
         parser: '@typescript-eslint/parser',
-        extraFileExtensions: ['.astro'],
+        extraFileExtensions: ['.astro']
       },
-      rules: {},
-    },
+      rules: {}
+    }
   ],
   rules: {
     'unicorn/no-keyword-prefix': ['error', { disallowedPrefixes: ['new', 'for'] }],
@@ -74,10 +74,10 @@ module.exports = {
           ProcessEnv: true,
           ImportMetaEnv: true,
           Props: true,
-          Env: true,
+          Env: true
         },
-        checkFilenames: false,
-      },
+        checkFilenames: false
+      }
     ],
     'import/no-anonymous-default-export': ['off'],
     'no-unused-vars': ['off'],
@@ -86,8 +86,8 @@ module.exports = {
       {
         argsIgnorePattern: '^_',
         varsIgnorePattern: '^_',
-        caughtErrorsIgnorePattern: '^_',
-      },
+        caughtErrorsIgnorePattern: '^_'
+      }
     ],
     'array-element-newline': ['error', 'consistent'],
     'object-curly-spacing': ['error', 'always'],
@@ -97,9 +97,9 @@ module.exports = {
       {
         usePrettierrc: true,
         fileInfoOptions: {
-          withNodeModules: true,
-        },
-      },
+          withNodeModules: true
+        }
+      }
     ],
     'no-mixed-operators': ['off'],
     'no-multiple-empty-lines': ['off'],
@@ -112,8 +112,8 @@ module.exports = {
       'warn',
       {
         prefer: 'type-imports',
-        fixStyle: 'inline-type-imports',
-      },
+        fixStyle: 'inline-type-imports'
+      }
     ],
     '@typescript-eslint/ban-ts-comment': ['off'],
     '@typescript-eslint/ban-types': [
@@ -122,12 +122,12 @@ module.exports = {
         types: {
           String: {
             message: 'Use string instead',
-            fixWith: 'string',
+            fixWith: 'string'
           },
 
-          '{}': false,
-        },
-      },
-    ],
-  },
+          '{}': false
+        }
+      }
+    ]
+  }
 }

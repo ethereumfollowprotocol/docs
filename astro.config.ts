@@ -12,7 +12,7 @@ export default defineConfig({
   trailingSlash: 'ignore',
   prefetch: true,
   experimental: {
-    devOverlay: false,
+    devOverlay: false
   },
   integrations: [
     expressiveCode({
@@ -27,15 +27,15 @@ export default defineConfig({
          * on phone the copy button is always visible
          * we want it to be visible only on hover or focus/click
          */
-        showCopyToClipboardButton: false,
+        showCopyToClipboardButton: false
       },
       styleOverrides: {
         borderRadius: '0.2rem',
         uiPaddingBlock: '0.1rem',
-        codePaddingBlock: '0.5rem',
+        codePaddingBlock: '0.5rem'
       },
       minSyntaxHighlightingColorContrast: 0,
-      plugins: [],
+      plugins: []
     }),
     starlight({
       title: 'EFP Docs',
@@ -46,54 +46,54 @@ export default defineConfig({
           tag: 'meta',
           attrs: {
             property: 'og:image',
-            content: `${SITE_URL}/og.png`,
-          },
+            content: `${SITE_URL}/og.png`
+          }
         },
         {
           tag: 'meta',
           attrs: {
             name: 'twitter:image',
-            content: `${SITE_URL}/og.png`,
-          },
+            content: `${SITE_URL}/og.png`
+          }
         },
         {
           tag: 'script',
           attrs: {
             src: 'https://static.cloudflareinsights.com/beacon.min.js',
             'data-cf-beacon': '{"token": "80940575779d42e2bade60c3c4d5c8d1"}',
-            defer: true,
-          },
+            defer: true
+          }
         },
         {
           tag: 'script',
           attrs: {
             type: 'module',
-            src: `${SITE_URL}/anchor-targets.js`,
-          },
-        },
+            src: `${SITE_URL}/anchor-targets.js`
+          }
+        }
       ],
       favicon: '/favicon.ico',
       editLink: {
-        baseUrl: 'https://github.com/ethereumfollowprotocol/docs/tree/main',
+        baseUrl: 'https://github.com/ethereumfollowprotocol/docs/tree/main'
       },
       lastUpdated: true,
       defaultLocale: 'en',
       locales: {
         root: {
           label: 'English',
-          lang: 'en',
-        },
+          lang: 'en'
+        }
       },
       logo: {
-        src: './src/assets/logo.png',
+        src: './src/assets/logo.png'
       },
       social: {
         github: 'https://github.com/ethereumfollowprotocol',
         'x.com': 'https://x.com/ethfollowpr',
-        discord: 'https://discord.ethfollow.xyz',
+        discord: 'https://discord.ethfollow.xyz'
       },
       tableOfContents: {
-        maxHeadingLevel: 4,
+        maxHeadingLevel: 4
       },
       sidebar: [
         {
@@ -102,18 +102,18 @@ export default defineConfig({
           items: [
             {
               label: 'Specification',
-              link: '/design/spec',
-            },
-          ],
+              link: '/design/spec'
+            }
+          ]
         },
         {
           label: 'Public API',
           link: '/api',
           badge: {
             text: 'v1',
-            variant: 'note',
-          },
-        },
+            variant: 'note'
+          }
+        }
       ],
       customCss: [
         './src/styles/custom.css',
@@ -123,15 +123,15 @@ export default defineConfig({
         '@fontsource/roboto/700.css',
         '@fontsource/roboto/900.css',
         '@fontsource/ibm-plex-mono/400.css',
-        '@fontsource/ibm-plex-mono/600.css',
-      ],
+        '@fontsource/ibm-plex-mono/600.css'
+      ]
     }),
     tailwind({
       applyBaseStyles: false,
-      configFile: './tailwind.config.ts',
-    }),
+      configFile: './tailwind.config.ts'
+    })
   ],
   image: {
-    service: passthroughImageService(),
-  },
+    service: passthroughImageService()
+  }
 })
