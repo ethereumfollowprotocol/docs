@@ -16,7 +16,8 @@ a svg {
 pre,
 code {
   font-size: 16px !important;
-  background-color: #0f111a !important;
+  overflow-x: scroll !important;
+  /* background-color: #0f111a !important; */
   font-family: 'IBM Plex Mono', monospace !important;
 }
 
@@ -44,6 +45,10 @@ p > a:hover {
   margin-right: 20px;
 }
 
+.sl-flex .actions .primary {
+  border-radius: 20px !important;
+}
+
 [data-page-title] {
   /* font-size: 3.5rem !important; */
   letter-spacing: 0.02em;
@@ -60,7 +65,8 @@ h1[data-page-title] span {
 
 :root {
   --sl-font: 'Roboto', sans-serif;
-  --sl-sidebar-width: 14rem;
+  --color-bg: rgb(24, 24, 27);
+  /* --sl-sidebar-width: 14rem; */
   --sl-color-text: #fafafafa;
   --sl-color-accent-low: #2c230a;
   --sl-color-accent: #ffffff;
@@ -78,7 +84,7 @@ h1[data-page-title] span {
 }
 /* Light mode colors. */
 :root[data-theme='light'] {
-  --sl-color-bg: #fbfbfbfa;
+  --sl-color-bg: #eceaea;
   --sl-color-text: #17181c;
   --sl-color-accent-low: #dfd6c0;
   --sl-color-accent: #333333;
@@ -111,6 +117,7 @@ p {
 
 [data-has-hero] .hero > img {
   filter: drop-shadow(0 0 3rem var(--overlay-blurple));
+  height: 100% !important;
 }
 
 .tagline {
@@ -135,7 +142,7 @@ p {
   }
 
   [data-has-hero] .hero > img {
-    width: 75%;
+    /* width: 50%; */
   }
 
   .tagline {
