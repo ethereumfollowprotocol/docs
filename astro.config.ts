@@ -1,7 +1,8 @@
 import tailwind from '@astrojs/tailwind'
 import starlight from '@astrojs/starlight'
-import expressiveCode from 'astro-expressive-code'
 import { defineConfig, passthroughImageService } from 'astro/config'
+import expressiveCode, { ExpressiveCodeTheme } from 'astro-expressive-code'
+import moonlightSyntaxTheme from './public/moonlight-ii.json' assert { type: 'json' }
 
 const SITE_URL = 'https://docs.ethfollow.xyz'
 
@@ -14,9 +15,12 @@ export default defineConfig({
   experimental: {
     devOverlay: false
   },
+  markdown: {
+    syntaxHighlight: false
+  },
   integrations: [
     expressiveCode({
-      themes: ['material-theme-ocean'],
+      themes: [ExpressiveCodeTheme.fromJSONString(JSON.stringify(moonlightSyntaxTheme))],
       shiki: true,
       tabWidth: 2,
       textMarkers: true,
@@ -34,7 +38,6 @@ export default defineConfig({
         uiPaddingBlock: '0.1rem',
         codePaddingBlock: '0.5rem'
       },
-      minSyntaxHighlightingColorContrast: 0,
       plugins: []
     }),
     starlight({
@@ -121,7 +124,6 @@ export default defineConfig({
       customCss: [
         './src/styles/custom.css',
         './src/styles/tailwind.css',
-        '@fontsource/roboto/300.css',
         '@fontsource/roboto/400.css',
         '@fontsource/roboto/700.css',
         '@fontsource/roboto/900.css',

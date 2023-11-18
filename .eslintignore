@@ -31,3 +31,4 @@ out
 dev-dist
 pnpm-lock.yaml
 .vercel
+README.md
