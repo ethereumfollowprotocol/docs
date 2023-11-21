@@ -1,8 +1,6 @@
 import tailwind from '@astrojs/tailwind'
 import starlight from '@astrojs/starlight'
 import { defineConfig, passthroughImageService } from 'astro/config'
-import expressiveCode, { ExpressiveCodeTheme } from 'astro-expressive-code'
-import moonlightSyntaxTheme from './public/moonlight-ii.json' assert { type: 'json' }
 
 const SITE_URL = 'https://docs.ethfollow.xyz'
 
@@ -15,31 +13,7 @@ export default defineConfig({
   experimental: {
     devOverlay: false
   },
-  markdown: {
-    syntaxHighlight: false
-  },
   integrations: [
-    expressiveCode({
-      themes: [ExpressiveCodeTheme.fromJSONString(JSON.stringify(moonlightSyntaxTheme))],
-      shiki: true,
-      tabWidth: 2,
-      textMarkers: true,
-      frames: {
-        /**
-         * TODO: fix
-         * issue:
-         * on phone the copy button is always visible
-         * we want it to be visible only on hover or focus/click
-         */
-        showCopyToClipboardButton: false
-      },
-      styleOverrides: {
-        borderRadius: '0.2rem',
-        uiPaddingBlock: '0.1rem',
-        codePaddingBlock: '0.5rem'
-      },
-      plugins: []
-    }),
     starlight({
       title: 'EFP Docs',
       description: 'Technical documentation',
@@ -71,7 +45,14 @@ export default defineConfig({
           tag: 'script',
           attrs: {
             type: 'module',
-            src: `${SITE_URL}/anchor-targets.js`
+            src: `/anchor-targets.js`
+          }
+        },
+        {
+          tag: 'script',
+          attrs: {
+            type: 'module',
+            src: `/noise-background.js`
           }
         }
       ],
