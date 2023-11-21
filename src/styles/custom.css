@@ -1,24 +1,98 @@
+:root {
+  --purple-hsl: 205, 60%, 60%;
+  --overlay-blurple: hsla(var(--purple-hsl), 0.4);
+  --sl-font: 'Roboto', sans-serif;
+  --color-bg: rgb(24, 24, 27);
+  --sl-content-margin-inline: auto !important;
+  --sl-sidebar-width: 14rem;
+  --sl-color-bg-sidebar: unset;
+  --sl-color-text: #fafafafa;
+  --sl-color-accent-low: #2c230a;
+  --sl-color-accent: #ffffff;
+  --sl-color-bg-nav: transparent;
+  --sl-color-accent-high: #ffff96;
+  --sl-color-white: #ffffff;
+  --sl-color-gray-1: #eceef2;
+  --sl-color-gray-2: #c0c2c7;
+  --sl-color-gray-3: #b4b6bb;
+  --sl-color-gray-4: #545861;
+  --sl-color-gray-5: #353841;
+  --sl-color-gray-6: #24272f;
+  --sl-color-black: #17181c;
+
+  --code-bg: #0f111a87;
+}
+
+/* Light mode colors. */
+:root[data-theme='light'] {
+  --purple-hsl: 205, 60%, 60%;
+  --overlay-blurple: hsla(var(--purple-hsl), 0.4);
+  --sl-font: 'Roboto', sans-serif;
+  --color-bg: rgb(24, 24, 27);
+  --sl-content-margin-inline: auto !important;
+  /* --sl-sidebar-width: 14rem; */
+  --sl-color-bg-sidebar: unset;
+  --sl-color-text: #fafafafa;
+  --sl-color-accent-low: #2c230a;
+  --sl-color-accent: #ffffff;
+  --sl-color-bg-nav: transparent;
+  --sl-color-accent-high: #ffff96;
+  --sl-color-white: #ffffff;
+  --sl-color-gray-1: #eceef2;
+  --sl-color-gray-2: #c0c2c7;
+  --sl-color-gray-3: #b4b6bb;
+  --sl-color-gray-4: #545861;
+  --sl-color-gray-5: #353841;
+  --sl-color-gray-6: #24272f;
+  --sl-color-black: #17181c;
+
+  --code-bg: #f1eded;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  min-height: 100%;
+  min-width: 100%;
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  font-feature-settings: normal;
+  font-variation-settings: normal;
+  overflow-y: hidden;
+}
+
+.framer-container {
+  flex: none;
+  height: 100%;
+  left: calc(50.00000000000002% - 100% / 2);
+  opacity: 0.4;
+  position: absolute;
+  top: calc(49.95648389904267% - 100% / 2);
+  width: 100%;
+}
+
 pre,
 .ec-line,
 .copy {
-  margin-top: 0px !important;
+  border-radius: 6px;
+  border-color: unset;
 }
 
-.copy .show {
-  background: #0f111a !important;
+pre {
+  font-size: 15px !important;
+  background-color: var(--code-bg) !important;
+  border-color: #cec3d51a !important;
 }
 
 a svg {
   width: 1.5rem;
   height: 1.5rem;
-}
-
-pre,
-code {
-  font-size: 16px !important;
-  overflow-x: scroll !important;
-  /* background-color: #0f111a !important; */
-  font-family: 'IBM Plex Mono', monospace !important;
 }
 
 header {
@@ -50,7 +124,6 @@ p > a:hover {
 }
 
 [data-page-title] {
-  /* font-size: 3.5rem !important; */
   letter-spacing: 0.02em;
   font-weight: 900 !important;
 }
@@ -61,48 +134,6 @@ h1[data-page-title] span {
 
 .tagline {
   font-size: 2rem !important;
-}
-
-:root {
-  --sl-font: 'Roboto', sans-serif;
-  --color-bg: rgb(24, 24, 27);
-  /* --sl-sidebar-width: 14rem; */
-  --sl-color-text: #fafafafa;
-  --sl-color-accent-low: #2c230a;
-  --sl-color-accent: #ffffff;
-  --sl-color-bg-nav: transparent;
-  --sl-color-accent-high: #ffff96;
-  --sl-color-white: #ffffff;
-  --sl-color-gray-1: #eceef2;
-  --sl-color-gray-2: #c0c2c7;
-  --sl-color-gray-3: #b4b6bb;
-  --sl-color-gray-4: #545861;
-  --sl-color-gray-5: #353841;
-  --sl-color-gray-6: #24272f;
-  --sl-color-black: #17181c;
-  --purple-hsl: 255, 85%, 65%;
-}
-/* Light mode colors. */
-:root[data-theme='light'] {
-  --sl-color-bg: #eceaea;
-  --sl-color-text: #17181c;
-  --sl-color-accent-low: #dfd6c0;
-  --sl-color-accent: #333333;
-  --sl-color-accent-high: #ff79c9;
-  --sl-color-white: #333333;
-  --sl-color-gray-1: #24272f;
-  --sl-color-gray-2: #353841;
-  --sl-color-gray-3: #545861;
-  --sl-color-gray-4: #888b96;
-  --sl-color-gray-5: #c0c2c7;
-  --sl-color-gray-6: #eceef2;
-  --sl-color-gray-7: #f5f6f8;
-  --sl-color-black: #ffffff;
-}
-
-:root {
-  --purple-hsl: 205, 60%, 60%;
-  --overlay-blurple: hsla(var(--purple-hsl), 0.4);
 }
 
 .site-title {
@@ -179,6 +210,36 @@ a.minimal {
   -webkit-background-clip: text !important;
   background-clip: text !important;
   -webkit-text-fill-color: transparent !important;
+}
+
+*,
+:before,
+:after {
+  box-sizing: border-box;
+  border-width: 0;
+}
+
+:before,
+:after {
+  --tw-content: '';
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  min-height: 100%;
+  min-width: 100%;
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  font-feature-settings: normal;
+  font-variation-settings: normal;
+  overflow-y: hidden;
 }
 
 /** scrollbar */

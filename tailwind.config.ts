@@ -17,9 +17,21 @@ export default {
   important: true,
   theme: {
     extend: {
-      typography: {
+      screens: {
+        xs: '320px'
+      },
+      typography: ({
+        theme
+      }: {
+        theme: (
+          path: string
+        ) => string | number | Record<string, unknown> | Array<unknown> | undefined
+      }) => ({
         DEFAULT: {
           css: {
+            h1: {
+              fontFamily: theme('fontFamily.obviously')
+            },
             pre: {
               background: 'rgba(205, 200, 255, 0.05)'
             },
@@ -68,7 +80,7 @@ export default {
             }
           }
         }
-      },
+      }),
       colors: {
         accent: {
           '50': '#fdf2f8',

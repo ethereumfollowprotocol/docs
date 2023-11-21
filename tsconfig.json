@@ -1,18 +1,16 @@
 {
   "extends": "astro/tsconfigs/strict",
   "compilerOptions": {
-    "skipLibCheck": true,
+    "verbatimModuleSyntax": true,
     "allowJs": true,
     "checkJs": true,
+    "paths": {
+      "#/*": ["./src/*"]
+    },
+    "plugins": [{ "name": "@astrojs/ts-plugin" }],
     "types": ["node", "typed-query-selector/strict"]
   },
   "include": ["src/**/*", "public/**/*"],
-  "files": [
-    ".eslintrc.cjs",
-    ".prettierrc.mjs",
-    "astro.config.ts",
-    "tailwind.config.ts",
-    "environment.d.ts"
-  ],
-  "exclude": ["dist", ".astro", "node_modules", "_"]
+  "files": [".eslintrc.cjs", ".prettierrc.mjs", "astro.config.ts", "tailwind.config.ts"],
+  "exclude": ["dist", "node_modules", "_"]
 }
