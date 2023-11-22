@@ -10,92 +10,56 @@ export default defineConfig({
   output: 'static',
   trailingSlash: 'ignore',
   prefetch: true,
-  experimental: {
-    devOverlay: false
-  },
   integrations: [
     starlight({
       title: 'EFP Docs',
-      description: 'Technical documentation',
       tagline: 'Ethereum Follow Protocol',
-      head: [
-        {
-          tag: 'meta',
-          attrs: {
-            property: 'og:image',
-            content: `${SITE_URL}/og.png`
-          }
-        },
-        {
-          tag: 'meta',
-          attrs: {
-            name: 'twitter:image',
-            content: `${SITE_URL}/og.png`
-          }
-        },
-        {
-          tag: 'script',
-          attrs: {
-            src: 'https://static.cloudflareinsights.com/beacon.min.js',
-            'data-cf-beacon': '{"token": "80940575779d42e2bade60c3c4d5c8d1"}',
-            defer: true
-          }
-        },
-        {
-          tag: 'script',
-          attrs: {
-            type: 'module',
-            src: `/anchor-targets.js`
-          }
-        },
-        {
-          tag: 'script',
-          attrs: {
-            type: 'module',
-            src: `/noise-background.js`
-          }
-        }
-      ],
+      description: 'Technical documentation',
       favicon: '/favicon.ico',
-      editLink: {
-        baseUrl: 'https://github.com/ethereumfollowprotocol/docs/tree/main'
-      },
       lastUpdated: true,
-      defaultLocale: 'en',
-      locales: {
-        root: {
-          label: 'English',
-          lang: 'en'
-        }
-      },
-      logo: {
-        src: './src/assets/logo.png'
+      expressiveCode: {
+        frames: {
+          showCopyToClipboardButton: true
+        },
+        themes: ['starlight-dark'],
+        useStarlightDarkModeSwitch: true,
+        useStarlightUiThemeColors: true
       },
       social: {
         github: 'https://github.com/ethereumfollowprotocol',
-        'x.com': 'https://x.com/ethfollowpr',
-        discord: 'https://discord.ethfollow.xyz'
+        discord: 'https://discord.ethfollow.xyz',
+        'x.com': 'https://x.com/ethfollowpr'
       },
-      tableOfContents: {
-        maxHeadingLevel: 4
+      locales: {
+        root: { label: 'English', lang: 'en' }
       },
+      defaultLocale: 'en',
+      logo: { src: './src/assets/logo.png', alt: 'Ethereum Follow Protocol Logo' },
+      editLink: { baseUrl: 'https://github.com/ethereumfollowprotocol/docs/tree/main' },
+      tableOfContents: { maxHeadingLevel: 4 },
       sidebar: [
         {
           label: 'Design',
           collapsed: true,
-          items: [
-            {
-              label: 'Specification',
-              link: '/design/spec'
-            }
-          ]
+          items: [{ label: 'Specification', link: '/design/spec' }]
         },
         {
           label: 'Public API',
           link: '/api',
-          badge: {
-            text: 'v1',
-            variant: 'note'
+          badge: { text: 'v1', variant: 'note' }
+        }
+      ],
+      head: [
+        { tag: 'meta', attrs: { property: 'og:image', content: `${SITE_URL}/og.png` } },
+        { tag: 'meta', attrs: { name: 'twitter:image', content: `${SITE_URL}/og.png` } },
+        { tag: 'script', attrs: { type: 'module', src: `/anchor-targets.js` } },
+        { tag: 'script', attrs: { type: 'module', src: `/noise-background.js` } },
+        {
+          tag: 'script',
+          attrs: {
+            src: import.meta.env.PROD ? 'https://static.cloudflareinsights.com/beacon.min.js' : '',
+            'data-cf-beacon': '{"token":"80940575779d42e2bade60c3c4d5c8d1"}',
+            defer: true
           }
         }
       ],
@@ -111,10 +75,12 @@ export default defineConfig({
     }),
     tailwind({
       applyBaseStyles: false,
-      configFile: './tailwind.config.ts'
+      configFile: 'tailwind.config.ts'
     })
   ],
-  image: {
-    service: passthroughImageService()
+  image: { service: passthroughImageService() },
+  experimental: {
+    devOverlay: false,
+    contentCollectionCache: !import.meta.env.DEV
   }
 })
