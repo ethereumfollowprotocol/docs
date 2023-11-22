@@ -190,6 +190,13 @@ p {
 [data-has-hero] .hero > img {
   filter: drop-shadow(0 0 3rem var(--overlay-blurple));
   height: 100% !important;
+  pointer-events: none;
+  user-select: none;
+}
+
+a.site-title > img {
+  pointer-events: none;
+  user-select: none;
 }
 
 .tagline {
