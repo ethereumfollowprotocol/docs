@@ -28,8 +28,6 @@
 
 /* Light mode colors. */
 :root[data-theme='light'] {
-  --noise-bg-image: url(/noise.svg);
-
   --overlay-hsl: 205, 60%, 60%;
   --overlay-blurple: hsla(var(--overlay-hsl), 0.25);
   --sl-font: 'Roboto', sans-serif;
@@ -59,6 +57,10 @@
     rgb(255, 255, 255)
   );
   --noise-bg-image: url(/noise.svg);
+}
+
+a > svg {
+  color: var(--sl-color-text);
 }
 
 .noise {

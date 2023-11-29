@@ -18,5 +18,5 @@
 <h1 align="center" style="font-size: 2.75rem; font-weight: 900; color: white;">Ethereum Follow Protocol</h1>
 
 > A native Ethereum protocol for following and tagging Ethereum accounts.
-
  
+ [![Built with Starlight](https://astro.badg.es/v2/built-with-starlight/tiny.svg)](https://starlight.astro.build)
