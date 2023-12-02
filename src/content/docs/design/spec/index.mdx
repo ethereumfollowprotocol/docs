@@ -10,7 +10,9 @@ To begin, users first mint an NFT called the **EFP List NFT**.
 
 ### EFP List NFT
 
-Users mint the EFP List NFT to create an EFP List.
+Users mint an EFP List NFT to create an **EFP List**.
+
+Minting an EFP List NFT is free (plus gas).
 
 #### Roles
 
@@ -30,11 +32,11 @@ Typically, both roles (Owner, User) are the same Ethereum account, but they can 
 
 ### Record Storage
 
-Your EFP List NFT specifies a **List Records Storage Location** where the List Records are stored, which can be one of the following:
+Your EFP List NFT specifies a **List Records Storage Location** where the **List Records** are stored, which can be one of the following:
 
 - Ethereum L1 smart contract address
 - Ethereum L2 smart contract address
-- CCIP-read pointers for off-chain storage
+- CCIP-read pointers for off-chain storage (future)
 
 The List Records Storage Location itself (the smart contract or off-chain system) must specify a **Manager** role, typically an Ethereum account that is able to edit the List Records. Typically, the Manager will be the same Ethereum account as the Owner and User roles of the EFP List NFT, but they can be different.
 
@@ -42,7 +44,7 @@ The List Records Storage Location itself (the smart contract or off-chain system
 
 ### List Record Types
 
-- **Entry Record:**
+- **Address Record:**
   - Contains an Ethereum address, with zero or more tags.
   - These records are typically interpreted as a "follow" of the specified Ethereum address, with some exceptions explained in the Followers section below.
 
@@ -50,13 +52,15 @@ The List Records Storage Location itself (the smart contract or off-chain system
 
 ### Tags
 
-Each Entry Record can have zero or more tags.
+List Records can have zero or more tags.
+
+A few tags are standardized with specified semantics. Users may also set custom tags.
 
 #### Standard Tags
 
 - **no tag**
 
-  - If an Entry Record has no tags, it is interpreted as a simple follow without further categorization.
+  - If a List Record has no tags, it is interpreted as a simple follow without further categorization.
 
 - **"block"**
 
@@ -79,7 +83,7 @@ Users can use additional arbitrary custom tags.
 
 #### Definition
 
-**Followers** is the total number of EFP List NFTs that have at least one Entry Record with a specific Ethereum address, with the following additional conditions:
+**Followers** is the total number of EFP List NFTs that have at least one Address Record with a specific Ethereum address, with the following additional conditions:
 
 - Exclude records with either the "block" or "mute" tags, even if the records have other tags.
 - Multiple EFP List NFTs with an identical User are counted as a single follower.
@@ -87,4 +91,4 @@ Users can use additional arbitrary custom tags.
 **Following** is the total number of Entry Records of a user's EFP List NFT, with the following additional conditions:
 
 - Exclude records with either the "block" or "mute" tags, even if the records have other tags.
-- Multiple Entry Records with the same Ethereum address are counted as a single follow.
+- Multiple Address Records with the same Ethereum address are counted as a single follow.
