@@ -65,12 +65,12 @@ A few tags are standardized with specified semantics. Users may also set custom 
 - **"block"**
 
   - This tag means neither the user nor the blocked account should see each other’s activity in a relevant app.
-  - Entry Records with this tag are not included in Followers count, even if the Entry Record has other tags.
+  - List Records with this tag are not included in Followers count, even if the List Record has other tags.
   - If both “block” and “mute” tags are present, “block” takes precedence.
 
 - **"mute"**
   - This tag means the user shouldn't see the muted account’s activity in a relevant app, but the muted account might still be able to see the user’s activity.
-  - Entry Records with this tag are not included in Followers count, even if the Entry Record has other tags.
+  - List Records with this tag are not included in Followers count, even if the List Record has other tags.
   - If both “block” and “mute” tags are present, “block” takes precedence.
 
 #### Custom Tags
@@ -83,12 +83,12 @@ Users can use additional arbitrary custom tags.
 
 #### Definition
 
-**Followers** is the total number of EFP List NFTs that have at least one Address Record with a specific Ethereum address, with the following additional conditions:
+**Followers** is the total number of EFP Lists that have an Address Record with a specific Ethereum address, with the following additional conditions:
 
 - Exclude records with either the "block" or "mute" tags, even if the records have other tags.
-- Multiple EFP List NFTs with an identical User are counted as a single follower.
+- Multiple EFP Lists with the same User are counted as a single follower.
 
-**Following** is the total number of Entry Records of a user's EFP List NFT, with the following additional conditions:
+**Following** is the total number of List Records of a user's EFP List, with the following additional conditions:
 
 - Exclude records with either the "block" or "mute" tags, even if the records have other tags.
 - Multiple Address Records with the same Ethereum address are counted as a single follow.
