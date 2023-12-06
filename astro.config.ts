@@ -80,7 +80,6 @@ export default defineConfig({
   ],
   image: { service: passthroughImageService() },
   experimental: {
-    devOverlay: false,
     contentCollectionCache: !import.meta.env.DEV
   }
 })
