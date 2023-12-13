@@ -1,5 +1,7 @@
+import sentry from '@sentry/astro'
 import tailwind from '@astrojs/tailwind'
 import starlight from '@astrojs/starlight'
+import spotlightjs from '@spotlightjs/astro'
 import { defineConfig, passthroughImageService } from 'astro/config'
 
 const SITE_URL = 'https://docs.ethfollow.xyz'
@@ -8,8 +10,8 @@ const SITE_URL = 'https://docs.ethfollow.xyz'
 export default defineConfig({
   site: SITE_URL,
   output: 'static',
-  trailingSlash: 'ignore',
   prefetch: true,
+  trailingSlash: 'ignore',
   integrations: [
     starlight({
       title: 'EFP Docs',
@@ -31,29 +33,71 @@ export default defineConfig({
         'x.com': 'https://x.com/ethfollowpr'
       },
       locales: {
-        root: { label: 'English', lang: 'en' }
+        root: {
+          label: 'English',
+          lang: 'en'
+        }
       },
       defaultLocale: 'en',
-      logo: { src: './src/assets/logo.png', alt: 'Ethereum Follow Protocol Logo' },
-      editLink: { baseUrl: 'https://github.com/ethereumfollowprotocol/docs/tree/main' },
-      tableOfContents: { maxHeadingLevel: 4 },
+      logo: {
+        src: './src/assets/logo.png',
+        alt: 'Ethereum Follow Protocol Logo'
+      },
+      editLink: {
+        baseUrl: 'https://github.com/ethereumfollowprotocol/docs/tree/main'
+      },
+      tableOfContents: {
+        maxHeadingLevel: 4
+      },
       sidebar: [
         {
           label: 'Design',
-          collapsed: true,
-          items: [{ label: 'Specification', link: '/design/spec' }]
+          collapsed: false,
+          items: [
+            {
+              label: 'Specification',
+              link: '/design/spec'
+            }
+          ]
         },
         {
           label: 'Public API',
           link: '/api',
-          badge: { text: 'v1', variant: 'note' }
+          badge: {
+            text: 'v1',
+            variant: 'note'
+          }
         }
       ],
       head: [
-        { tag: 'meta', attrs: { property: 'og:image', content: `${SITE_URL}/og.png` } },
-        { tag: 'meta', attrs: { name: 'twitter:image', content: `${SITE_URL}/og.png` } },
-        { tag: 'script', attrs: { type: 'module', src: `/anchor-targets.js` } },
-        { tag: 'script', attrs: { type: 'module', src: `/noise-background.js` } },
+        {
+          tag: 'meta',
+          attrs: {
+            property: 'og:image',
+            content: `${SITE_URL}/og.png`
+          }
+        },
+        {
+          tag: 'meta',
+          attrs: {
+            name: 'twitter:image',
+            content: `${SITE_URL}/og.png`
+          }
+        },
+        {
+          tag: 'script',
+          attrs: {
+            type: 'module',
+            src: `/anchor-targets.js`
+          }
+        },
+        {
+          tag: 'script',
+          attrs: {
+            type: 'module',
+            src: `/noise-background.js`
+          }
+        },
         {
           tag: 'script',
           attrs: {
@@ -76,9 +120,13 @@ export default defineConfig({
     tailwind({
       applyBaseStyles: false,
       configFile: 'tailwind.config.ts'
-    })
+    }),
+    sentry(),
+    spotlightjs()
   ],
-  image: { service: passthroughImageService() },
+  image: {
+    service: passthroughImageService()
+  },
   experimental: {
     contentCollectionCache: !import.meta.env.DEV
   }
