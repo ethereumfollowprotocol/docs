@@ -16,13 +16,13 @@ An EFP List can be uniquely specified via three pieces of data:
 - `contract_address`: The 20-byte EVM address of the contract where the list is stored.
 - `nonce`: A 32-byte nonce that specifies the storage slot of the list within the contract. This disambiguates multiple lists stored within the same contract and de-couples it from the EFP List NFT token id which is stored on Ethereum and inaccessible on L2s.
 
-The following chains are supported: | Chain ID | Name | Layer | Type | 32-Byte Chain ID | | -------- | ---------- | ---------- | ----------------- | -------------------------------------------------------------------- | | 1 | Ethereum | L1 | Ethereum | `0x0000000000000000000000000000000000000000000000000000000000000001` |
+The following chains are supported:
+
+| Chain ID | Name       | Layer      | Type              | 32-Byte Chain ID                                                     |
+| -------- | ---------- | ---------- | ----------------- | -------------------------------------------------------------------- |
+| 1        | Ethereum   | L1         | Ethereum          | `0x0000000000000000000000000000000000000000000000000000000000000001` |
 
 More chains will be announced prior to launch.
-
-{/_ | 10 | OP Mainnet | L2_ | Optimistic Rollup | `0x000000000000000000000000000000000000000000000000000000000000000a` | | 8543 | Base | L2\* | Optimistic Rollup | `0x000000000000000000000000000000000000000000000000000000000000216f` |
-
-(\*) L2 proof systems for Optimistic Rollups are still under development. \*/}
 
 ## Serialization
 
