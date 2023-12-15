@@ -51,16 +51,24 @@ export default defineConfig({
       },
       sidebar: [
         {
-          label: 'Design',
+          label: 'Introduction',
+          link: '/design/spec'
+        },
+        {
+          label: 'Specification',
           collapsed: false,
           items: [
             {
-              label: 'Specification',
-              link: '/design/spec'
-            },
-            {
               label: 'List Registry',
               link: '/design/list-registry'
+            },
+            {
+              label: 'List Storage Location',
+              link: '/design/list-storage-location'
+            },
+            {
+              label: 'Roles',
+              link: '/design/roles'
             },
             {
               label: 'List Records',

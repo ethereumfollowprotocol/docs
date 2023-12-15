@@ -2,14 +2,40 @@
 title: Tags
 ---
 
-A **Tag** is a string associated with a List Record in an EFP list. A List Record can have multiple tags.
+A **Tag** is a string associated with a List Record in an EFP list.
 
-A tag can be any UTF-8 string with the following constraints:
+List Records can have zero or more tags.
+
+A few tags are standardized with specified semantics. Users may also set custom tags.
+
+## Standard Tags
+
+- **no tag**
+
+  - If a List Record has no tags, it is interpreted as a simple follow without further categorization.
+
+- **"block"**
+
+  - This tag means neither the user nor the blocked account should see each other’s activity in a relevant app.
+  - List Records with this tag are not included in Followers count, even if the List Record has other tags.
+  - If both “block” and “mute” tags are present, “block” takes precedence.
+
+- **"mute"**
+  - This tag means the user shouldn't see the muted account’s activity in a relevant app, but the muted account might still be able to see the user’s activity.
+  - List Records with this tag are not included in Followers count, even if the List Record has other tags.
+  - If both “block” and “mute” tags are present, “block” takes precedence.
+
+## Custom Tags
+
+Users can use additional arbitrary custom tags.
+
+Any tag which violates these constraints is ignored.
+
+### Constraints
+A custom tag can be any UTF-8 string with the following constraints:
 - maximum length of 255 bytes
 - no leading or trailing whitespace
 - more constraints to be added as needed
-
-Any tag which violates these constraints is ignored.
 
 ## Normalization
 
