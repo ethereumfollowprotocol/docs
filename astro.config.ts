@@ -59,10 +59,6 @@ export default defineConfig({
               link: '/design/spec'
             },
             {
-              label: 'Contracts',
-              link: '/design/contracts'
-            },
-            {
               label: 'List Registry',
               link: '/design/list-registry'
             },
@@ -73,6 +69,10 @@ export default defineConfig({
             {
               label: 'Tags',
               link: '/design/tags'
+            },
+            {
+              label: 'List Ops',
+              link: '/design/list-ops'
             }
           ]
         },
