@@ -11,23 +11,18 @@ The List Storage Location value is stored in the main EFP List Registry contract
 All EFP data is stored on either Ethereum or a supported L2.
 
 An EFP List can be uniquely specified via three pieces of data:
+
 - `chain_id`: The 32-byte EVM chain ID of the chain where the list is stored.
 - `contract_address`: The 20-byte EVM address of the contract where the list is stored.
 - `nonce`: A 32-byte nonce that specifies the storage slot of the list within the contract. This disambiguates multiple lists stored within the same contract and de-couples it from the EFP List NFT token id which is stored on Ethereum and inaccessible on L2s.
 
-The following chains are supported:
-| Chain ID |  Name      | Layer      | Type              | 32-Byte Chain ID                                                     |
-| -------- | ---------- | ---------- | ----------------- | -------------------------------------------------------------------- |
-| 1        | Ethereum   | L1         | Ethereum          | `0x0000000000000000000000000000000000000000000000000000000000000001` |
+The following chains are supported: | Chain ID | Name | Layer | Type | 32-Byte Chain ID | | -------- | ---------- | ---------- | ----------------- | -------------------------------------------------------------------- | | 1 | Ethereum | L1 | Ethereum | `0x0000000000000000000000000000000000000000000000000000000000000001` |
 
 More chains will be announced prior to launch.
 
-{/*
-| 10       | OP Mainnet | L2*        | Optimistic Rollup | `0x000000000000000000000000000000000000000000000000000000000000000a` |
-| 8543     | Base       | L2*        | Optimistic Rollup | `0x000000000000000000000000000000000000000000000000000000000000216f` |
+{/_ | 10 | OP Mainnet | L2_ | Optimistic Rollup | `0x000000000000000000000000000000000000000000000000000000000000000a` | | 8543 | Base | L2\* | Optimistic Rollup | `0x000000000000000000000000000000000000000000000000000000000000216f` |
 
-(\*) L2 proof systems for Optimistic Rollups are still under development.
-*/}
+(\*) L2 proof systems for Optimistic Rollups are still under development. \*/}
 
 ## Serialization
 
@@ -49,11 +44,11 @@ Since only one location type is currently supported, the `data` field is always 
 
 There is only one location type which covers both Ethereum and L2s.
 
-| Location Type    | Description   | Data                                                        |
-| ---------------- | ------------- | ----------------------------------------------------------- |
-| 0                | Reserved      | N/A                                                         |
-| 1                | EVM contract  | 32-byte chain ID + 20-byte contract address + 32-byte nonce |
-| 2 - 255          | Reserved      | N/A                                                         |
+| Location Type | Description  | Data                                                        |
+| ------------- | ------------ | ----------------------------------------------------------- |
+| 0             | Reserved     | N/A                                                         |
+| 1             | EVM contract | 32-byte chain ID + 20-byte contract address + 32-byte nonce |
+| 2 - 255       | Reserved     | N/A                                                         |
 
 ## Code
 
@@ -107,7 +102,7 @@ struct ListOp {
 
 ```typescript
 type ListOp = {
-  version: number      // 0-255
+  version: number // 0-255
   locationType: number // 0-255
   data: Uint8Array
 }
