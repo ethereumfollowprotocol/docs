@@ -2,4 +2,109 @@
 title: List Storage Location
 ---
 
-This is a placeholder.
+A **List Storage Location** defines where the list records and metadata are stored for an EFP List.
+
+The List Storage Location value is stored in the main EFP List Registry contract and can be changed at any time by the EFP List NFT owner.
+
+## Onchain Storage
+
+All EFP data is stored on either Ethereum or a supported L2.
+
+An EFP List can be uniquely specified via three pieces of data:
+- `chain_id`: The 32-byte EVM chain ID of the chain where the list is stored.
+- `contract_address`: The 20-byte EVM address of the contract where the list is stored.
+- `nonce`: A 32-byte nonce that specifies the storage slot of the list within the contract. This disambiguates multiple lists stored within the same contract and de-couples it from the EFP List NFT token id which is stored on Ethereum and inaccessible on L2s.
+
+The following chains are supported:
+
+| Chain ID | Chain Name | Chain Type | Notes |
+| -------- | ---------- | ---------- | ----- |
+| 1        | Ethereum   | L1         |       |
+| 10       | OP Mainnet | L2*        |       |
+| 8543     | Base       | L2*        |       |
+
+*OP Mainnet and Base are early-stage Optimistic Rollups with proof system is still under development.
+
+## Serialization
+
+List Storage Locations are encoded in a versioned, flexible data structure.
+
+Each List Storage Location is encoded as a `bytes` array with the following structure:
+
+- `version`: A `uint8` representing the version of the List Storage Location. This is used to ensure compatibility and facilitate future upgrades.
+- `location_type`: A `uint8` indicating the type of list storage location. This serves as an identifier for the kind of data the data field contains.
+- `data`: A `bytes` array containing the actual data of the list storage location. The structure of this data depends on the location type.
+
+The version is always `1`.
+
+The location type is always `1`.
+
+Since only one location type is currently supported, the `data` field is always a `bytes` array of length `32 + 20 + 32 = 84`.
+
+## Location Types
+
+There is only one location type which covers both Ethereum and L2s.
+
+| Location Type    | Description   | Data                                                        |
+| ---------------- | ------------- | ----------------------------------------------------------- |
+| 0                | Reserved      | N/A                                                         |
+| 1                | EVM contract  | 32-byte chain ID + 20-byte contract address + 32-byte nonce |
+| 2 - 255          | Reserved      | N/A                                                         |
+
+## Code
+
+List Storage Location can be represented as a type in any programming language. Here are some examples:
+
+#### Go
+
+```go
+type ListOp struct {
+    Version uint8
+    LocationType uint8
+    Data []byte
+}
+```
+
+#### Python
+
+```python
+class ListOp:
+    version: int           # 0-255
+    location_type: int     # 0-255
+    data: bytes
+```
+
+#### Rust
+
+```rust
+struct ListOp {
+    version: u8,
+    location_type: u8,
+    data: Vec<u8>,
+}
+```
+
+#### Solidity
+
+```solidity
+// the EFP contracts don't use this struct; they only store list
+// storage locations as `bytes` with the version, location type,
+// and data fields tightly packed into a single `bytes` value
+// however, this struct can be useful for offchain processing with
+// foundry or other Solidity tooling
+struct ListOp {
+    uint8 version;
+    uint8 locationType;
+    bytes data;
+}
+```
+
+#### TypeScript
+
+```typescript
+type ListOp = {
+  version: number      // 0-255
+  locationType: number // 0-255
+  data: Uint8Array
+}
+```

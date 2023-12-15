@@ -52,14 +52,14 @@ export default defineConfig({
       sidebar: [
         {
           label: 'Introduction',
-          link: '/design/spec'
+          link: '/intro'
         },
         {
           label: 'Specification',
           collapsed: false,
           items: [
             {
-              label: 'List Registry',
+              label: 'Registry',
               link: '/design/list-registry'
             },
             {
