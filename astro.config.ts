@@ -63,12 +63,20 @@ export default defineConfig({
               link: '/design/list-registry'
             },
             {
-              label: 'List Storage Location',
-              link: '/design/list-storage-location'
-            },
-            {
               label: 'Roles',
               link: '/design/roles'
+            },
+            {
+              label: 'Account Metadata',
+              link: '/design/account-metadata'
+            },
+            {
+              label: 'List Metadata',
+              link: '/design/list-metadata'
+            },
+            {
+              label: 'List Storage Location',
+              link: '/design/list-storage-location'
             },
             {
               label: 'List Records',
@@ -81,14 +89,6 @@ export default defineConfig({
             {
               label: 'List Ops',
               link: '/design/list-ops'
-            },
-            {
-              label: 'List Metadata',
-              link: '/design/list-metadata'
-            },
-            {
-              label: 'Account Metadata',
-              link: '/design/account-metadata'
             }
           ]
         },

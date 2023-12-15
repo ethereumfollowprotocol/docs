@@ -2,21 +2,21 @@
 title: Account Metadata
 ---
 
-Every Ethereum account (address) automatically is an EFP account. Users may follow any other address and any address can mint an EFP List NFT.
+Every Ethereum account (address) automatically is supported by EFP. Users may follow any other address and any address can mint an EFP List NFT.
 
-It useful to store EFP-related metadata that is specific to an account. This is called **EFP Account Metadata**.
+It useful to store EFP-related metadata that is specific to an account, such as a user's primary EFP list. This is key-value metadata for an account is called **EFP Account Metadata**.
 
-Every Ethereum account may store key-value data in the `EFPAccountMetadata` contract specific to their account.
+Any Ethereum account may store key-value data in the `EFPAccountMetadata` contract specific to their account.
 
 Data is stored by `string` key and `bytes` value, for each Ethereum account.
 
 This allows for the storage of account-specific EFP configuration or preference data.
 
-## Global keys
+## Global Keys
 
 Global Keys must be made up of lowercase letters, numbers and the hyphen (-) character.
 
-There is only one global key currently defined.
+There is only one global key for account metadata currently defined.
 
 | Key            | Description                                                     |
 | -------------- | --------------------------------------------------------------- |
