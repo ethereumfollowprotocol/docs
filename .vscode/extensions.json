@@ -1,6 +1,7 @@
 {
   "recommendations": [
     "mikestead.dotenv",
+    "unifiedjs.vscode-mdx",
     "gruntfuggly.todo-tree",
     "dbaeumer.vscode-eslint",
     "esbenp.prettier-vscode",

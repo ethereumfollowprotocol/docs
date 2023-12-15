@@ -81,14 +81,7 @@ module.exports = {
     ],
     'import/no-anonymous-default-export': ['off'],
     'no-unused-vars': ['off'],
-    '@typescript-eslint/no-unused-vars': [
-      'warn',
-      {
-        argsIgnorePattern: '^_',
-        varsIgnorePattern: '^_',
-        caughtErrorsIgnorePattern: '^_'
-      }
-    ],
+    '@typescript-eslint/no-unused-vars': ['off'],
     'array-element-newline': ['error', 'consistent'],
     'object-curly-spacing': ['error', 'always'],
     'prettier/prettier': [
