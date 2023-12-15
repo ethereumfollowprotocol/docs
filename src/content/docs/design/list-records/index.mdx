@@ -5,6 +5,7 @@ title: List Records
 A **List Record** is a fundamental EFP data structure representing a record in an EFP List.
 
 Each List Record consists of the following three components:
+
 - `version`: A `uint8` representing the version of the List Record. This is used to ensure compatibility and facilitate future upgrades.
 - `record_type`: A `uint8` indicating the type of record. This serves as an identifier for the kind of data the record holds.
 - `data`: A `bytes` array containing the actual data of the record. The structure of this data depends on the record type.
@@ -15,11 +16,11 @@ The version is always `1`.
 
 There is only one record type defined at this time:
 
-| Type      | Description           | Data             | Data Length |
-| --------- | --------------------- | ---------------- | ----------- |
-| 0         | Reserved              | N/A              | N/A         |
-| 1         | Address               | 20-byte address  | 20          |
-| 2 - 255   | Reserved              | N/A              | N/A         |
+| Type    | Description | Data            | Data Length |
+| ------- | ----------- | --------------- | ----------- |
+| 0       | Reserved    | N/A             | N/A         |
+| 1       | Address     | 20-byte address | 20          |
+| 2 - 255 | Reserved    | N/A             | N/A         |
 
 Record types 0 and 2-255 are reserved for future use.
 
@@ -89,6 +90,7 @@ Tags should be normalized before they are encoded into a `ListOp`.
 List Record can be represented as a type in any programming language. Here are some examples:
 
 ### Go
+
 ```go
 type ListRecord struct {
     Version    uint8
@@ -96,14 +98,18 @@ type ListRecord struct {
     Data       []byte
 }
 ```
+
 ### Python
+
 ```python
 class ListRecord:
     version: int        # 0-255
     record_type: int    # 0-255
     data: bytes
 ```
+
 ### Rust
+
 ```rust
 struct ListRecord {
     version: u8,
@@ -111,7 +117,9 @@ struct ListRecord {
     data: Vec<u8>,
 }
 ```
+
 ### Solidity
+
 ```solidity
 // the EFP contracts don't use this struct; they only store list ops
 // as `bytes` and do not store list records directly
@@ -123,11 +131,13 @@ struct ListRecord {
     bytes data;
 }
 ```
+
 ### TypeScript
+
 ```typescript
 type ListRecord = {
-    version: number       // 0-255
-    recordType: number    // 0-255
-    data: Uint8Array
+  version: number // 0-255
+  recordType: number // 0-255
+  data: Uint8Array
 }
 ```

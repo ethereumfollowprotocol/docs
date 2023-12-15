@@ -32,7 +32,9 @@ Users can use additional arbitrary custom tags.
 Any tag which violates these constraints is ignored.
 
 ### Constraints
+
 A custom tag can be any UTF-8 string with the following constraints:
+
 - maximum length of 255 bytes
 - no leading or trailing whitespace
 - more constraints to be added as needed
@@ -47,7 +49,7 @@ Tags should be normalized before they are encoded into a List Op.
 
 Tags are encoded as UTF-8 strings.
 
-| Tag              | Encoding         |
-| ---------------- | ---------------- |
-| `block`          | `62 6c 6f 63 6b` |
-| `mute`           | `6d 75 74 65`    |
+| Tag     | Encoding         |
+| ------- | ---------------- |
+| `block` | `62 6c 6f 63 6b` |
+| `mute`  | `6d 75 74 65`    |
