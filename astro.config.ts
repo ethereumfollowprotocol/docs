@@ -81,6 +81,14 @@ export default defineConfig({
             {
               label: 'List Ops',
               link: '/design/list-ops'
+            },
+            {
+              label: 'List Metadata',
+              link: '/design/list-metadata'
+            },
+            {
+              label: 'Account Metadata',
+              link: '/design/account-metadata'
             }
           ]
         },

@@ -1,0 +1,79 @@
+---
+title: List Metadata
+---
+
+Every EFP List has associated key-value metadata called **EFP List Metadata**.
+
+List metadata is stored onchain alongside list records in the same contract, but in a different format (key-value pairs).
+
+Data is stored with a `string` key and `bytes` value, for each EFP List.
+
+Only the manager of the EFP List can set or update the metadata for a list.
+
+This allows EFP List managers to store list-specific configuration or preference data.
+
+## Global keys
+
+Global Keys must be made up of lowercase letters, numbers and the hyphen (-) character.
+
+There is only one global key currently defined.
+
+| Key       | Description                                                            |
+| --------- | ---------------------------------------------------------------------- |
+| `manager` | The Ethereum address of the Manager role associated with the EFP List. |
+| `user`    | The Ethereum address of the User role associated with the EFP List.    |
+
+### "manager"
+
+The `manager` key is used to store the Manager role associated with an EFP List.
+
+The manager is represented as a 20-byte address.
+
+| Byte(s) | Description        | Value                                      |
+| ------- | ------------------ | ------------------------------------------ |
+| 0-19    | Address (20 bytes) | 0x00000000000000000000000000000000DeaDBeef |
+
+#### Code
+
+```solidity
+// set the manager for the EFP list
+efpListMetadata.setValue(tokenId, "manager", abi.encodePacked(manager));
+```
+
+By reading the `manager` key for a given EFP List, a client can determine the Manager associated with that list.
+
+```solidity
+address manager = abi.decode(efpListMetadata.getValue(tokenId, "manager"), (address));
+```
+
+### "user"
+
+The `user` key is used to store the User role associated with an EFP List.
+
+The user is represented as a 20-byte address.
+
+| Byte(s) | Description        | Value                                      |
+| ------- | ------------------ | ------------------------------------------ |
+| 0-19    | Address (20 bytes) | 0x00000000000000000000000000000000DeaDBeef |
+
+#### Code
+with example code shown below:
+
+```solidity
+// set the user for the EFP List
+efpListMetadata.setValue(tokenId, "user", abi.encodePacked(user));
+```
+
+By reading the `user` key for a given EFP List, a client can determine the User associated with that list.
+
+```solidity
+address user = abi.decode(efpListMetadata.getValue(tokenId, "user"), (address));
+```
+
+## Future
+
+This pattern can be extended to support other list-specific metadata such as a name or description.
+
+## Custom Keys
+
+The format for custom keys are undefined at this time but will be defined in the future.
