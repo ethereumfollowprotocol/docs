@@ -1,0 +1,27 @@
+---
+title: Tags
+---
+
+A **Tag** is a string associated with a List Record in an EFP list. A List Record can have multiple tags.
+
+A tag can be any UTF-8 string with the following constraints:
+- maximum length of 255 bytes
+- no leading or trailing whitespace
+- more constraints to be added as needed
+
+Any tag which violates these constraints is ignored.
+
+## Normalization
+
+Tags are normalized by converting them to lowercase and removing leading and trailing whitespace.
+
+Tags should be normalized before they are encoded into a List Op.
+
+## Encoding
+
+Tags are encoded as UTF-8 strings.
+
+| Tag              | Encoding         |
+| ---------------- | ---------------- |
+| `block`          | `62 6c 6f 63 6b` |
+| `mute`           | `6d 75 74 65`    |

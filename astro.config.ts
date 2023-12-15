@@ -69,6 +69,10 @@ export default defineConfig({
             {
               label: 'List Records',
               link: '/design/list-records'
+            },
+            {
+              label: 'Tags',
+              link: '/design/tags'
             }
           ]
         },
