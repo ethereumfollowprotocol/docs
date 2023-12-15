@@ -57,7 +57,7 @@ List Storage Location can be represented as a type in any programming language. 
 #### Go
 
 ```go
-type ListOp struct {
+type ListStorageLocation struct {
     Version uint8
     LocationType uint8
     Data []byte
@@ -67,7 +67,7 @@ type ListOp struct {
 #### Python
 
 ```python
-class ListOp:
+class ListStorageLocation:
     version: int           # 0-255
     location_type: int     # 0-255
     data: bytes
@@ -76,7 +76,7 @@ class ListOp:
 #### Rust
 
 ```rust
-struct ListOp {
+struct ListStorageLocation {
     version: u8,
     location_type: u8,
     data: Vec<u8>,
@@ -86,12 +86,14 @@ struct ListOp {
 #### Solidity
 
 ```solidity
-// the EFP contracts don't use this struct; they only store list
-// storage locations as `bytes` with the version, location type,
-// and data fields tightly packed into a single `bytes` value
-// however, this struct can be useful for offchain processing with
-// foundry or other Solidity tooling
-struct ListOp {
+/**
+ * The EFP contracts don't use this struct; they only store list
+ * storage locations as `bytes` with the version, location type,
+ * and data fields tightly packed into a single `bytes` value
+ * however, this struct can be useful for offchain processing with
+ * foundry or other Solidity tooling
+ */
+struct ListStorageLocation {
     uint8 version;
     uint8 locationType;
     bytes data;
@@ -101,7 +103,7 @@ struct ListOp {
 #### TypeScript
 
 ```typescript
-type ListOp = {
+type ListStorageLocation = {
   version: number // 0-255
   locationType: number // 0-255
   data: Uint8Array

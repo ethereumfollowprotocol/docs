@@ -121,10 +121,12 @@ struct ListRecord {
 ### Solidity
 
 ```solidity
-// the EFP contracts don't use this struct; they only store list ops
-// as `bytes` and do not store list records directly
-// however, this struct can be useful for offchain processing with
-// foundry or other Solidity tooling
+/**
+ * The EFP contracts don't use this struct; they only store list ops
+ * as `bytes` and do not store list records directly. However, this
+ * struct can be useful for offchain processing with foundry or other
+ * Solidity tooling
+ */
 struct ListRecord {
     uint8 version;
     uint8 recordType;

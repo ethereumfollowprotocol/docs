@@ -133,11 +133,12 @@ struct ListOp {
 #### Solidity
 
 ```solidity
-// the EFP contracts don't use this struct; they only store list ops
-// as `bytes` with the version, opcode, and data fields tightly packed
-// into a single `bytes` value
-// however, this struct can be useful for offchain processing with
-// foundry or other Solidity tooling
+/**
+ * @dev The EFP contracts don't use this struct; they only store list ops
+ * as `bytes` with the version, opcode, and data fields tightly packed
+ * into a single `bytes` value. However, this struct can be useful for
+ * offchain processing with foundry or other Solidity tooling
+ */
 struct ListOp {
     uint8 version;
     uint8 opcode;
