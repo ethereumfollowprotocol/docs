@@ -1,6 +1,6 @@
-import sentry from '@sentry/astro'
-import tailwind from '@astrojs/tailwind'
 import starlight from '@astrojs/starlight'
+import tailwind from '@astrojs/tailwind'
+import sentry from '@sentry/astro'
 import spotlightjs from '@spotlightjs/astro'
 import { defineConfig, passthroughImageService } from 'astro/config'
 
@@ -57,6 +57,10 @@ export default defineConfig({
             {
               label: 'Specification',
               link: '/design/spec'
+            },
+            {
+              label: 'Contracts',
+              link: '/design/contracts'
             }
           ]
         },
