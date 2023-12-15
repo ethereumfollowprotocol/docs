@@ -23,7 +23,7 @@ export default defineConfig({
         frames: {
           showCopyToClipboardButton: true
         },
-        themes: ['starlight-dark'],
+        themes: ['starlight-dark', 'starlight-light'],
         useStarlightDarkModeSwitch: true,
         useStarlightUiThemeColors: true
       },
@@ -61,6 +61,14 @@ export default defineConfig({
             {
               label: 'Contracts',
               link: '/design/contracts'
+            },
+            {
+              label: 'List Registry',
+              link: '/design/list-registry'
+            },
+            {
+              label: 'List Records',
+              link: '/design/list-records'
             }
           ]
         },
