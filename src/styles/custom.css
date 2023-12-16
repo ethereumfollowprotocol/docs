@@ -12,6 +12,7 @@
   --sl-color-bg-nav: transparent;
   --sl-color-accent-high: #ffff96;
   --sl-color-white: #ffffff;
+  --sl-color-accent: #17181c;
   --sl-color-gray-1: #eceef2;
   --sl-color-gray-2: #c0c2c7;
   --sl-color-gray-3: #b4b6bb;
@@ -48,7 +49,7 @@
   --sl-color-gray-6: #24272f;
   --sl-color-black: #17181c;
   --sl-color-bg: transparent !important;
-  --code-bg: #011627;
+  --code-bg: #393a34;
   --noise-container-opacity: 0.2;
   --noise-container-bg: conic-gradient(
     at left top,
@@ -82,24 +83,10 @@ a > svg {
   background-image: var(--noise-container-bg);
 }
 
-pre {
-  border-radius: 0 0 4px 4px !important;
-  background-color: var(--code-bg) !important;
-  border-color: var(--transparent) !important;
-}
-
-figcaption {
-  background-color: var(--code-bg) !important;
-  border-color: var(--transparent) !important;
-  border-radius: 4px 4px 0 0 !important;
-}
-
 pre,
-code,
-figcaption {
-  border-color: var(--transparent) !important;
-  /* border:; */
+code {
   font-size: 15px !important;
+  border-radius: 0px 0px 3px 3px !important;
 }
 
 html,
@@ -252,7 +239,7 @@ a.action {
 }
 
 a.primary {
-  background-image: linear-gradient(45deg, #ff79c9, #ffff96) !important;
+  background-image: linear-gradient(45deg, #f9f9be, #fb8ed0) !important;
 }
 
 a.minimal {

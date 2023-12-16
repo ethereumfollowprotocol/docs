@@ -32,9 +32,6 @@ export default {
             h1: {
               fontFamily: theme('fontFamily.obviously')
             },
-            pre: {
-              background: 'rgba(205, 200, 255, 0.05)'
-            },
             'h2 a': linkHeadingStyles,
             'h3 a': linkHeadingStyles,
             'h4 a': linkHeadingStyles,
@@ -59,7 +56,6 @@ export default {
               }
             },
             code: {
-              color: '#86e1fc',
               '&::before': { content: `unset !important` },
               '&::after': { content: `unset !important` },
               fontWeight: 'normal'

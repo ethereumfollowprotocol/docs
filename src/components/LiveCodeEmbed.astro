@@ -1,0 +1,19 @@
+---
+interface Props {
+  embedLink: string
+}
+
+const { embedLink } = Astro.props
+---
+
+<main class='min-w-content h-full min-h-[600px] w-full'>
+  <section class='h-full min-h-max'>
+    <iframe
+      src={embedLink}
+      class='my-4 h-full min-h-[650px] w-full overflow-hidden rounded-md border-0'
+      title='efp-example'
+      allow='accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking'
+      sandbox='allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts'
+    ></iframe>
+  </section>
+</main>

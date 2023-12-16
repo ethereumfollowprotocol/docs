@@ -1,6 +1,6 @@
-import starlight from '@astrojs/starlight'
-import tailwind from '@astrojs/tailwind'
 import sentry from '@sentry/astro'
+import tailwind from '@astrojs/tailwind'
+import starlight from '@astrojs/starlight'
 import spotlightjs from '@spotlightjs/astro'
 import { defineConfig, passthroughImageService } from 'astro/config'
 
@@ -23,7 +23,7 @@ export default defineConfig({
         frames: {
           showCopyToClipboardButton: true
         },
-        themes: ['starlight-dark', 'starlight-light'],
+        themes: ['starlight-dark', 'min-light'],
         useStarlightDarkModeSwitch: true,
         useStarlightUiThemeColors: true
       },
@@ -103,6 +103,13 @@ export default defineConfig({
       ],
       head: [
         {
+          tag: 'link',
+          attrs: {
+            rel: 'icon',
+            href: '/favicon.ico'
+          }
+        },
+        {
           tag: 'meta',
           attrs: {
             property: 'og:image',
@@ -143,6 +150,7 @@ export default defineConfig({
         './src/styles/custom.css',
         './src/styles/tailwind.css',
         '@fontsource/roboto/400.css',
+        '@fontsource/roboto/500.css',
         '@fontsource/roboto/700.css',
         '@fontsource/roboto/900.css',
         '@fontsource/ibm-plex-mono/400.css',

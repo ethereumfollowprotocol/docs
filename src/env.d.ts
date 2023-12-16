@@ -1,5 +1,3 @@
-/// <reference lib="dom" />
-/// <reference lib="dom.iterable" />
 /// <reference path="../.astro/types.d.ts" />
 /// <reference types="astro/client" />
 

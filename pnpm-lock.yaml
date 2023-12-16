@@ -27,7 +27,7 @@ devDependencies:
     specifier: ^5.0.8
     version: 5.0.8
   '@sentry/astro':
-    specifier: ^7.87.0
+    specifier: ^7.88.0
     version: 7.88.0(astro@4.0.5)
   '@spotlightjs/astro':
     specifier: ^1.0.6
