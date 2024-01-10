@@ -14,7 +14,7 @@ An EFP List can be uniquely specified via three pieces of data:
 
 - `chain_id`: The 32-byte EVM chain ID of the chain where the list is stored.
 - `contract_address`: The 20-byte EVM address of the contract where the list is stored.
-- `nonce`: A 32-byte nonce that specifies the storage slot of the list within the contract. This disambiguates multiple lists stored within the same contract and de-couples it from the EFP List NFT token id which is stored on Ethereum and inaccessible on L2s.
+- `slot`: A 32-byte value that specifies the storage slot of the list within the contract. This disambiguates multiple lists stored within the same contract and de-couples it from the EFP List NFT token id which is stored on Ethereum and inaccessible on L2s.
 
 The following chains are supported:
 
@@ -44,11 +44,11 @@ Since only one location type is currently supported, the `data` field is always 
 
 There is only one location type which covers both Ethereum and L2s.
 
-| Location Type | Description  | Data                                                        |
-| ------------- | ------------ | ----------------------------------------------------------- |
-| 0             | Reserved     | N/A                                                         |
-| 1             | EVM contract | 32-byte chain ID + 20-byte contract address + 32-byte nonce |
-| 2 - 255       | Reserved     | N/A                                                         |
+| Location Type | Description  | Data                                                       |
+| ------------- | ------------ | ---------------------------------------------------------- |
+| 0             | Reserved     | N/A                                                        |
+| 1             | EVM contract | 32-byte chain ID + 20-byte contract address + 32-byte slot |
+| 2 - 255       | Reserved     | N/A                                                        |
 
 ## Code
 
