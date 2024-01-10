@@ -43,6 +43,16 @@ To illustrate the design, however, consider hypothetical list record types:
 
 Clients may support some or all of these record types depending on use case (once more than one record type is defined).
 
+### Address Record (Type 1)
+
+The following is an example of an encoded `ListRecord` of type 1 (address record):
+
+| Byte(s) | Description                       | Value                                        |
+| ------- | --------------------------------- | -------------------------------------------- |
+| 0       | `ListRecord` version (1 byte)     | `0x01`                                       |
+| 1       | `ListRecord` record_type (1 byte) | `0x01`                                       |
+| 2 - 21  | `ListRecord` data (20 bytes)      | `0x00000000000000000000000000000000DeaDBeef` |
+
 ## Validation
 
 `version` should always be `1`.
