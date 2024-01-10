@@ -4,7 +4,7 @@ title: List Ops
 
 A **List Op** is a structure used to encapsulate an operation performed on an EFP List. It includes the following fields:
 
-- `version`: A `uint8` representing the version of the List Op. This is used to ensure compatibility and facilitate future upgrades.
+- `version`: A `uint8` representing the version of the List Op. This byte defines the schema of the subsequent bytes for encoding/decoding. This is used to ensure compatibility and facilitate future upgrades.
 - `opcode`: A `uint8` indicating the operation code. This defines the action to be taken using the List Op.
 - `data`: A `bytes` array which holds the operation-specific data. For instance, if the operation involves adding a List Record, this field would contain the encoded List Record.
 
@@ -45,55 +45,55 @@ The `2 - N` byte range is variable and depends on the operation being performed.
 
 ### Example - Add Record
 
-The following is an example of an encoded `ListOp` for adding a `ListRecord` of type 1 (raw address) to a list:
+The following is an example of an encoded `ListOp` for adding a `ListRecord` of type 1 (address record) to a list:
 
-| Byte(s) | Description                   | Value                                        |
-| ------- | ----------------------------- | -------------------------------------------- |
-| 0       | `ListOp` version (1 byte)     | `0x01`                                       |
-| 1       | Operation code (1 byte)       | `0x01`                                       |
-| 2       | `ListRecord` version (1 byte) | `0x01`                                       |
-| 3       | `ListRecord` type (1 byte)    | `0x01`                                       |
-| 4 - 23  | `ListRecord` data (20 bytes)  | `0x00000000000000000000000000000000DeaDBeef` |
+| Byte(s) | Description                       | Value                                        |
+| ------- | --------------------------------- | -------------------------------------------- |
+| 0       | `ListOp` version (1 byte)         | `0x01`                                       |
+| 1       | Operation code (1 byte)           | `0x01`                                       |
+| 2       | `ListRecord` version (1 byte)     | `0x01`                                       |
+| 3       | `ListRecord` record type (1 byte) | `0x01`                                       |
+| 4 - 23  | `ListRecord` data (20 bytes)      | `0x00000000000000000000000000000000DeaDBeef` |
 
 ### Example - Remove Record
 
-The following is an example of an encoded `ListOp` for removing a `ListRecord` of type 1 (raw address) from a list:
+The following is an example of an encoded `ListOp` for removing a `ListRecord` of type 1 (address record) from a list:
 
-| Byte(s) | Description                   | Value                                        |
-| ------- | ----------------------------- | -------------------------------------------- |
-| 0       | `ListOp` version (1 byte)     | `0x01`                                       |
-| 1       | Operation code (1 byte)       | `0x02`                                       |
-| 2       | `ListRecord` version (1 byte) | `0x01`                                       |
-| 3       | `ListRecord` type (1 byte)    | `0x01`                                       |
-| 4 - 23  | `ListRecord` data (20 bytes)  | `0x00000000000000000000000000000000DeaDBeef` |
+| Byte(s) | Description                       | Value                                        |
+| ------- | --------------------------------- | -------------------------------------------- |
+| 0       | `ListOp` version (1 byte)         | `0x01`                                       |
+| 1       | Operation code (1 byte)           | `0x02`                                       |
+| 2       | `ListRecord` version (1 byte)     | `0x01`                                       |
+| 3       | `ListRecord` record type (1 byte) | `0x01`                                       |
+| 4 - 23  | `ListRecord` data (20 bytes)      | `0x00000000000000000000000000000000DeaDBeef` |
 
 ### Example - Tag Record
 
-The following is an example of an encoded `ListOp` for tagging a `ListRecord` of type 1 (raw address) in a list:
+The following is an example of an encoded `ListOp` for tagging a `ListRecord` of type 1 (address record) in a list:
 
-| Byte(s) | Description                   | Value                                        |
-| ------- | ----------------------------- | -------------------------------------------- |
-| 0       | `ListOp` version (1 byte)     | `0x01`                                       |
-| 1       | Operation code (1 byte)       | `0x03`                                       |
-| 2       | `ListRecord` version (1 byte) | `0x01`                                       |
-| 3       | `ListRecord` type (1 byte)    | `0x01`                                       |
-| 4 - 23  | `ListRecord` data (20 bytes)  | `0x00000000000000000000000000000000DeaDBeef` |
-| 24 - N  | Tag (variable) (UTF-8)        | `0x746167` ("tag")                           |
+| Byte(s) | Description                       | Value                                        |
+| ------- | --------------------------------- | -------------------------------------------- |
+| 0       | `ListOp` version (1 byte)         | `0x01`                                       |
+| 1       | Operation code (1 byte)           | `0x03`                                       |
+| 2       | `ListRecord` version (1 byte)     | `0x01`                                       |
+| 3       | `ListRecord` record type (1 byte) | `0x01`                                       |
+| 4 - 23  | `ListRecord` data (20 bytes)      | `0x00000000000000000000000000000000DeaDBeef` |
+| 24 - N  | Tag (variable) (UTF-8)            | `0x746167` ("tag")                           |
 
 The tag should be encoded as UTF-8.
 
 ### Example - Untag Record
 
-The following is an example of an encoded `ListOp` for untagging a `ListRecord` of type 1 (raw address) in a list:
+The following is an example of an encoded `ListOp` for untagging a `ListRecord` of type 1 (address record) in a list:
 
-| Byte(s) | Description                   | Value                                        |
-| ------- | ----------------------------- | -------------------------------------------- |
-| 0       | `ListOp` version (1 byte)     | `0x01`                                       |
-| 1       | Operation code (1 byte)       | `0x04`                                       |
-| 2       | `ListRecord` version (1 byte) | `0x01`                                       |
-| 3       | `ListRecord` type (1 byte)    | `0x01`                                       |
-| 4 - 23  | `ListRecord` data (20 bytes)  | `0x00000000000000000000000000000000DeaDBeef` |
-| 24 - N  | Tag (variable) (UTF-8)        | `0x746167` ("tag")                           |
+| Byte(s) | Description                       | Value                                        |
+| ------- | --------------------------------- | -------------------------------------------- |
+| 0       | `ListOp` version (1 byte)         | `0x01`                                       |
+| 1       | Operation code (1 byte)           | `0x04`                                       |
+| 2       | `ListRecord` version (1 byte)     | `0x01`                                       |
+| 3       | `ListRecord` record type (1 byte) | `0x01`                                       |
+| 4 - 23  | `ListRecord` data (20 bytes)      | `0x00000000000000000000000000000000DeaDBeef` |
+| 24 - N  | Tag (variable) (UTF-8)            | `0x746167` ("tag")                           |
 
 The tag should be encoded as UTF-8.
 
