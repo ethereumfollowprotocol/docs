@@ -1,5 +1,6 @@
 import colors from 'tailwindcss/colors'
 import type { Config } from 'tailwindcss'
+import defaultTheme from 'tailwindcss/defaultTheme'
 import typographyPlugin from '@tailwindcss/typography'
 import starlightPlugin from '@astrojs/starlight-tailwind'
 
@@ -90,9 +91,9 @@ export default {
         gray: colors.zinc
       },
       fontFamily: {
-        mono: ['"IBM Plex Mono"'],
-        serif: ['Roboto'],
-        sans: ['Roboto']
+        mono: ['"IBM Plex Mono"', ...defaultTheme.fontFamily.mono],
+        serif: ['Inter', ...defaultTheme.fontFamily.serif],
+        sans: ['InterVariable', 'Inter', ...defaultTheme.fontFamily.sans]
       }
     }
   },

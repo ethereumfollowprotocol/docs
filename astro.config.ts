@@ -2,6 +2,7 @@ import sentry from '@sentry/astro'
 import tailwind from '@astrojs/tailwind'
 import starlight from '@astrojs/starlight'
 import spotlightjs from '@spotlightjs/astro'
+import moonlightTheme from './public/theme/moonlight-ii.json'
 import { defineConfig, passthroughImageService } from 'astro/config'
 
 const SITE_URL = 'https://docs.ethfollow.xyz'
@@ -23,7 +24,7 @@ export default defineConfig({
         frames: {
           showCopyToClipboardButton: true
         },
-        themes: ['starlight-dark', 'min-light'],
+        themes: [moonlightTheme, 'github-light'],
         useStarlightDarkModeSwitch: true,
         useStarlightUiThemeColors: true
       },
@@ -127,14 +128,14 @@ export default defineConfig({
           tag: 'script',
           attrs: {
             type: 'module',
-            src: `/anchor-targets.js`
+            src: '/anchor-targets.js'
           }
         },
         {
           tag: 'script',
           attrs: {
             type: 'module',
-            src: `/noise-background.js`
+            src: '/noise-background.js'
           }
         },
         {
@@ -149,10 +150,10 @@ export default defineConfig({
       customCss: [
         './src/styles/custom.css',
         './src/styles/tailwind.css',
-        '@fontsource/roboto/400.css',
-        '@fontsource/roboto/500.css',
-        '@fontsource/roboto/700.css',
-        '@fontsource/roboto/900.css',
+        '@fontsource/Inter/400.css',
+        '@fontsource/Inter/500.css',
+        '@fontsource/Inter/700.css',
+        '@fontsource/Inter/900.css',
         '@fontsource/ibm-plex-mono/400.css',
         '@fontsource/ibm-plex-mono/600.css'
       ]

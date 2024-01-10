@@ -2,7 +2,7 @@
   --transparent: rgba(0, 0, 0, 0);
   --overlay-hsl: 205, 60%, 60%;
   --overlay-blurple: hsla(var(--overlay-hsl), 0.4);
-  --sl-font: 'Roboto', sans-serif;
+  --sl-font: 'Inter', sans-serif;
   --sl-content-margin-inline: auto !important;
   --sl-sidebar-width: 14rem;
   --sl-color-bg-sidebar: unset;
@@ -31,7 +31,7 @@
 :root[data-theme='light'] {
   --overlay-hsl: 205, 60%, 60%;
   --overlay-blurple: hsla(var(--overlay-hsl), 0.25);
-  --sl-font: 'Roboto', sans-serif;
+  --sl-font: 'Inter', sans-serif;
   --sl-content-margin-inline: auto !important;
   --sl-sidebar-width: 14rem;
   --sl-color-text: #17181c;
@@ -167,7 +167,7 @@ h1[data-page-title] span {
 }
 
 .site-title {
-  font-family: Roboto, sans-serif;
+  font-family: Inter, sans-serif;
   font-size: 1.5rem;
   font-weight: 900;
 }
@@ -189,7 +189,7 @@ a.site-title > img {
 }
 
 .tagline {
-  font-family: Roboto, sans-serif;
+  font-family: Inter, sans-serif;
   font-weight: 700;
   line-height: 1.2;
 }
