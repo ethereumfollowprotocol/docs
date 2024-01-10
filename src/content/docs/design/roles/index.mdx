@@ -4,17 +4,22 @@ title: Roles
 
 Every EFP List has three roles, each of which are held by an Ethereum account, either an EOA or contract address.
 
-1. **Owner:**
-   - Is the owner of the EFP List NFT
+1. **Owner**
+   - Is the ERC-721 owner of the EFP List NFT
    - Can transfer ownership of the EFP List NFT
-   - Can edit the List Storage Location
-2. **Manager:**
-   - Is the manager of the EFP list records and metadata
+   - Can set or update the List Storage Location
+2. **Manager**
+   - Is the manager of the list records and metadata
    - Can transfer the Manager role to another address
    - Can set or update the User role
-   - Can add/remove list records and add/remove tags
-   - Can add metadata key/value to the list
-3. **User:**
-   - The Ethereum address for whom the list is intended; the Ethereum account that is following the Ethereum accounts in the list.
+   - Can add or remove list records to the list
+   - Can add or remove tags to list records
+   - Can set or update list metadata
+3. **User**
+   - Is the Ethereum address for whom the list is intended; the Ethereum account that is following the Ethereum accounts (list records) in the list.
 
 Typically, all three roles (Owner, Manager, User) are the same Ethereum account, but they can be different.
+
+The Owner role is the most important since it controls the List Storage Location, so use a secure wallet (e.g. hardware wallet) to hold the EFP List NFT and always exercise caution when transferring ownership or updating the List Storage Location.
+
+Only you are responsible for securing your EFP List NFT.
