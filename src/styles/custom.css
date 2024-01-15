@@ -51,11 +51,7 @@
   --sl-color-bg: transparent !important;
   --code-bg: #393a34;
   --noise-container-opacity: 0.2;
-  --noise-container-bg: conic-gradient(
-    at left top,
-    rgb(237, 233, 254),
-    rgb(244, 114, 182),
-    rgb(255, 255, 255)
+  --noise-container-bg: white;
   );
   --noise-bg-image: url(/noise.svg);
 }
