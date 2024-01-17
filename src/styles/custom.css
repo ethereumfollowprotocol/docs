@@ -55,6 +55,11 @@
   --noise-bg-image: url(/noise.svg);
 }
 
+div > a > span {
+  color: var(--sl-color-text);
+  font-weight: 900;
+}
+
 a > svg {
   color: var(--sl-color-text);
 }
