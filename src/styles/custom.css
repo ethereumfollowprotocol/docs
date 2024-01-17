@@ -205,10 +205,6 @@ a.site-title > img {
     font-weight: 900;
   }
 
-  [data-has-hero] .hero > img {
-    /* width: 50%; */
-  }
-
   .tagline {
     font-size: 1.5rem !important;
   }

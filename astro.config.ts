@@ -1,3 +1,7 @@
+import 'dotenv/config'
+Object.assign(process.env, { ASTRO_TELEMETRY_DISABLED: 1 })
+
+import process from 'node:process'
 import sentry from '@sentry/astro'
 import tailwind from '@astrojs/tailwind'
 import starlight from '@astrojs/starlight'
@@ -10,8 +14,8 @@ const SITE_URL = 'https://docs.ethfollow.xyz'
 // https://astro.build/config
 export default defineConfig({
   site: SITE_URL,
-  output: 'static',
   prefetch: true,
+  output: 'static',
   trailingSlash: 'ignore',
   integrations: [
     starlight({
@@ -134,13 +138,6 @@ export default defineConfig({
         {
           tag: 'script',
           attrs: {
-            type: 'module',
-            src: '/noise-background.js'
-          }
-        },
-        {
-          tag: 'script',
-          attrs: {
             src: import.meta.env.PROD ? 'https://static.cloudflareinsights.com/beacon.min.js' : '',
             'data-cf-beacon': '{"token":"80940575779d42e2bade60c3c4d5c8d1"}',
             defer: true
@@ -170,5 +167,8 @@ export default defineConfig({
   },
   experimental: {
     contentCollectionCache: !import.meta.env.DEV
+  },
+  server: {
+    port: Number(process.env.PORT || 4321)
   }
 })
