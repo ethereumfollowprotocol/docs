@@ -13,7 +13,7 @@
         "name": "@astrojs/ts-plugin"
       }
     ],
-    "types": ["node", "typed-query-selector/strict"],
+    "types": ["node", "bun", "typed-query-selector/strict"],
     "baseUrl": "."
   },
   "include": ["src", "public"],

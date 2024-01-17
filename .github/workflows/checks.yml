@@ -1,0 +1,41 @@
+name: Checks
+
+on:
+  pull_request:
+  workflow_dispatch:
+  push:
+    branches: '*'
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+
+defaults:
+  run:
+    shell: bash
+
+env:
+  ACTIONS_RUNNER_DEBUG: true
+  NODE_OPTIONS: '--no-warnings'
+
+jobs:
+  checks:
+    timeout-minutes: 3
+    runs-on: ['ubuntu-latest']
+    steps:
+      - name: 🔑 Checkout
+        uses: actions/checkout@v4
+
+      - name: '📦 Install Dependencies'
+        uses: ethereumfollowprotocol/actions/.github/actions/setup@main
+        with:
+          bun-version: 'latest'
+          install-dependencies: true
+
+      - name: '🧹 Lint'
+        run: bun lint
+
+      - name: '📝 Format'
+        run: bun format
+
+      - name: '🏗️ Build'
+        run: bun run build
