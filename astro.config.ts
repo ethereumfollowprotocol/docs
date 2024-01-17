@@ -139,7 +139,7 @@ export default defineConfig({
           tag: 'script',
           attrs: {
             src: import.meta.env.PROD ? 'https://static.cloudflareinsights.com/beacon.min.js' : '',
-            'data-cf-beacon': '{"token":"80940575779d42e2bade60c3c4d5c8d1"}',
+            'data-cf-beacon': '{"token": "bb866b6c87ba4c5ca9eb7fd636a5e2cf"}',
             defer: true
           }
         }
