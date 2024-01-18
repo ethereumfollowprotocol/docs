@@ -1,0 +1,59 @@
+---
+title: /api/v1/lists
+description: Ethereum Follow Protocol API v1
+---
+
+:::note
+
+This is currently a test API with fake data and will receive updates with additional functionality over time. It is intended to be used to test integrations in preparation for **EFP**'s mainnet launch.
+
+:::
+
+API URL: [`https://api.ethfollow.xyz/api/v1`](https://api.ethfollow.xyz/api/v1)
+
+### Available Endpoints - `/lists`
+
+```sh
+GET /lists/:token_id/records?includeTags=true
+```
+
+#### Get list records by token id
+
+TODO: pagination
+
+```sh
+curl --request 'GET' \
+  https://api.ethfollow.xyz/api/v1/lists/0/records?includeTags=true
+```
+
+```jsonc
+// sample response
+{
+  "records": [
+    {
+      "version": 1,
+      "record_type": "address",
+      "data": "0xf4212614c7fe0b3feef75057e88b2e77a7e23e83",
+      "tags": ["efp"]
+    },
+    {
+      "version": 1,
+      "record_type": "address",
+      "data": "0xbdb41bff7e828e2dc2d15eb67257455db818f1dc",
+      "tags": ["efp", "ens"]
+    },
+    {
+      "version": 1,
+      "record_type": "address",
+      "data": "0x983110309620d911731ac0932219af06091b6744",
+      "tags": ["efp", "ens"]
+    },
+    {
+      "version": 1,
+      "record_type": "address",
+      "data": "0x86a41524cb61edd8b115a72ad9735f8068996688",
+      "tags": ["block", "mute"]
+    }
+  ]
+}
+```

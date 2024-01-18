@@ -64,7 +64,7 @@ export default defineConfig({
           collapsed: false,
           items: [
             {
-              label: 'Registry',
+              label: 'List Registry',
               link: '/design/list-registry'
             },
             {
@@ -98,12 +98,26 @@ export default defineConfig({
           ]
         },
         {
-          label: 'Public API',
-          link: '/api',
-          badge: {
-            text: 'v1',
-            variant: 'note'
-          }
+          label: 'EFP Indexer API',
+          collapsed: false,
+          // badge: {
+          //   text: 'v1',
+          //   variant: 'note'
+          // },
+          items: [
+            {
+              label: '/api/v1/leaderboard',
+              link: '/api/leaderboard'
+            },
+            {
+              label: '/api/v1/lists',
+              link: '/api/lists'
+            },
+            {
+              label: '/api/v1/users',
+              link: '/api/users'
+            }
+          ]
         }
       ],
       head: [
