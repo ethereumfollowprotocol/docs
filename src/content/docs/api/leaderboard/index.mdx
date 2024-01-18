@@ -21,8 +21,7 @@ GET /leaderboard/following?limit=10
 #### Get leaderboard - most followers
 
 ```sh
-curl --request 'GET' \
-  https://api.ethfollow.xyz/api/v1/leaderboard/followers?limit=10
+curl https://api.ethfollow.xyz/api/v1/leaderboard/followers?limit=3
 ```
 
 ```jsonc
@@ -42,41 +41,6 @@ curl --request 'GET' \
     "rank": 3,
     "address": "0x0000000000000000000000000000000000000002",
     "followers_count": "47"
-  },
-  {
-    "rank": 4,
-    "address": "0x0000000000000000000000000000000000000003",
-    "followers_count": "46"
-  },
-  {
-    "rank": 5,
-    "address": "0x0000000000000000000000000000000000000004",
-    "followers_count": "45"
-  },
-  {
-    "rank": 6,
-    "address": "0x0000000000000000000000000000000000000005",
-    "followers_count": "44"
-  },
-  {
-    "rank": 7,
-    "address": "0x0000000000000000000000000000000000000006",
-    "followers_count": "43"
-  },
-  {
-    "rank": 8,
-    "address": "0x0000000000000000000000000000000000000007",
-    "followers_count": "42"
-  },
-  {
-    "rank": 9,
-    "address": "0x0000000000000000000000000000000000000008",
-    "followers_count": "41"
-  },
-  {
-    "rank": 10,
-    "address": "0x0000000000000000000000000000000000000009",
-    "followers_count": "40"
   }
 ]
 ```
@@ -84,8 +48,7 @@ curl --request 'GET' \
 #### Get leaderboard - most following
 
 ```sh
-curl --request 'GET' \
-  https://api.ethfollow.xyz/api/v1/leaderboard/following?limit=10
+curl https://api.ethfollow.xyz/api/v1/leaderboard/following?limit=3
 ```
 
 ```jsonc
@@ -105,41 +68,6 @@ curl --request 'GET' \
     "rank": 3,
     "address": "0x0000000000000000000000000000000000000061",
     "following_count": "97"
-  },
-  {
-    "rank": 4,
-    "address": "0x0000000000000000000000000000000000000060",
-    "following_count": "96"
-  },
-  {
-    "rank": 5,
-    "address": "0x000000000000000000000000000000000000005f",
-    "following_count": "95"
-  },
-  {
-    "rank": 6,
-    "address": "0x000000000000000000000000000000000000005e",
-    "following_count": "94"
-  },
-  {
-    "rank": 7,
-    "address": "0x000000000000000000000000000000000000005d",
-    "following_count": "93"
-  },
-  {
-    "rank": 8,
-    "address": "0x000000000000000000000000000000000000005c",
-    "following_count": "92"
-  },
-  {
-    "rank": 9,
-    "address": "0x000000000000000000000000000000000000005b",
-    "following_count": "91"
-  },
-  {
-    "rank": 10,
-    "address": "0x000000000000000000000000000000000000005a",
-    "following_count": "90"
   }
 ]
 ```
