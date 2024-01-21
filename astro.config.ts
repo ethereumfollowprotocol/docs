@@ -1,12 +1,10 @@
-import 'dotenv/config'
-Object.assign(process.env, { ASTRO_TELEMETRY_DISABLED: 1 })
-
 import process from 'node:process'
 import sentry from '@sentry/astro'
 import tailwind from '@astrojs/tailwind'
 import starlight from '@astrojs/starlight'
 import spotlightjs from '@spotlightjs/astro'
-import moonlightTheme from './public/theme/moonlight-ii.json'
+import starlightLinksValidator from 'starlight-links-validator'
+import moonlightTheme from './src/assets/theme/moonlight-ii.json'
 import { defineConfig, passthroughImageService } from 'astro/config'
 
 const SITE_URL = 'https://docs.ethfollow.xyz'
@@ -21,7 +19,7 @@ export default defineConfig({
     starlight({
       title: 'EFP Docs',
       tagline: 'Ethereum Follow Protocol',
-      description: 'Technical documentation',
+      description: 'Ethereum Follow Protocol technical documentation',
       favicon: '/favicon.ico',
       lastUpdated: true,
       expressiveCode: {
@@ -36,6 +34,9 @@ export default defineConfig({
         github: 'https://github.com/ethereumfollowprotocol',
         discord: 'https://discord.ethfollow.xyz',
         'x.com': 'https://x.com/ethfollowpr'
+      },
+      components: {
+        Head: './src/components/Head.astro'
       },
       locales: {
         root: {
@@ -100,21 +101,18 @@ export default defineConfig({
         {
           label: 'EFP Indexer API',
           collapsed: false,
-          // badge: {
-          //   text: 'v1',
-          //   variant: 'note'
-          // },
+          badge: { text: '/api/v1', variant: 'tip' },
           items: [
             {
-              label: '/api/v1/leaderboard',
+              label: 'Leaderboard',
               link: '/api/leaderboard'
             },
             {
-              label: '/api/v1/lists',
+              label: 'Lists',
               link: '/api/lists'
             },
             {
-              label: '/api/v1/users',
+              label: 'Users',
               link: '/api/users'
             }
           ]
@@ -167,6 +165,10 @@ export default defineConfig({
         '@fontsource/inter/900.css',
         '@fontsource/ibm-plex-mono/400.css',
         '@fontsource/ibm-plex-mono/600.css'
+      ],
+      plugins: [
+        // https://starlight-links-validator.vercel.app/configuration/#configuration-options
+        starlightLinksValidator()
       ]
     }),
     tailwind({

@@ -4,7 +4,7 @@
   --overlay-blurple: hsla(var(--overlay-hsl), 0.4);
   --sl-font: 'Inter', sans-serif;
   --sl-content-margin-inline: auto !important;
-  --sl-sidebar-width: 14rem;
+  --sl-sidebar-width: 18rem;
   --sl-color-bg-sidebar: unset;
   --sl-color-text: #fafafafa;
   --sl-color-accent-low: #2c230a;
