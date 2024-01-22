@@ -3,7 +3,7 @@ title: Introduction
 slug: api
 ---
 
-import { Card, CardGrid } from '@astrojs/starlight/components'
+import { LinkCard, CardGrid } from '@astrojs/starlight/components'
 
 EFP provides a free public API for accessing indexed EFP data.
 
@@ -14,13 +14,19 @@ The API is available at [`api.ethfollow.xyz/api/v1`](https://api.ethfollow.xyz/a
 ## API Endpoints
 
 <CardGrid>
-  <a href='/api/leaderboard'>
-    <Card title='Leaderboard'>`/api/v1/leaderboard`</Card>
-  </a>
-  <a href='/api/lists'>
-    <Card title='Lists'>`/api/v1/lists`</Card>
-  </a>
-  <a href='/api/users'>
-    <Card title='Users'>`/api/v1/users`</Card>
-  </a>
+  <LinkCard
+    href='/api/leaderboard'
+    title='Leaderboard'
+    description='/api/v1/leaderboard'
+  />
+  <LinkCard
+    href='/api/lists'
+    title='Lists'
+    description='/api/v1/lists'
+  />
+  <LinkCard
+    href='/api/users'
+    title='Users'
+    description='/api/v1/users'
+  />
 </CardGrid>
