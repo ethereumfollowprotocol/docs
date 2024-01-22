@@ -33,7 +33,7 @@
   --overlay-blurple: hsla(var(--overlay-hsl), 0.25);
   --sl-font: 'Inter', sans-serif;
   --sl-content-margin-inline: auto !important;
-  --sl-sidebar-width: 14rem;
+  --sl-sidebar-width: 18rem;
   --sl-color-text: #17181c;
   --sl-color-bg-sidebar: unset;
   --sl-color-accent-low: #2c230a;
@@ -53,6 +53,15 @@
   --noise-container-opacity: 0.2;
   --noise-container-bg: white;
   --noise-bg-image: url(/noise.svg);
+}
+
+a,
+a:visited {
+  text-decoration: none;
+}
+
+a > article > div > p {
+  color: var(--sl-color-text);
 }
 
 div > a > span {

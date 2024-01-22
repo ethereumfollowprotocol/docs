@@ -4,7 +4,6 @@ import tailwind from '@astrojs/tailwind'
 import starlight from '@astrojs/starlight'
 import spotlightjs from '@spotlightjs/astro'
 import starlightLinksValidator from 'starlight-links-validator'
-import moonlightTheme from './src/assets/theme/moonlight-ii.json'
 import { defineConfig, passthroughImageService } from 'astro/config'
 
 const SITE_URL = 'https://docs.ethfollow.xyz'
@@ -26,7 +25,6 @@ export default defineConfig({
         frames: {
           showCopyToClipboardButton: true
         },
-        themes: [moonlightTheme, 'github-light'],
         useStarlightDarkModeSwitch: true,
         useStarlightUiThemeColors: true
       },
@@ -34,9 +32,6 @@ export default defineConfig({
         github: 'https://github.com/ethereumfollowprotocol',
         discord: 'https://discord.ethfollow.xyz',
         'x.com': 'https://x.com/ethfollowpr'
-      },
-      components: {
-        Head: './src/components/Head.astro'
       },
       locales: {
         root: {
@@ -63,59 +58,13 @@ export default defineConfig({
         {
           label: 'Specification',
           collapsed: false,
-          items: [
-            {
-              label: 'List Registry',
-              link: '/design/list-registry'
-            },
-            {
-              label: 'Roles',
-              link: '/design/roles'
-            },
-            {
-              label: 'Account Metadata',
-              link: '/design/account-metadata'
-            },
-            {
-              label: 'List Metadata',
-              link: '/design/list-metadata'
-            },
-            {
-              label: 'List Storage Location',
-              link: '/design/list-storage-location'
-            },
-            {
-              label: 'List Records',
-              link: '/design/list-records'
-            },
-            {
-              label: 'Tags',
-              link: '/design/tags'
-            },
-            {
-              label: 'List Ops',
-              link: '/design/list-ops'
-            }
-          ]
+          autogenerate: { directory: 'design' }
         },
         {
-          label: 'EFP Indexer API',
+          label: 'Public API',
           collapsed: false,
-          badge: { text: '/api/v1', variant: 'tip' },
-          items: [
-            {
-              label: 'Leaderboard',
-              link: '/api/leaderboard'
-            },
-            {
-              label: 'Lists',
-              link: '/api/lists'
-            },
-            {
-              label: 'Users',
-              link: '/api/users'
-            }
-          ]
+          autogenerate: { directory: 'api' },
+          badge: { text: '/api/v1', variant: 'tip' }
         }
       ],
       head: [

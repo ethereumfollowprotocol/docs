@@ -1,0 +1,26 @@
+---
+title: Introduction
+slug: api
+---
+
+import { Card, CardGrid } from '@astrojs/starlight/components'
+
+EFP provides a free public API for accessing indexed EFP data.
+
+If you are a dApp or wallet developer, you are free to use EFP's API. If you want to run your own API you are also welcome to fork EFP's API source code and deploy yourself. If you come across any issues ping us on our discord.
+
+The API is available at [`api.ethfollow.xyz/api/v1`](https://api.ethfollow.xyz/api/v1) and the source code is at [`github.com/ethereumfollowprotol/api`](https://github.com/ethereumfollowprotocol/api).
+
+## API Endpoints
+
+<CardGrid>
+  <a href='/api/leaderboard'>
+    <Card title='Leaderboard'>`/api/v1/leaderboard`</Card>
+  </a>
+  <a href='/api/lists'>
+    <Card title='Lists'>`/api/v1/lists`</Card>
+  </a>
+  <a href='/api/users'>
+    <Card title='Users'>`/api/v1/users`</Card>
+  </a>
+</CardGrid>
