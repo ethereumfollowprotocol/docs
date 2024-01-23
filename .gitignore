@@ -22,3 +22,5 @@ pnpm-debug.log*
 .vercel
 _
 .*cache
+.wrangler
+functions

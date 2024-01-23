@@ -2,9 +2,9 @@ import process from 'node:process'
 import sentry from '@sentry/astro'
 import tailwind from '@astrojs/tailwind'
 import starlight from '@astrojs/starlight'
+import { defineConfig } from 'astro/config'
 import spotlightjs from '@spotlightjs/astro'
 import starlightLinksValidator from 'starlight-links-validator'
-import { defineConfig, passthroughImageService } from 'astro/config'
 
 const SITE_URL = 'https://docs.ethfollow.xyz'
 
@@ -15,6 +15,9 @@ export default defineConfig({
   output: 'static',
   trailingSlash: 'ignore',
   integrations: [
+    sentry(),
+    spotlightjs(),
+    tailwind({ applyBaseStyles: false, configFile: 'tailwind.config.ts' }),
     starlight({
       title: 'EFP Docs',
       tagline: 'Ethereum Follow Protocol',
@@ -58,13 +61,20 @@ export default defineConfig({
         {
           label: 'Specification',
           collapsed: false,
-          autogenerate: { directory: 'design' }
+          autogenerate: {
+            directory: 'design'
+          }
         },
         {
           label: 'Public API',
           collapsed: false,
-          autogenerate: { directory: 'api' },
-          badge: { text: '/api/v1', variant: 'tip' }
+          autogenerate: {
+            directory: 'api'
+          },
+          badge: {
+            text: '/api/v1',
+            variant: 'tip'
+          }
         }
       ],
       head: [
@@ -119,18 +129,10 @@ export default defineConfig({
         // https://starlight-links-validator.vercel.app/configuration/#configuration-options
         starlightLinksValidator()
       ]
-    }),
-    tailwind({
-      applyBaseStyles: false,
-      configFile: 'tailwind.config.ts'
-    }),
-    sentry(),
-    spotlightjs()
+    })
   ],
-  image: {
-    service: passthroughImageService()
-  },
   experimental: {
+    clientPrerender: true,
     contentCollectionCache: !import.meta.env.DEV
   },
   server: {
