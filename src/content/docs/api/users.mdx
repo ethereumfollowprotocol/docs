@@ -11,17 +11,21 @@ This is currently a test API with fake data and will receive updates with additi
 
 API URL: [`https://api.ethfollow.xyz/api/v1`](https://api.ethfollow.xyz/api/v1)
 
-### Available Endpoints
+## Routes
 
 ```sh
-GET /:ensOrAddress/followers
-GET /:ensOrAddress/following
-GET /:ensOrAddress/list-records
-GET /:ensOrAddress/primary-list
-GET /:ensOrAddress/stats
+GET /:addressOrENS/followers
+GET /:addressOrENS/following
+GET /:addressOrENS/list-records
+GET /:addressOrENS/primary-list
+GET /:addressOrENS/stats
 ```
 
-#### Get followers by Address or ENS Name
+### /users/\:addressOrENS/followers
+
+Get followers by Address or ENS Name
+
+TODO: pagination
 
 ```sh
 curl http://api.ethfollow.xyz/api/v1/users/dr3a.eth/followers
@@ -56,7 +60,11 @@ curl http://api.ethfollow.xyz/api/v1/users/dr3a.eth/followers
 }
 ```
 
-#### Get following by Address or ENS Name
+### /users/\:addressOrENS/following
+
+Get following by Address or ENS Name
+
+TODO: pagination
 
 ```sh
 curl https://api.ethfollow.xyz/api/v1/users/dr3a.eth/following
@@ -88,7 +96,11 @@ curl https://api.ethfollow.xyz/api/v1/users/dr3a.eth/following
 }
 ```
 
-#### Get list records by Address or ENS Name
+### /users/\:addressOrENS/list-records
+
+Get list records by Address or ENS Name
+
+TODO: pagination
 
 ```sh
 curl https://api.ethfollow.xyz/api/v1/users/dr3a.eth/list-records
@@ -138,7 +150,9 @@ curl https://api.ethfollow.xyz/api/v1/users/dr3a.eth/list-records
 }
 ```
 
-#### Get primary list by Address or ENS Name
+### /users/\:addressOrENS/primary-list
+
+Get primary list by Address or ENS Name
 
 ```sh
 curl http://api.ethfollow.xyz/api/v1/users/dr3a.eth/primary-list
@@ -151,7 +165,9 @@ curl http://api.ethfollow.xyz/api/v1/users/dr3a.eth/primary-list
 }
 ```
 
-#### Get number of followers and following by Address or ENS Name
+### /users/\:addressOrENS/stats
+
+Get number of followers and following by Address or ENS Name
 
 ```sh
 curl http://api.ethfollow.xyz/api/v1/users/dr3a.eth/stats

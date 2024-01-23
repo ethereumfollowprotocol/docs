@@ -11,14 +11,16 @@ This is currently a test API with fake data and will receive updates with additi
 
 API URL: [`https://api.ethfollow.xyz/api/v1`](https://api.ethfollow.xyz/api/v1)
 
-### Available `/leaderboard` Endpoints
+# Routes
 
 ```sh
 GET /leaderboard/followers?limit=10
 GET /leaderboard/following?limit=10
 ```
 
-#### Get leaderboard - most followers
+## /leaderboard/followers
+
+Get leaderboard - most followers
 
 ```sh
 curl https://api.ethfollow.xyz/api/v1/leaderboard/followers?limit=3
@@ -45,7 +47,9 @@ curl https://api.ethfollow.xyz/api/v1/leaderboard/followers?limit=3
 ]
 ```
 
-#### Get leaderboard - most following
+## /leaderboard/following
+
+Get leaderboard - most following
 
 ```sh
 curl https://api.ethfollow.xyz/api/v1/leaderboard/following?limit=3
