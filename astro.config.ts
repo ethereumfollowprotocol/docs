@@ -1,9 +1,9 @@
-import process from 'node:process'
-import sentry from '@sentry/astro'
-import tailwind from '@astrojs/tailwind'
 import starlight from '@astrojs/starlight'
-import { defineConfig } from 'astro/config'
+import tailwind from '@astrojs/tailwind'
+import sentry from '@sentry/astro'
 import spotlightjs from '@spotlightjs/astro'
+import { defineConfig } from 'astro/config'
+import process from 'node:process'
 import starlightLinksValidator from 'starlight-links-validator'
 
 const SITE_URL = 'https://docs.ethfollow.xyz'
@@ -61,9 +61,40 @@ export default defineConfig({
         {
           label: 'Specification',
           collapsed: false,
-          autogenerate: {
-            directory: 'design'
-          }
+          items: [
+            {
+              label: 'List Registry',
+              link: '/design/list-registry'
+            },
+            {
+              label: 'Roles',
+              link: '/design/roles'
+            },
+            {
+              label: 'Account Metadata',
+              link: '/design/account-metadata'
+            },
+            {
+              label: 'List Metadata',
+              link: '/design/list-metadata'
+            },
+            {
+              label: 'List Storage Location',
+              link: '/design/list-storage-location'
+            },
+            {
+              label: 'List Records',
+              link: '/design/list-records'
+            },
+            {
+              label: 'Tags',
+              link: '/design/tags'
+            },
+            {
+              label: 'List Ops',
+              link: '/design/list-ops'
+            }
+          ]
         },
         {
           label: 'Public API',
