@@ -52,7 +52,6 @@
   --code-bg: #393a34;
   --noise-container-opacity: 0.2;
   --noise-container-bg: white;
-  --noise-bg-image: url(/noise.svg);
 }
 
 a,
@@ -91,12 +90,12 @@ a > svg {
   overflow: hidden;
   background-image: var(--noise-container-bg);
 }
-
+/*
 pre,
 code {
   font-size: 15px !important;
   border-radius: 0px 0px 3px 3px !important;
-}
+} */
 
 html,
 body {
@@ -120,6 +119,11 @@ h1[data-page-title] {
   font-size: 4.2rem;
   font-weight: 900;
   line-height: 1.2;
+}
+
+[data-table-width-hack] + table {
+  display: revert !important;
+  width: 100% !important;
 }
 
 pre,
