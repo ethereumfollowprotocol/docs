@@ -25,13 +25,15 @@ Every EFP List has three roles, each of which are held by an Ethereum address.
    - Can add/remove list records and add/remove tags
    - Can add metadata key/value to the list
 3. **User:**
-   - The Ethereum address for whom the list is intended; the Ethereum address that is following the Ethereum addresses in the list.
+   - The Ethereum address for whom the list is intended; the Ethereum address that is following the Ethereum addresses in the EFP List.
 
 Typically, all three roles (Owner, Manager, User) are the same Ethereum address, but they can be different.
 
 ---
 
-### Record Storage
+### List Storage Location
+
+(TODO: change description to List URI)
 
 Your EFP List NFT specifies a **List Storage Location** where the **List Records** are stored, which can be one of the following:
 
@@ -39,13 +41,17 @@ Your EFP List NFT specifies a **List Storage Location** where the **List Records
 - Ethereum L2 smart contract address
 - CCIP-read pointers for off-chain storage (future)
 
-The List Storage Location itself (the smart contract or off-chain system) must specify a **Manager** role, typically an Ethereum account that is able to edit the List Records. Typically, the Manager will be the same Ethereum account as the Owner and User roles of the EFP List NFT, but they can be different.
+The List Storage Location itself (the smart contract or off-chain system) must specify a Manager role, typically an Ethereum account that is able to edit the List Records. Typically, the Manager will be the same Ethereum account as the Owner and User roles of the EFP List NFT, but they can be different.
 
 ---
 
-### List Record Types
+### List Records
 
-- **Address Record:**
+An EFP List is formed from a set of **List Records**.
+
+Each record has a record type, but only one record type is supported at launch:
+
+- **Address Record**
   - Contains an Ethereum address, with zero or more tags.
   - These records are typically interpreted as a "follow" of the specified Ethereum address, with some exceptions explained in the Followers section below.
 
@@ -80,7 +86,23 @@ Users can use additional arbitrary custom tags.
 
 ---
 
-### Followers/Following Counts
+### Primary EFP List
+
+Every Ethereum account may set a **Primary List** value in the EFP Account Metadata contract to specify their "primary" EFP List.
+
+_dApps should first check the Primary List value for an Ethereum account, and if set, default to using that EFP List for that Ethereum account._
+
+### Social Graph
+
+The User role of each EFP list determines which Ethereum account is following the Ethereum addresses in that EFP List.
+
+The social graph is formed from the union of all EFP Lists, except:
+
+- **no user**: exclude EFP lists where the User role is not set
+- **not primary list**: exclude EFP lists where the User role is set but does not match the Primary EFP List for that Ethereum Account
+- **ambiguous list choice**: exclude EFP lists where the User role is set, there are multiple EFP lists with the same User role, and the Primary EFP List for that Ethereum Account is not set
+
+### Followers/Following Calculation
 
 #### Definition
 
@@ -89,7 +111,7 @@ Users can use additional arbitrary custom tags.
 - Exclude records with either the "block" or "mute" tags, even if the records have other tags.
 - Multiple EFP Lists with the same User are counted as a single follower.
 
-**Following** is the total number of List Records of a user's EFP List, with the following additional conditions:
+**Following** is the total number of List Records of a user's primary EFP List, with the following additional conditions:
 
 - Exclude records with either the "block" or "mute" tags, even if the records have other tags.
 - Multiple Address Records with the same Ethereum address are counted as a single follow.
