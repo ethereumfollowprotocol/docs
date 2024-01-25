@@ -4,13 +4,13 @@ title: Introduction
 
 Ethereum Follow Protocol (EFP) is the social graph for Ethereum.
 
-### EFP List NFT
+## EFP List NFT
 
 Users mint an EFP List NFT to create an **EFP List**.
 
 Minting an EFP List NFT is free (plus gas).
 
-#### Roles
+### Roles
 
 Every EFP List has three roles, each of which are held by an Ethereum address.
 
@@ -31,9 +31,7 @@ Typically, all three roles (Owner, Manager, User) are the same Ethereum address,
 
 ---
 
-### List Storage Location
-
-(TODO: change description to List URI)
+## List Storage Location
 
 Your EFP List NFT specifies a **List Storage Location** where the **List Records** are stored, which can be one of the following:
 
@@ -45,7 +43,7 @@ The List Storage Location itself (the smart contract or off-chain system) must s
 
 ---
 
-### List Records
+## List Records
 
 An EFP List is formed from a set of **List Records**.
 
@@ -57,13 +55,13 @@ Each record has a record type, but only one record type is supported at launch:
 
 ---
 
-### Tags
+## Tags
 
 List Records can have zero or more tags.
 
 A few tags are standardized with specified semantics. Users may also set custom tags.
 
-#### Standard Tags
+### Standard Tags
 
 - **no tag**
 
@@ -80,7 +78,7 @@ A few tags are standardized with specified semantics. Users may also set custom 
   - List Records with this tag are not included in Followers count, even if the List Record has other tags.
   - If both “block” and “mute” tags are present, “block” takes precedence.
 
-#### Custom Tags
+### Custom Tags
 
 Users can use additional arbitrary custom tags. A custom tag can be any UTF-8 string with the following constraints:
 
@@ -90,13 +88,17 @@ Users can use additional arbitrary custom tags. A custom tag can be any UTF-8 st
 
 ---
 
-### Primary EFP List
+## Account Metadata
+
+### Primary List
 
 Every Ethereum account may set a **Primary List** value in the EFP Account Metadata contract to specify their "primary" EFP List.
 
-_dApps should first check the Primary List value for an Ethereum account, and if set, default to using that EFP List for that Ethereum account._
+Apps should first check the Primary List value for an Ethereum account, and if set, default to using that EFP List for that Ethereum account.
 
-### Social Graph
+---
+
+## Social Graph
 
 The User role of each EFP list determines which Ethereum account is following the Ethereum addresses in that EFP List.
 
@@ -106,14 +108,14 @@ The social graph is formed from the union of all EFP Lists, except:
 - **not primary list**: exclude EFP lists where the User role is set but does not match the Primary EFP List for that Ethereum Account
 - **ambiguous list choice**: exclude EFP lists where the User role is set, there are multiple EFP lists with the same User role, and the Primary EFP List for that Ethereum Account is not set
 
-### Followers/Following Calculation
-
-#### Definition
+### Followers
 
 **Followers** is the total number of EFP Lists that have an Address Record with a specific Ethereum address, with the following additional conditions:
 
 - Exclude records with either the "block" or "mute" tags, even if the records have other tags.
 - Multiple EFP Lists with the same User are counted as a single follower.
+
+### Following
 
 **Following** is the total number of List Records of a user's primary EFP List, with the following additional conditions:
 
