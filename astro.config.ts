@@ -132,6 +132,27 @@ export default defineConfig({
           }
         },
         {
+          tag: 'meta',
+          attrs: {
+            property: 'twitter:card',
+            content: 'summary_large_image'
+          }
+        },
+        {
+          tag: 'meta',
+          attrs: {
+            property: 'twitter:description',
+            content: 'The social graph for Ethereum.'
+          }
+        },
+        {
+          tag: 'meta',
+          attrs: {
+            property: 'twitter:title',
+            content: 'Ethereum Follow Protocol'
+          }
+        },
+        {
           tag: 'script',
           attrs: {
             type: 'module',
