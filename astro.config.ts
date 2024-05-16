@@ -127,6 +127,7 @@ export default defineConfig({
           tag: 'meta',
           attrs: {
             name: 'twitter:image',
+            property: 'twitter:image',
             content: `${SITE_URL}/og.png`
           }
         },
