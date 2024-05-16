@@ -148,6 +148,20 @@ export default defineConfig({
         {
           tag: 'meta',
           attrs: {
+            property: 'twitter:domain',
+            content: 'ethfollow.xyz'
+          }
+        },
+        {
+          tag: 'meta',
+          attrs: {
+            property: 'twitter:url',
+            content: 'https://ethfollow.xyz'
+          }
+        },
+        {
+          tag: 'meta',
+          attrs: {
             property: 'twitter:title',
             content: 'Ethereum Follow Protocol'
           }
