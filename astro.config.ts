@@ -168,7 +168,7 @@ export default defineConfig({
           attrs: {
             name: 'twitter:title',
             property: 'twitter:title',
-            content: 'Ethereum Follow Protocol'
+            content: 'Ethereum Follow Protocol - Documentation'
           }
         },
         {
