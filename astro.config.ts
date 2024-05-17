@@ -134,6 +134,7 @@ export default defineConfig({
         {
           tag: 'meta',
           attrs: {
+            name: 'twitter:card',
             property: 'twitter:card',
             content: 'summary_large_image'
           }
@@ -141,6 +142,7 @@ export default defineConfig({
         {
           tag: 'meta',
           attrs: {
+            name: 'twitter:description',
             property: 'twitter:description',
             content: 'The social graph for Ethereum.'
           }
@@ -148,6 +150,7 @@ export default defineConfig({
         {
           tag: 'meta',
           attrs: {
+            name: 'twitter:domain',
             property: 'twitter:domain',
             content: 'ethfollow.xyz'
           }
@@ -155,6 +158,7 @@ export default defineConfig({
         {
           tag: 'meta',
           attrs: {
+            name: 'twitter:url',
             property: 'twitter:url',
             content: 'https://ethfollow.xyz'
           }
@@ -162,6 +166,7 @@ export default defineConfig({
         {
           tag: 'meta',
           attrs: {
+            name: 'twitter:title',
             property: 'twitter:title',
             content: 'Ethereum Follow Protocol'
           }
