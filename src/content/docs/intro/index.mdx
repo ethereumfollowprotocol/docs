@@ -115,7 +115,7 @@ The social graph is formed from the union of all EFP Lists, except:
 **Followers** is the total number of EFP Lists that have an Address Record with a specific Ethereum address, with the following additional conditions:
 
 - Exclude records with either the "block" or "mute" tags, even if the records have other tags.
-- Multiple EFP Lists with the same User are counted as a single follower.
+- Exclude lists that are not set as an account’s primary list.
 
 ### Following
 
