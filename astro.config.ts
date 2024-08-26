@@ -93,6 +93,10 @@ export default defineConfig({
             {
               label: 'List Ops',
               link: '/design/list-ops'
+            },
+            {
+              label: 'Glossary',
+              link: '/design/glossary'
             }
           ]
         },
