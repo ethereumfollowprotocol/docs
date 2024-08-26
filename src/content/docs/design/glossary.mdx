@@ -1,0 +1,157 @@
+---
+title: List Ops
+---
+
+A **List Op** is a structure used to encapsulate an operation performed on an EFP List. It includes the following fields:
+
+- `version`: A `uint8` representing the version of the List Op. This byte defines the schema of the subsequent bytes for encoding/decoding. This is used to ensure compatibility and facilitate future upgrades.
+- `opcode`: A `uint8` indicating the operation code. This defines the action to be taken using the List Op.
+- `data`: A `bytes` array which holds the operation-specific data. For instance, if the operation involves adding a List Record, this field would contain the encoded List Record.
+
+The version is always `1`.
+
+## Operation Codes
+
+There are four operations defined at this time:
+
+| Code    | Operation     | Data                                 |
+| ------- | ------------- | ------------------------------------ |
+| 0       | Reserved      | N/A                                  |
+| 1       | Add record    | Encoded `ListRecord`                 |
+| 2       | Remove record | Encoded `ListRecord`                 |
+| 3       | Tag record    | Encoded `ListRecord` followed by tag |
+| 4       | Untag record  | Encoded `ListRecord` followed by tag |
+| 5 - 255 | Reserved      | N/A                                  |
+
+## Encoding
+
+`ListOps` are encoded as byte arrays, starting with a one-byte `version` and a one-byte `opcode`, followed by the `data` of variable length.
+
+```
++------------------+-----------------+-------------------------------+
+| version (1 byte) | opcode (1 byte) | data (variable length)        |
++------------------+-----------------+-------------------------------+
+```
+
+The encoding of a `ListOp` is designed to be flexible, accommodating various types of operations and their corresponding data structures.
+
+| Byte(s) | Description                     |
+| ------- | ------------------------------- |
+| 0       | `ListOp` version (1 byte)       |
+| 1       | Operation code (1 byte)         |
+| 2 - N   | Encoded operation-specific data |
+
+The `2 - N` byte range is variable and depends on the operation being performed.
+
+### Example - Add Record
+
+The following is an example of an encoded `ListOp` for adding a `ListRecord` of type 1 (address record) to a list:
+
+| Byte(s) | Description                       | Value                                        |
+| ------- | --------------------------------- | -------------------------------------------- |
+| 0       | `ListOp` version (1 byte)         | `0x01`                                       |
+| 1       | Operation code (1 byte)           | `0x01`                                       |
+| 2       | `ListRecord` version (1 byte)     | `0x01`                                       |
+| 3       | `ListRecord` record type (1 byte) | `0x01`                                       |
+| 4 - 23  | `ListRecord` data (20 bytes)      | `0x00000000000000000000000000000000DeaDBeef` |
+
+### Example - Remove Record
+
+The following is an example of an encoded `ListOp` for removing a `ListRecord` of type 1 (address record) from a list:
+
+| Byte(s) | Description                       | Value                                        |
+| ------- | --------------------------------- | -------------------------------------------- |
+| 0       | `ListOp` version (1 byte)         | `0x01`                                       |
+| 1       | Operation code (1 byte)           | `0x02`                                       |
+| 2       | `ListRecord` version (1 byte)     | `0x01`                                       |
+| 3       | `ListRecord` record type (1 byte) | `0x01`                                       |
+| 4 - 23  | `ListRecord` data (20 bytes)      | `0x00000000000000000000000000000000DeaDBeef` |
+
+### Example - Tag Record
+
+The following is an example of an encoded `ListOp` for tagging a `ListRecord` of type 1 (address record) in a list:
+
+| Byte(s) | Description                       | Value                                        |
+| ------- | --------------------------------- | -------------------------------------------- |
+| 0       | `ListOp` version (1 byte)         | `0x01`                                       |
+| 1       | Operation code (1 byte)           | `0x03`                                       |
+| 2       | `ListRecord` version (1 byte)     | `0x01`                                       |
+| 3       | `ListRecord` record type (1 byte) | `0x01`                                       |
+| 4 - 23  | `ListRecord` data (20 bytes)      | `0x00000000000000000000000000000000DeaDBeef` |
+| 24 - N  | Tag (variable) (UTF-8)            | `0x746167` ("tag")                           |
+
+The tag should be encoded as UTF-8.
+
+### Example - Untag Record
+
+The following is an example of an encoded `ListOp` for untagging a `ListRecord` of type 1 (address record) in a list:
+
+| Byte(s) | Description                       | Value                                        |
+| ------- | --------------------------------- | -------------------------------------------- |
+| 0       | `ListOp` version (1 byte)         | `0x01`                                       |
+| 1       | Operation code (1 byte)           | `0x04`                                       |
+| 2       | `ListRecord` version (1 byte)     | `0x01`                                       |
+| 3       | `ListRecord` record type (1 byte) | `0x01`                                       |
+| 4 - 23  | `ListRecord` data (20 bytes)      | `0x00000000000000000000000000000000DeaDBeef` |
+| 24 - N  | Tag (variable) (UTF-8)            | `0x746167` ("tag")                           |
+
+The tag should be encoded as UTF-8.
+
+## Code
+
+List Op can be represented as a type in any programming language. Here are some examples:
+
+#### Go
+
+```go
+type ListOp struct {
+    Version uint8
+    Opcode  uint8
+    Data    []byte
+}
+```
+
+#### Python
+
+```python
+class ListOp:
+    version: int    # 0-255
+    opcode: int     # 0-255
+    data: bytes
+```
+
+#### Rust
+
+```rust
+struct ListOp {
+    version: u8,
+    opcode: u8,
+    data: Vec<u8>,
+}
+```
+
+#### Solidity
+
+```solidity
+/**
+ * @dev The EFP contracts don't use this struct; they only store list ops
+ * as `bytes` with the version, opcode, and data fields tightly packed
+ * into a single `bytes` value. However, this struct can be useful for
+ * offchain processing with foundry or other Solidity tooling
+ */
+struct ListOp {
+    uint8 version;
+    uint8 opcode;
+    bytes data;
+}
+```
+
+#### TypeScript
+
+```typescript
+type ListOp = {
+  version: number // 0-255
+  opcode: number // 0-255
+  data: Uint8Array
+}
+```
