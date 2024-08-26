@@ -2,4 +2,80 @@
 title: Glossary
 ---
 
-**List Op** (or **List Operation**): an operation performed on an EFP List, such as following a particular account, unfollowing, tagging, untagging.
+**Account** (or **Ethereum account**)
+>An EVM account. There are no "EFP accounts".
+
+**Account Metadata**
+> EFP provides an Account Metadata contract that allows users to set EFP-related metadata specific to their Ethereum account, such as identifying the Primary List for that Ethereum account. (see [Account Metadata](https://docs.ethfollow.xyz/design/account-metadata/))
+
+**Address** (or **Ethereum address**)
+>An EVM address (e.g. 0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045). There are no "EFP addresses".
+
+**Block**
+>A standard tag that means neither the user nor the blocked account should see each other’s activity in a relevant app; lists with this tag are not included in Followers count, even if the list tags the account with other tags; if both “block” and “mute” tags are present, “block” takes precedence. (see [Tags](https://docs.ethfollow.xyz/design/tags/))
+
+**EFP app**
+>Web app that enables someone to create and manage a List on EFP. (see [EFP website](https://ethfollow.xyz/))
+
+**Ethereum Follow Protocol** (or **EFP**)
+>An onchain social graph protocol for Ethereum accounts. The protocol whose docs you are currently reading. (see [EFP website](https://ethfollow.xyz/))
+
+**Ethereum Name Service** (or **ENS**)
+>A distributed, open, and extensible naming system based on the Ethereum blockchain. EFP is designed to complement ENS, and the EFP web app makes extensive use of ENS for names, avatar, and other profile data. (see [ENS website](https://ens.domains/))
+
+**Followers**
+>The total number of Primary Lists that follow a particular Ethereum account, excluding lists that tag them with "block" or "mute".
+
+**Following**
+>The total number of Ethereum accounts followed by a list, excluding accounts tagged with "block" or "mute".
+
+**List**
+>An NFT in the EFP List Registry and its accompanying List Storage Location data.
+
+**List Metadata**
+>Metadata for a list, stored alongside List Records in a list's List Storage Location, that specifies the Ethereum accounts set for the roles Manager and User.
+
+**List Number**
+>The token ID for the NFT that represents a list.
+
+**List Ops** (or **List Operation**)
+>The same as a **List Record**; An operation performed on an EFP List, such as appending a list record (for following a particular Ethereum account, unfollowing, tagging, untagging).
+
+**List Record**
+>The same as a **List Op**; An operation performed on an EFP List, such as appending a list record (for following a particular Ethereum account, unfollowing, tagging, untagging).
+
+**List Records**
+>The set of list operations stored at your List Storage Location. (see [List Records](https://docs.ethfollow.xyz/design/list-records/))
+
+**List Registry**
+>An Ethereum ERC-721 contract where the NFT represents ownership of a particular list.
+
+**List Settings**
+>A term used in the EFP app that refers to a variety of settings for a list, including: the list's List Storage Location; whether the list is set as a Primary List; the Ethereum accounts set for the roles Owner, Manager, and User.
+
+**List Storage Location**
+>Where the records for a list are stored. (see [List Storage Location](https://docs.ethfollow.xyz/design/list-storage-location/))
+
+**Manager**
+>The Ethereum account that can edit a list's records. By default when a list is created, all three roles (Owner, Manager, and User) are set as the Ethereum account that created the list. Typically, all three roles remain the same account, but they can be changed to be different. (see [Roles](https://docs.ethfollow.xyz/design/roles/))
+
+**Mute**
+> A standard tag that means the user shouldn’t see the muted account’s activity in a relevant app, but the muted account might still be able to see the user’s activity; lists with this tag are not included in Followers count, even if the list tags the account with other tags; if both “block” and “mute” tags are present, “block” takes precedence. (see [Tags](https://docs.ethfollow.xyz/design/tags/))
+
+**Mutuals**
+>Ethereum accounts that an Ethereum account follows who follow them back.
+
+**Owner**
+>The Ethereum account that ultimately controls a List. By default when a list is created, all three roles (Owner, Manager, and User) are set as the Ethereum account that created the list. Typically, all three roles remain the same account, but they can be changed to be different. (see [Roles](https://docs.ethfollow.xyz/design/roles/))
+
+**Primary List**
+>The one list an Ethereum account has confirmed to represent who they follow. While an Ethereum account may have roles in more than one list, an Ethereum account can only have one Primary List. (see [Account Metadata](https://docs.ethfollow.xyz/design/account-metadata/))
+
+**Social Graph**
+>The sum total of relationships between Ethereum accounts held in EFP, counting only Primary Lists. Any list that is not set as a Primary List is not included.
+
+**Tag**
+>A Tag is a string associated with a List Record in an EFP list. List Records can have zero or more tags. A few tags are standardized with specified semantics. Users may also set custom tags. (see [Tags](https://docs.ethfollow.xyz/design/tags/))
+
+**User**
+>The Ethereum account for whom the list is intended; the Ethereum account that is following the Ethereum accounts in the list. By default when a list is created, all three roles (Owner, Manager, and User) are set as the Ethereum account that created the list. Typically, all three roles remain the same account, but they can be changed to be different. (see [Roles](https://docs.ethfollow.xyz/design/roles/))
