@@ -50,13 +50,15 @@
   --sl-color-black: #17181c;
   --sl-color-bg: transparent !important;
   --code-bg: #393a34;
-  --noise-container-opacity: 0.2;
+  --noise-container-opacity: 0.5;
   --noise-container-bg: white;
 }
 
 a,
 a:visited {
   text-decoration: none;
+  font-weight: 500;
+  transition: all 0.2s;
 }
 
 a > article > div > p {
@@ -70,6 +72,11 @@ div > a > span {
 
 a > svg {
   color: var(--sl-color-text);
+}
+
+a:hover {
+  color: var(--sl-color-text);
+  transform: scale(1.05);
 }
 
 .noise {
@@ -106,6 +113,7 @@ body {
   margin: 0;
   padding: 0;
   scroll-behavior: smooth;
+
 }
 
 html {
@@ -138,6 +146,10 @@ a svg {
   height: 1.5rem;
 }
 
+a svg:hover {
+  transform: scale(1.1);
+}
+
 header {
   -webkit-backdrop-filter: blur(16px);
   backdrop-filter: blur(16px);
@@ -145,7 +157,7 @@ header {
 }
 
 p > code {
-  color: #ff79c9 !important;
+  color: #eeeeee !important;
 }
 
 p > a {
@@ -153,8 +165,9 @@ p > a {
 }
 
 p > a:hover {
-  color: #ff79c9 !important;
-  text-decoration: none !important;
+  color: #888888 !important;
+  transform: scale(1.1);
+  transition: all;
 }
 
 .hero {
@@ -209,7 +222,7 @@ a.site-title > img {
 }
 
 ::selection {
-  background-color: #f9a8d4;
+  background-color: #FFBDE3;
   color: rgb(36, 36, 36);
 }
 
@@ -249,11 +262,11 @@ a.action {
 }
 
 a.primary {
-  background-image: linear-gradient(45deg, #f9f9be, #fb8ed0) !important;
+  background-image: linear-gradient(to bottom, #FFDE60, #FFA997) !important;
 }
 
 a.minimal {
-  background: -webkit-linear-gradient(45deg, #ff79c9, #ffff96) !important;
+  background: -webkit-linear-gradient(270deg, #FFDE60, #FFA997) !important;
   -webkit-background-clip: text !important;
   background-clip: text !important;
   -webkit-text-fill-color: transparent !important;

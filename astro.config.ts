@@ -34,7 +34,7 @@ export default defineConfig({
       social: {
         github: 'https://github.com/ethereumfollowprotocol',
         discord: 'https://discord.ethfollow.xyz',
-        'x.com': 'https://x.com/ethfollowpr'
+        'x.com': 'https://x.com/efp'
       },
       locales: {
         root: {
@@ -106,6 +106,16 @@ export default defineConfig({
             text: '/api/v1',
             variant: 'tip'
           }
+        },
+        {
+          label: 'Design Components',
+          collapsed: false,
+          items: [
+            {
+              label: 'Logos',
+              link: '/design-components/logos'
+            }
+          ]
         }
       ],
       head: [
