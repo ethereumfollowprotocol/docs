@@ -1,117 +1,35 @@
 ---
-title: Introduction
+title: Bug Bounty
 ---
 
-Ethereum Follow Protocol (EFP) is an onchain social graph protocol for Ethereum accounts.
+## Rewards
 
-## EFP List NFT
+Up to $5,000 USD (paid exclusively in Ethereum L1 based USDC) for each verified bug in the smart contracts listed below, depending on the severity and impact of the vulnerability.
 
-Users mint an EFP List NFT to create an **EFP List**.
+## Qualifying Smart Contracts
 
-Minting an EFP List NFT is free (plus gas).
+- [EFPListRegistry.sol](https://github.com/ethereumfollowprotocol/contracts/blob/master/src/EFPListRegistry.sol)
+- [EFPAccountMetadata.sol](https://github.com/ethereumfollowprotocol/contracts/blob/master/src/EFPAccountMetadata.sol)
+- [EFPListMinter.sol](https://github.com/ethereumfollowprotocol/contracts/blob/master/src/EFPListMinter.sol)
+- [EFPListRecords.sol](https://github.com/ethereumfollowprotocol/contracts/blob/master/src/EFPListRecords.sol)
 
-### Roles
+Bugs, fix, or suggested improvements to the EFP app, Indexer, API, and other EFP-related code can be reported as issues on their respective repos and are not covered by this bug bounty program.
 
-Every EFP List has three roles, each of which are held by an Ethereum address.
+## How to Report a Bug
 
-1. **Owner:**
-   - Is the owner of the EFP List NFT
-   - Can transfer ownership of the EFP List NFT
-   - Can edit the List Storage Location, which stores the records for that list, as well as who the Manager and User are
-2. **Manager:**
-   - Is the manager of the EFP list records and metadata
-   - Can transfer the Manager role to another address
-   - Can set or update the user
-   - Can add/remove list records and add/remove tags
-   - Can add metadata key/value to the list
-3. **User:**
-   - The Ethereum address for whom the list is intended; the Ethereum address that is following the Ethereum addresses in the EFP List.
+Email us at [bugbounty@ethfollow.xyz](mailto:bugbounty@ethfollow.xyz). Your report should include:
 
-Typically, all three roles (Owner, Manager, User) are the same Ethereum address, but they can be different.
+- A detailed description of the vulnerability
+- Steps to reproduce the issue
+- Potential impact and severity assessment
+- Any suggested fixes or mitigations
 
----
+Provide as much detail as possible to help us understand and resolve the issue efficiently.
 
-## List Storage Location
+## Eligibility and Responsible Disclosure
 
-Your EFP List NFT specifies a **List Storage Location** where the **List Records** are stored, which can be one of the following:
+To be eligible for a reward, you must adhere to the following rules:
 
-- Ethereum L1 smart contract
-- Ethereum L2 smart contract
-- CCIP-read pointers for off-chain storage (future)
-
-The List Storage Location itself (the smart contract or off-chain system) must specify a Manager role, an Ethereum account that is able to edit the List Records. Typically, the Manager will be the same Ethereum account as the Owner and User roles of the EFP List NFT, but they can be different.
-
----
-
-## List Records
-
-An EFP List is formed from a set of **List Records**.
-
-Each record has a record type, but only one record type is supported at launch:
-
-- **Address Record**
-  - Contains an Ethereum address, with zero or more tags.
-  - These records are typically interpreted as a "follow" of the specified Ethereum address, with some exceptions explained in the Followers section below.
-
----
-
-## Tags
-
-List Records can have zero or more tags.
-
-A few tags are standardized with specified semantics. Users may also set custom tags.
-
-### Standard Tags
-
-- **no tag**
-
-  - If a List Record has no tags, it is interpreted as a simple follow without further categorization.
-
-- **"block"**
-
-  - This tag means neither the user nor the blocked account should see each other’s activity in a relevant app.
-  - List Records with this tag are not included in Followers count, even if the List Record has other tags.
-  - If both “block” and “mute” tags are present, “block” takes precedence.
-
-- **"mute"**
-  - This tag means the user shouldn't see the muted account’s activity in a relevant app, but the muted account might still be able to see the user’s activity.
-  - List Records with this tag are not included in Followers count, even if the List Record has other tags.
-  - If both “block” and “mute” tags are present, “block” takes precedence.
-
-### Custom Tags
-
-Users can use additional arbitrary custom tags. A custom tag can be any UTF-8 string with the following constraints:
-
-- maximum length of 255 bytes
-- no leading or trailing whitespace
-- more constraints to be added as needed
-
----
-
-## Account Metadata
-
-EFP provides an Account Metadata contract that allows users to set EFP-related metadata specific to their Ethereum account, namely to specify a Primary List.
-
-### Primary List
-
-Determining if a list is a Primary List is a two step process: the Ethereum account that set it as the Primary List in Account Metadata must match the User role for the list.
-
-Apps should first check the Primary List value for an Ethereum account, and if set, default to using that EFP List for that Ethereum account.
-
-Only Primary Lists are counted as Followers.
-
-
----
-
-## Social Graph
-
-The social graph is formed from the union of all Primary Lists. The User role of each Primary List determines which Ethereum account is following the Ethereum addresses in that List.
-
-
-### Followers
-
-**Followers** is the total number of EFP Primary Lists that follow a particular account, excluding those whoe block or mute the account.
-
-### Following
-
-**Following** is the total number of unique Ethereum accounts followed by a list, excluding accounts tagged with “block” or “mute”.
+- Only report vulnerabilities related to Ethereum Follow Protocol's smart contracts.
+- Do not publicly disclose the vulnerability until we have had adequate time to investigate and deploy a fix.
+- Avoid any actions that would disrupt our services or compromise user data.
