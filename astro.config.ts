@@ -60,7 +60,7 @@ export default defineConfig({
         },
         {
           label: 'Demo',
-          link: 'https://ethfollow.xyz/'
+          link: 'https://demo.ethfollow.xyz/'
         },
         {
           label: 'Specification',
