@@ -4,7 +4,7 @@ title: Account Metadata
 
 Every Ethereum account (address) automatically is supported by EFP. Users may follow any other address and any address can mint an EFP List NFT.
 
-It useful to store EFP-related metadata that is specific to an account, such as a user's primary EFP list. This is key-value metadata for an account is called **EFP Account Metadata**.
+It useful to store EFP-related metadata that is specific to an account, such as a user's primary EFP list. This is key-value metadata for an account is called **Account Metadata**.
 
 Any Ethereum account may store key-value data in the `EFPAccountMetadata` contract specific to their account.
 
@@ -24,9 +24,9 @@ There is only one global key for account metadata currently defined.
 
 ## primary-list
 
-The `primary-list` key is used to store the primary EFP List for an account.
+The `primary-list` key is used to specify the Primary List for an account. (Note: For a list to be considered a Primary List, the User role for the list must match the account that specified the list as its Primary List in Account Metadata. Only Primary Lists are counted in Followers.)
 
-The primary EFP List is represented as a 32-byte token id.
+The Primary List is represented as a 32-byte token id.
 
 | Byte(s) | Description | Value |
 | --- | --- | --- |

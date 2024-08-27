@@ -2,26 +2,26 @@
 title: List Metadata
 ---
 
-Every EFP List has associated key-value metadata called **EFP List Metadata**.
+Every EFP List has associated key-value metadata called **List Metadata**.
 
-List metadata is stored onchain alongside list records in the same contract, but in a different format (key-value pairs).
+List Metadata is stored onchain alongside List Records in the same contract, but in a different format (key-value pairs).
 
 Data is stored with a `string` key and `bytes` value, for each EFP List.
 
-Only the manager of the EFP List can set or update the metadata for a list.
+Only the Manager of the EFP List can set or update the metadata for a list.
 
-This allows EFP List managers to store list-specific configuration or preference data.
+This allows Managers to store list-specific configuration or preference data.
 
 ## Global keys
 
 Global Keys must be made up of lowercase letters, numbers and the hyphen (-) character.
 
-There are currently two global keys defined for EFP List metadata:
+There are currently two global keys defined for List Metadata:
 
 | Key       | Description                                                            |
 | --------- | ---------------------------------------------------------------------- |
-| `manager` | The Ethereum address of the Manager role associated with the EFP List. |
-| `user`    | The Ethereum address of the User role associated with the EFP List.    |
+| `manager` | The Ethereum address of the Manager role associated with the EFP List, which is able to edit List Records.|
+| `user`    | The Ethereum address of the User role associated with the EFP List, which is the Ethereum account that is following the Ethereum accounts in the list.|
 
 ### "manager"
 
@@ -40,7 +40,7 @@ The manager is represented as a 20-byte address.
 efpListMetadata.setValue(tokenId, "manager", abi.encodePacked(manager));
 ```
 
-By reading the `manager` key for a given EFP List, a client can determine the Manager associated with that list.
+By reading the `manager` key for a given List, a client can determine the Manager associated with that list.
 
 ```solidity
 address manager = abi.decode(efpListMetadata.getValue(tokenId, "manager"), (address));
