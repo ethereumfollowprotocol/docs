@@ -4,11 +4,11 @@ title: List Storage Location
 
 A **List Storage Location** defines where the list records and metadata are stored for an EFP List.
 
-The List Storage Location value is stored in the main EFP List Registry contract and can be changed at any time by the EFP List NFT owner.
+The List Storage Location value is stored in the main List Registry contract and can be changed at any time by the List NFT owner.
 
 ## Onchain Storage
 
-All EFP data is stored on either Ethereum or a supported L2.
+All EFP data is stored on either Ethereum L1 or a supported L2.
 
 An EFP List can be uniquely specified via three pieces of data:
 
@@ -21,8 +21,8 @@ The following chains are supported:
 | Chain ID | Name | Layer | Type | 32-Byte Chain ID |
 | --- | --- | --- | --- | --- |
 | 1 | Ethereum | L1 | Ethereum | `0x0000000000000000000000000000000000000000000000000000000000000001` |
-
-More chains will be announced prior to launch.
+| 8453 | Base | L2 | Ethereum | `0x0000000000000000000000000000000000000000000000000000000000002105` |
+| 10 | OP Mainnet | L2 | Ethereum | `0x000000000000000000000000000000000000000000000000000000000000000a` |
 
 ## Serialization
 
