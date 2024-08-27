@@ -15,7 +15,7 @@
   <a href="https://x.com/efp"><img src="https://img.shields.io/twitter/follow/efp?label=%40efp&style=social&link=https%3A%2F%2Fx.com%2Fefp" alt="x account" /></a>
 </p>
 
-<h1 align="center" style="font-size: 2.75rem; font-weight: 900; color: white;">Ethereum Follow Protocol</h1>
+<h1 align="center" style="font-size: 2.75rem; font-weight: 700; color: white;">Ethereum Follow Protocol</h1>
 
 > A native Ethereum protocol for following and tagging Ethereum accounts.
  

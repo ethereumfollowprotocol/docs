@@ -67,7 +67,7 @@ a > article > div > p {
 
 div > a > span {
   color: var(--sl-color-text);
-  font-weight: 900;
+  font-weight: 700;
 }
 
 a > svg {
@@ -125,7 +125,7 @@ html {
 
 h1[data-page-title] {
   font-size: 4.2rem;
-  font-weight: 900;
+  font-weight: 600;
   line-height: 1.2;
 }
 
@@ -156,9 +156,6 @@ header {
   border-bottom: 1px solid #0f111a14 !important;
 }
 
-p > code {
-  color: #eeeeee !important;
-}
 
 p > a {
   text-decoration: none !important;
@@ -180,7 +177,7 @@ p > a:hover {
 
 [data-page-title] {
   letter-spacing: 0.02em;
-  font-weight: 900 !important;
+  font-weight: 700 !important;
 }
 
 h1[data-page-title] span {
@@ -192,9 +189,9 @@ h1[data-page-title] span {
 }
 
 .site-title {
-  font-family: Inter, sans-serif;
+  font-family: Inter, sans-serif !important;
   font-size: 1.5rem;
-  font-weight: 600;
+  font-weight: 700 !important;
   color: #333333;
 }
 
@@ -232,7 +229,7 @@ a.site-title > img {
   }
   div h1[data-page-title] {
     font-size: 3.5rem;
-    font-weight: 900;
+    font-weight: 700;
   }
 
   .tagline {

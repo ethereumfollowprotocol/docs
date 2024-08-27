@@ -1,12 +1,12 @@
-import starlight from '@astrojs/starlight'
-import tailwind from '@astrojs/tailwind'
-import sentry from '@sentry/astro'
-import spotlightjs from '@spotlightjs/astro'
-import { defineConfig } from 'astro/config'
 import process from 'node:process'
+import sentry from '@sentry/astro'
+import tailwind from '@astrojs/tailwind'
+import starlight from '@astrojs/starlight'
+import { defineConfig } from 'astro/config'
+import spotlightjs from '@spotlightjs/astro'
 import starlightLinksValidator from 'starlight-links-validator'
 
-const SITE_URL = 'https://docs.ethfollow.xyz'
+const SITE_URL = 'https://docs.ethfollow.xyz/'
 
 // https://astro.build/config
 export default defineConfig({
@@ -57,6 +57,10 @@ export default defineConfig({
         {
           label: 'Introduction',
           link: '/intro'
+        },
+        {
+          label: 'Demo',
+          link: 'https://ethfollow.xyz/'
         },
         {
           label: 'Specification',
@@ -208,7 +212,6 @@ export default defineConfig({
         '@fontsource/inter/400.css',
         '@fontsource/inter/500.css',
         '@fontsource/inter/700.css',
-        '@fontsource/inter/900.css',
         '@fontsource/ibm-plex-mono/400.css',
         '@fontsource/ibm-plex-mono/600.css'
       ],

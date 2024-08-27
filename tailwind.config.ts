@@ -5,10 +5,10 @@ import typographyPlugin from '@tailwindcss/typography'
 import starlightPlugin from '@astrojs/starlight-tailwind'
 
 const linkHeadingStyles = {
-  color: colors.gray[100],
+  color: colors.gray[50],
   borderBottomColor: 'transparent',
   '&:hover': {
-    color: `${colors.gray[900]}`
+    color: `${colors.gray[600]}`
   }
 }
 
@@ -30,9 +30,6 @@ export default {
       }) => ({
         DEFAULT: {
           css: {
-            h1: {
-              fontFamily: theme('fontFamily.obviously')
-            },
             'h2 a': linkHeadingStyles,
             'h3 a': linkHeadingStyles,
             'h4 a': linkHeadingStyles,
@@ -82,16 +79,15 @@ export default {
         accent: {
           '50': '#fdf2f8',
           '100': '#fce7f3',
-          '200': '#fbcfe8',
-          '300': '#f9a8d4',
+          '200': '#FFBC84',
+          '300': '#FFBC84',
           '400': '#f472b6',
           '500': '#ec4899',
-          '600': '#ff63c1'
+          '600': '#FFB58C'
         },
         gray: colors.zinc
       },
       fontFamily: {
-        mono: ['"IBM Plex Mono"', ...defaultTheme.fontFamily.mono],
         serif: ['Inter', ...defaultTheme.fontFamily.serif],
         sans: ['InterVariable', 'Inter', ...defaultTheme.fontFamily.sans]
       }
