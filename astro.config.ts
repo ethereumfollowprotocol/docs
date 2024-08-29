@@ -59,7 +59,7 @@ export default defineConfig({
           link: '/intro'
         },
         {
-          label: 'Demo',
+          label: 'Integration Demo',
           link: 'https://demo.ethfollow.xyz/'
         },
         {
