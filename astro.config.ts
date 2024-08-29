@@ -124,6 +124,10 @@ export default defineConfig({
               link: '/design-components/logos'
             }
           ]
+        },
+        {
+          label: 'Bug Bounty',
+          link: '/bugbounty'
         }
       ],
       head: [
