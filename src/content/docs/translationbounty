@@ -1,0 +1,37 @@
+---
+title: Bug Bounty
+---
+
+## Rewards
+
+Up to **$10,000 USD** (paid in Ethereum L1 based USDC) for each verified bug in the smart contracts listed below, depending on the severity and impact of the vulnerability, determined at our discretion.
+
+## Qualifying Smart Contracts
+
+- [EFPListRegistry.sol](https://github.com/ethereumfollowprotocol/contracts/blob/master/src/EFPListRegistry.sol)
+- [EFPAccountMetadata.sol](https://github.com/ethereumfollowprotocol/contracts/blob/master/src/EFPAccountMetadata.sol)
+- [EFPListMinter.sol](https://github.com/ethereumfollowprotocol/contracts/blob/master/src/EFPListMinter.sol)
+- [EFPListRecords.sol](https://github.com/ethereumfollowprotocol/contracts/blob/master/src/EFPListRecords.sol)
+
+Bugs, fixes, or suggested improvements to the EFP app, Indexer, API, and other EFP-related code can be reported as issues on their respective repos and are not covered by this bug bounty program. Suggestions for improvements to the smart contracts above are welcome to be posted as issues on their repos but do not qualify for the bug bounty.
+
+## How to Report a Bug
+
+Email us at [bugbounty@ethfollow.xyz](mailto:bugbounty@ethfollow.xyz). Your report should include:
+
+- "Bug Report" or similar in the subject line
+- A detailed description of the vulnerability
+- Steps to reproduce the issue
+- Potential impact and severity assessment
+- Any suggested fixes or mitigations
+- An ENS name or Ethereum address that can receive Ethereum L1 based USDC (should your bug report be accepted)
+
+Provide as much detail as possible to help us understand and resolve the issue efficiently.
+
+## Eligibility and Responsible Disclosure
+
+To be eligible for a reward, you must adhere to the following rules:
+
+- Only report vulnerabilities related to Ethereum Follow Protocol's smart contracts listed above.
+- Do not publicly disclose the vulnerability until we have had adequate time to investigate and deploy a fix.
+- Avoid any actions that would disrupt our services or compromise user data.
