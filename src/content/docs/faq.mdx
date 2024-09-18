@@ -12,15 +12,22 @@ title: F.A.Q.
 >Right now, EFP only support Ethereum addresses, but we plan to support other identifiers (ENS names, NFT smart contracts, etc) in the future.
 
 **What is the relationship of EFP to ENS?**
->EFP has a close relationship to ENS: EFP is designed to completement ENS and other elements of the Ethereum identity stack (EFP has no names or profiles, since it assumes composability with ENS); the ENS DAO has provided large grants to the development of EFP; and the creator of EFP, brantly.eth, used to be on the ENS core team and is still involved in the ENS DAO.
+>EFP has a close relationship to ENS: EFP is designed to completement ENS and other elements of the Ethereum identity stack, e.g. EFP has no names or profiles, since it assumes composability with ENS; the ENS DAO has provided large grants to the development of EFP; and the creator of EFP, brantly.eth, used to be on the ENS core team and is still involved in the ENS DAO.
 
 **Is EFP a social network?**
+Not really. EFP is just a social graph. It has no names or profiles (use ENS for that), has no authentication protocol (use SIWE), nor posting or tweeting. It's a primitive of the Ethereum identity stack meant to be combined with others elements in that stack in third party apps.
 
 **Can I post or tweet on EFP?**
+>No, EFP is just a social graph (e.g. who follows who). However, apps that include posting and message may use EFP as their social graph.
+
+**Can I have more than one EFP List?**
+>Yes, but it's usually not needed since you can use tags to sort different groups of people you follow in your one list. If you do have more than one List, only one can be designated as your Primary List (the list that represents your Ethereum account) at a time.
 
 **So I followed some people on EFP, now what?**
 
+
 **How can my app integrate EFP?**
 
-**Is EFP centralized?**
 
+**Is EFP centralized?**
+>No. The core components of EFP are all onchain and decentralized. Our team maintains and runs an Indexer that mirrors all onchain EFP data to an offchain database for easy access and analysis for serving EFP data through our API. Our indexer is opensource, and anyone can spin up their own indexer or build their own.
