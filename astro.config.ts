@@ -126,6 +126,10 @@ export default defineConfig({
           ]
         },
         {
+          label: 'FAQ',
+          link: '/faq'
+        },
+          {
           label: 'Translation Bounty',
           link: '/translationbounty'
         },
