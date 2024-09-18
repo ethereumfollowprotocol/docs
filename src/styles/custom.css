@@ -159,6 +159,7 @@ header {
 
 p > a {
   text-decoration: none !important;
+  color: blue;
 }
 
 p > a:hover {
