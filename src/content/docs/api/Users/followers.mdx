@@ -1,0 +1,60 @@
+---
+title: Followers
+description: Ethereum Follow Protocol API v1
+---
+
+### /users/\:addressOrENS/followers
+
+Get followers by Address or ENS Name
+
+#### Path Parameters
+- `addressOrENS` (string): The address or ENS name of the account.
+
+#### Query Parameters
+- `limit` (number, optional): Specifies the amount of records to return in the response. If not specifed, default value is 10.
+- `offset` (number, optional): Specifies the starting index of the records to return in the response. If not specifed, default value is 0.
+- `tags` (string, optional): Specifies an array of comma separated tags, of which each account in the response should have at least one.
+
+```sh
+curl http://api.ethfollow.xyz/api/v1/users/dr3a.eth/followers
+```
+
+```jsonc
+// sample response
+{
+  "followers": [
+    {
+      "efp_list_nft_token_id": "611",
+      "address": "0x6251bf215a91b6dc545325bb19c304a47df3cbee",
+      "tags": [],
+      "is_following": false,
+      "is_blocked": false,
+      "is_muted": false
+    },
+    {
+      "efp_list_nft_token_id": "589",
+      "address": "0x41887f140069da8a4f01ad8575fb9ed4e3296c20",
+      "tags": [],
+      "is_following": false,
+      "is_blocked": false,
+      "is_muted": false
+    },
+    {
+      "efp_list_nft_token_id": "557",
+      "address": "0xf07516168b92b4e665db90e632ead8caa47585b5",
+      "tags": [],
+      "is_following": false,
+      "is_blocked": false,
+      "is_muted": false
+    },
+    {
+      "efp_list_nft_token_id": "546",
+      "address": "0x08ceb8bba685ee708c9c4c65576837cbe19b9dea",
+      "tags": [],
+      "is_following": false,
+      "is_blocked": false,
+      "is_muted": false
+    }
+  ]
+}
+```
