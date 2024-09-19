@@ -102,7 +102,7 @@ export default defineConfig({
         },
         {
           label: 'Public API',
-          collapsed: false,
+          collapsed: true,
           autogenerate: {
             directory: 'api'
           },
