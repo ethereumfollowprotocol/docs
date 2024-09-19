@@ -5,29 +5,38 @@ title: F.A.Q.
 **What is the Ethereum Follow Protocol (EFP)?**
 >Ethereum Follow Protocol (EFP) is an onchain social graph protocol for Ethereum accounts.
 
-**Is there an organization behind EFP?**
+**Is EFP a social network?**
+>No, EFP is just a social graph. It has no names or profiles (use [ENS](https://ens.domains/) for that), no authentication protocol (use [SIWE](https://login.xyz/)), nor posting or tweeting. It's a primitive of the Ethereum identity stack meant to be combined with others elements in that stack in third party apps. [This article](https://mirror.xyz/brantly.eth/7nJZCqyvhbdTIfq4oSnNEjlUUyxS9sf3pTHcBNi8Te8) explains the vision.
+
+**Can I post or tweet on EFP?**
+>No, EFP is just a social graph (e.g. who follows who). However, web3 social networks could use EFP as their social graph (just as they could use ENS for their usernames and profiles).
+
+**So I followed some people on EFP, now what?**
+>In the EFP app, there's an Onchain Feed (powered by [Interface](https://interface.social/)) showing the onchain activity of the people you follow, plus the Leaderboard that shows how you stack up against other EFP users. But the most important place to use EFP is in other apps that integrate it. We keep a non-exhaustive list of apps that have integrated EFP on our homepage.
+
+**How can my app integrate EFP?**
+>Any way you want; EFP is open protocol. Ideas include: using EFP to provide additional context for who an Ethereum account is (e.g. showing a user's EFP follower and following counts on their profile, showing friends of friends that follow them, etc), using followings for contacts or message filtering, recommendations, etc. [Our API](https://docs.ethfollow.xyz/api/) is a convenient way to get EFP data. Message us on Discord or elsewhere to let us know you integrated EFP and we'll put your logo and link on our website.
+
+**Is EFP centralized?**
+>No. The core components of EFP are all onchain and decentralized. Our team maintains and runs an Indexer that mirrors all onchain EFP data to an offchain database for easy access and analysis for serving EFP data through our API. Our indexer is opensource, and anyone can spin up their own indexer or build their own.
+
+**Is there an organization behind the creation and maintenance of EFP?**
 >Yes, EFP is developed by the non-profit corporation Follow Protocol Foundation.
 
-**Can you follow other identifiers besides Ethereum addresses?**
->Right now, EFP only support Ethereum addresses, but we plan to support other identifiers (ENS names, NFT smart contracts, etc) in the future.
+**How is EFP funded?**
+>So far, it has been funded mostly by grants from the ENS DAO. We list the sources of our major grants on our homepage.
 
 **What is the relationship of EFP to ENS?**
 >EFP has a close relationship to ENS: EFP is designed to completement ENS and other elements of the Ethereum identity stack, e.g. EFP has no names or profiles, since it assumes composability with ENS; the ENS DAO has provided large grants to the development of EFP; and the creator of EFP, brantly.eth, used to be on the ENS core team and is still involved in the ENS DAO.
 
-**Is EFP a social network?**
-Not really. EFP is just a social graph. It has no names or profiles (use ENS for that), has no authentication protocol (use SIWE), nor posting or tweeting. It's a primitive of the Ethereum identity stack meant to be combined with others elements in that stack in third party apps.
-
-**Can I post or tweet on EFP?**
->No, EFP is just a social graph (e.g. who follows who). However, apps that include posting and message may use EFP as their social graph.
-
 **Can I have more than one EFP List?**
 >Yes, but it's usually not needed since you can use tags to sort different groups of people you follow in your one list. If you do have more than one List, only one can be designated as your Primary List (the list that represents your Ethereum account) at a time.
 
-**So I followed some people on EFP, now what?**
+**Can I follow other identifiers besides Ethereum addresses?**
+>Right now, EFP only support Ethereum addresses, but we plan to support other identifiers (ENS names, NFT smart contracts, etc) in the future.
 
+**Can I see the EFP code?**
+Yep, it's all [open source on Github](https://github.com/ethereumfollowprotocol).
 
-**How can my app integrate EFP?**
-
-
-**Is EFP centralized?**
->No. The core components of EFP are all onchain and decentralized. Our team maintains and runs an Indexer that mirrors all onchain EFP data to an offchain database for easy access and analysis for serving EFP data through our API. Our indexer is opensource, and anyone can spin up their own indexer or build their own.
+**I'm bored.!**
+>After you've set up your list on EFP, [check this out](https://hackertyper.net/).
