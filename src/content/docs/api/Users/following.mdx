@@ -11,6 +11,14 @@ Get following by Address or ENS Name
 ```sh
 curl https://api.ethfollow.xyz/api/v1/users/dr3a.eth/following
 ```
+#### Path Parameters
+- `addressOrENS` (string): The address or ENS name of the account.
+
+#### Query Parameters
+- `limit` (number, optional): Specifies the amount of records to return in the response. If not specifed, default value is 10.
+- `offset` (number, optional): Specifies the starting index of the records to return in the response. If not specifed, default value is 0.
+- `tags` (string, optional): Specifies an array of comma separated tags, of which each account in the response should have at least one.
+- `sort` (string, optional): Specifies how the results should be sorted, possible values 'latest', 'earliest', 'followers'. If not specified, default sort is 'latest'
 
 ```jsonc
 // sample response
