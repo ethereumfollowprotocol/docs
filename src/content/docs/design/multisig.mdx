@@ -1,0 +1,239 @@
+---
+title: EFP Multisig
+---
+
+The EFP multisig is a Gnosis Safe on BASE, Optimism and Ethereum Mainnet , requires 3 out of 4 signatories to execute and controls several contracts:
+
+
+### Contracts
+---
+##### Base (Chain ID: 8453)
+| Name                 | Address                                    |
+| -------------------- | ------------------------------------------ |
+| EFPAccountMetadata   | 0x0000000000000000000000000000000000000000 |
+| EFPListRecords       | 0x0000000000000000000000000000000000000000 |
+| EFPListRegistry      | 0x0000000000000000000000000000000000000000 |
+| EFPListMinter        | 0x0000000000000000000000000000000000000000 |
+| TokenURIProvider     | 0x0000000000000000000000000000000000000000 |
+
+##### Optimism (Chain ID: 10)
+| Name                 | Address                                    |
+| -------------------- | ------------------------------------------ |
+| EFPListRecords       | 0x0000000000000000000000000000000000000000 |
+
+##### Mainnet (Chain ID: 1)
+| Name                 | Address                                    |
+| -------------------- | ------------------------------------------ |
+| EFPListRecords       | 0x0000000000000000000000000000000000000000 |
+
+### Privileges
+---
+For each of the chains, the multisig has privileged control over the following
+functions in each of the contracts listed below.
+
+### EFPAccountMetadata
+---
+
+##### Pause
+Allows the owner to cease all contract interaction
+```
+  /**
+   * @dev Pauses the contract. Can only be called by the contract owner.
+   */
+  function pause() public onlyOwner {
+    _pause();
+  }
+```
+
+##### Unpause
+Allows the owner to resume all contract interaction
+```
+  /**
+   * @dev Unpauses the contract. Can only be called by the contract owner.
+   */
+  function unpause() public onlyOwner {
+    _unpause();
+  }
+```
+
+##### Add Proxy
+Allows the owner to add an account to a list of privileged addresses which are 
+allowed to update account metadata.  This allows the List Minter to set default 
+lists and metadata during the minting process.
+```
+  /**
+   * @dev Add proxy address.
+   * @param proxy The proxy address.
+   */
+  function addProxy(address proxy) external whenNotPaused onlyOwner {
+    proxies[proxy] = true;
+    emit ProxyAdded(proxy);
+  }
+```
+
+##### Remove Proxy
+Allows the owner to remove an account from the list of privileged proxy addresses
+```
+  /**
+   * @dev Remove proxy address.
+   * @param proxy The proxy address.
+   */
+  function removeProxy(address proxy) external whenNotPaused onlyOwner {
+    proxies[proxy] = false;
+    emit ProxyRemoved(proxy);
+  }
+```
+
+### EFPListRecords
+---
+##### Pause
+Allows the owner to cease all contract interaction
+```
+  /**
+   * @dev Pauses the contract. Can only be called by the contract owner.
+   */
+  function pause() public onlyOwner {
+    _pause();
+  }
+```
+
+##### Unpause
+Allows the owner to resume all contract interaction
+```
+  /**
+   * @dev Unpauses the contract. Can only be called by the contract owner.
+   */
+  function unpause() public onlyOwner {
+    _unpause();
+  }
+```
+
+### EFPListRegistry
+---
+##### Pause
+Allows the owner to cease all contract interaction
+```
+  /**
+   * @dev Pauses the contract. Can only be called by the contract owner.
+   */
+  function pause() public onlyOwner {
+    _pause();
+  }
+```
+
+##### Unpause
+Allows the owner to resume all contract interaction
+```
+  /**
+   * @dev Unpauses the contract. Can only be called by the contract owner.
+   */
+  function unpause() public onlyOwner {
+    _unpause();
+  }
+```
+
+##### Set TokenURIProvider
+Allows the owner to set the TokenURIProvider contract address
+```
+  /**
+   * @notice Sets the token URI provider.
+   * @param tokenURIProvider_ The new token URI provider.
+   */
+  function setTokenURIProvider(address tokenURIProvider_) external onlyOwner {
+    tokenURIProvider = ITokenURIProvider(tokenURIProvider_);
+    emit TokenURIProviderChange(tokenURIProvider_);
+  }
+```
+
+##### Set PriceOracle
+Allows the owner to set the `priceOracle` contract address.  This contract is currentlet unset.
+```
+  /**
+   * @notice Sets the price oracle.
+   * @param priceOracle_ The new price oracle.
+   */
+  function setPriceOracle(address priceOracle_) external whenNotPaused onlyOwner {
+    priceOracle = IEFPListNFTPriceOracle(priceOracle_);
+    emit PriceOracleChange(priceOracle_);
+  }
+```
+
+##### Withdraw
+Allows the owner to withdraw Ether from the contract
+```
+  /**
+   * @notice Withdraws Ether from the contract.
+   *
+   * @param recipient The address to send the Ether to.
+   * @param amount The amount of Ether to send.
+   * @return Whether the transfer succeeded.
+   */
+  function withdraw(address payable recipient, uint256 amount) public onlyOwner returns (bool) {
+    require(amount <= address(this).balance, 'Insufficient balance');
+    (bool sent,) = recipient.call{value: amount}('');
+    require(sent, 'Failed to send Ether');
+    return sent;
+  }
+```
+
+##### Set MintState
+Allows the owner to modify limitations when minting lists
+```
+  /// @notice Sets the mint state.
+  /// @param _mintState The new mint state.
+  function setMintState(MintState _mintState) external whenNotPaused onlyOwner {
+    mintState = _mintState;
+    emit MintStateChange(_mintState);
+  }
+```
+
+##### Set MaxMintBatchSize
+Allows the owner to modify limitations on the maximum number of lists that can be 
+minted in one transanction
+```
+  /// @notice Sets the max mint batch size.
+  /// @param _maxMintBatchSize The new max mint batch size.
+  function setMaxMintBatchSize(uint256 _maxMintBatchSize) external whenNotPaused onlyOwner {
+    maxMintBatchSize = _maxMintBatchSize;
+    emit MaxMintBatchSizeChange(_maxMintBatchSize);
+  }
+
+```
+
+### EFPListMinter
+---
+##### Pause
+Allows the owner to cease all contract interaction
+```
+  /**
+   * @dev Pauses the contract. Can only be called by the contract owner.
+   */
+  function pause() public onlyOwner {
+    _pause();
+  }
+```
+
+##### Unpause
+Allows the owner to resume all contract interaction
+```
+  /**
+   * @dev Unpauses the contract. Can only be called by the contract owner.
+   */
+  function unpause() public onlyOwner {
+    _unpause();
+  }
+```
+
+### TokenURIProvider
+---
+##### Set BaseURI
+Allows the owner to set the BaseURI use for contructing token URIs
+```
+  /**
+   * @dev Sets the base URI for token URIs
+   * @param baseURI The new base URI
+   */
+  function setBaseURI(string memory baseURI) external onlyOwner {
+    _baseURI = baseURI;
+  }
+```

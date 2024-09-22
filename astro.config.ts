@@ -95,6 +95,10 @@ export default defineConfig({
               link: '/design/list-ops'
             },
             {
+                label: 'EFP Multisig',
+                link: '/design/multisig'
+              },
+            {
               label: 'Glossary',
               link: '/design/glossary'
             }
