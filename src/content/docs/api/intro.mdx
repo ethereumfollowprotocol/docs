@@ -27,6 +27,26 @@ You may also fork EFP's Indexer/API source code and deploy yourself.
 - [`ethereumfollowprotocol/api`](https://github.com/ethereumfollowprotocol/api)
 - [`ethereumfollowprotocol/indexer`](https://github.com/ethereumfollowprotocol/indexer)
 
+### KV cache
+
+The API uses Cloudflare KV storage to cache some endpoint's responses.  When one of these 
+endpoints is called the cache is checked and if there is no record the data is fetched from 
+the database.  If a cached record is found it is returned immediately.  All cache records 
+are set to expire 5 minutes after they are created. 
+
+The cached record for each of these endpoints can be refreshed by adding `cache=fresh` to the
+query params.  For example:
+
+Get the cached record
+```sh
+curl https://api.ethfollow.xyz/api/v1/lists/1/details
+```
+
+Get latest data and reset the cached record
+```sh
+curl https://api.ethfollow.xyz/api/v1/lists/1/details?cache=fresh
+```
+
 ### Questions
 
 If you come across any issues, please reach out to us in our [Discord](https://discord.com/invite/ZUyG3mSXFD).
