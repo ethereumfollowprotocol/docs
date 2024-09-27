@@ -10,7 +10,8 @@ Get stats of a user by their address or ENS name.
 - `addressOrENS` (string): The address or ENS name of the account.
 
 #### Query Parameters
-- `live` (bool): Specifies whether to calculate stats or return cached values
+- `live` (bool, optional): Specifies whether to calculate stats or return cached values
+- `cache` (string, optional): If set to 'fresh' the cache lookup will be skipped, fresh data will be returned and the cache record will be updated with the new data.
 
 #### Sample Query
 ```sh

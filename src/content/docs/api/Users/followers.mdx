@@ -15,6 +15,7 @@ Get followers by Address or ENS Name
 - `offset` (number, optional): Specifies the starting index of the records to return in the response. If not specifed, default value is 0.
 - `tags` (string, optional): Specifies an array of comma separated tags, of which each account in the response should have at least one.
 - `sort` (string, optional): Specifies how the results should be sorted, possible values 'latest', 'earliest', 'followers'. If not specified, default sort is 'latest'
+- `cache` (string, optional): If set to 'fresh' the cache lookup will be skipped, fresh data will be returned and the cache record will be updated with the new data.
 
 #### Sample Query
 ```sh
