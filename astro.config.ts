@@ -133,7 +133,11 @@ export default defineConfig({
           label: 'FAQ',
           link: '/faq'
         },
-          {
+        {
+        label: 'Dune Analytics',
+          link: 'https://dune.com/throw_efp/efp'
+        },
+        {
           label: 'Translation Bounty',
           link: '/translationbounty'
         },
