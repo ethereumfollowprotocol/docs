@@ -99,6 +99,10 @@ export default defineConfig({
                 link: '/design/multisig'
               },
             {
+                label: 'Deployments',
+                link: '/design/deployments'
+              },
+            {
               label: 'Glossary',
               link: '/design/glossary'
             }
