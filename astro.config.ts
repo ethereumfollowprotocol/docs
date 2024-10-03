@@ -138,6 +138,10 @@ export default defineConfig({
           link: 'https://forum.ethfollow.xyz/'
         },
         {
+          label: 'Discord',
+          link: 'https://discord.com/invite/ZUyG3mSXFD'
+        },
+        {
         label: 'Dune Analytics',
           link: 'https://dune.com/throw_efp/efp'
         },
