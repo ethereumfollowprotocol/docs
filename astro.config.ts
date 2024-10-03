@@ -134,6 +134,10 @@ export default defineConfig({
           link: '/faq'
         },
         {
+          label: 'Forum',
+          link: 'https://forum.ethfollow.xyz/'
+        },
+        {
         label: 'Dune Analytics',
           link: 'https://dune.com/throw_efp/efp'
         },
