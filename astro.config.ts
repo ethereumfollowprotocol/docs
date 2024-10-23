@@ -95,13 +95,13 @@ export default defineConfig({
               link: '/design/list-ops'
             },
             {
-                label: 'EFP Multisig',
-                link: '/design/multisig'
-              },
+              label: 'EFP Multisig',
+              link: '/design/multisig'
+            },
             {
-                label: 'Deployments',
-                link: '/design/deployments'
-              },
+              label: 'Deployments',
+              link: '/design/deployments'
+            },
             {
               label: 'Glossary',
               link: '/design/glossary'
@@ -124,6 +124,10 @@ export default defineConfig({
           collapsed: false,
           items: [
             {
+              label: 'Colors',
+              link: '/design-components/colors'
+            },
+            {
               label: 'Logos',
               link: '/design-components/logos'
             }
@@ -142,7 +146,7 @@ export default defineConfig({
           link: 'https://discord.com/invite/ZUyG3mSXFD'
         },
         {
-        label: 'Dune Analytics',
+          label: 'Dune Analytics',
           link: 'https://dune.com/throw_efp/efp'
         },
         {
@@ -153,6 +157,10 @@ export default defineConfig({
           label: 'Bug Bounty',
           link: '/bugbounty'
         }
+        // {
+        //   label: 'Airdrop',
+        //   link: '/bugbounty'
+        // }
       ],
       head: [
         {
