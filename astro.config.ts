@@ -95,6 +95,10 @@ export default defineConfig({
               link: '/design/list-ops'
             },
             {
+                label: 'Interpreting EFP Data',
+                link: '/design/interpreting-state'
+              },
+            {
               label: 'EFP Multisig',
               link: '/design/multisig'
             },
