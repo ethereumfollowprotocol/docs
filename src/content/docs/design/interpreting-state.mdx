@@ -81,13 +81,60 @@ This list storage location can be interpreted as follows
 ```
 
 
-## Methods of recovering state
+## Constructing State History
 
-### Constructing State History
+A repository demonstrating practical application of this page that can be found here:
+
+[https://github.com/ethereumfollowprotocol/onchain](https://github.com/ethereumfollowprotocol/onchain)
+
+
+### Interacting with Contracts directly
+
+Calling the Account Metadata contract to fetch a user's primary list:
+```ts
+    import { evmClients } from '#/clients/viem/index'
+    import { efpAccountMetadataAbi } from '#/abi/generated/index'
+    import { env } from '#/env.ts'
+
+    const tokenId = await evmClients['8453']().readContract({
+        address: env.ACCOUNT_METADATA,
+        abi: efpAccountMetadataAbi,
+        functionName: 'getValue',
+        args: [ env.USER_ADDRESS as `0x${string}`, 'primary-list' ]
+    })
+```
+
+Calling the List Registry contract to fetch a list's list storage location:
+```ts
+    import { evmClients } from '#/clients/viem/index'
+    import { efpListRegistryAbi } from '#/abi/generated/index'
+    import { env } from '#/env.ts'
+
+    const listStorageLocation = await evmClients['8453']().readContract({
+        address: env.REGISTRY,
+        abi: efpListRegistryAbi,
+        functionName: 'getListStorageLocation',
+        args: [ BigInt(tokenId) ]
+    })
+```
+
+Calling the List Records contract to fetch a list slot's 'user' role:
+```ts
+    import { evmClients } from '#/clients/viem/index'
+    import { efpListRecordsAbi } from '#/abi/generated/index'
+    import { env } from '#/env.ts'
+
+    const listUser = await evmClients[parsedLsl.chainId.toString() as keyof typeof evmClients]().readContract({
+        address: parsedLsl.listRecordsContract as `0x${string}`,
+        abi: efpListRecordsAbi,
+        functionName: 'getListUser',
+        args: [ parsedLsl.slot ]
+    })
+```
 
 ### Relevant Contract Events
 
-Basic EFP state for any user's followers and followings can be constructed by 'listening' for specific events emitted by the EFP contracts and then interpreting them according to the protocol rules as stated above
+Basic EFP state for any user's followers and followings can also be constructed by 'listening' for specific events emitted by the EFP contracts and then interpreting them according to the protocol rules as stated above
 
 EFPListRecords (Base, Optimism and Ethereum Mainnet)
 
@@ -102,9 +149,3 @@ EFPAccountMetadata (Base)
 EFPListRegistry (Base)
 
 `UpdateListStorageLocation(uint256 indexed tokenId, bytes listStorageLocation)`
-
-
-
-
-### /onchain 
-[Github Repository](https://github.com/ethereumfollowprotocol/onchain)
