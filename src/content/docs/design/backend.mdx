@@ -1,0 +1,45 @@
+---
+title: Running EFP
+---
+
+### EFP Silo
+
+The backend architecture for EFP is comprised of the following components
+
+- [Database](https://hub.docker.com/_/postgres) (Postgres)
+- [PGBouncer](https://hub.docker.com/r/pgbouncer/pgbouncer) (a connection pooler for Postgres)
+- [Indexer](https://github.com/ethereumfollowprotocol/indexer) for Base
+- [List-Records-Indexers](https://github.com/ethereumfollowprotocol/list-records-indexer) for Optimism and Ethereum Mainnet
+- Service Manager (updates ens data, leaderboard, cache, mutuals counts)
+- [API](https://github.com/ethereumfollowprotocol/api) (Can be deployed as a cloudflare worker)
+- [Redis](https://hub.docker.com/_/redis) Cache for the API
+
+All of these components can be set up separately, whether locally or using external hosts.  The quickest way to stand up all of the backend infrastructure is to use the 'EFP-Silo' template on [Railway](https://railway.app)
+![EFP Backend Design](/backend-design.png)
+
+
+---
+### Railway Template
+
+Deploying the EFP-Silo template on Railway will set up all of the aforementioned components with default parameters set. 
+
+[EFP-Silo](https://railway.app/template/pDGEZm?referralCode=AavWEU) Click the 'Deploy Now' button.
+
+#### Configuration
+
+The template will run with default values for most of the components but you will need to set primary and secondary rpc urls for all three chains that EFP is using (Base, Optimism and Ethereum Mainnet).  Find the section for 'Indexer-8453', click the 'configure' button and set the rpc endpoint for all six fields accordingly. These can be Alchemy or Infura urls or local ethereum nodes if you're testing at home.
+
+![Indexer Params](/set-rpc.png)
+
+Once all sections display 'Ready to be deployed' the 'Deploy' button at the bottom will be unlocked and you can click it to proceed.
+
+![Deployed Environment](/deployed-environment.png)
+
+#### Setup API URL
+Enable public networking for the API by clicking on the API section, then the 'Settings' tab and scrolling down to 'Networking'.  Click 'Generate Domain' to have Railway create a random public link for you.  Or click 'Custom Domain' to use an already existing domain name.
+![Setup API URL](/setup-api-url.png)
+
+#### Syncing
+It will take a few hours to sync all EFP data, you can still call the api but the data will not be up to date.
+
+#### ENV variables
