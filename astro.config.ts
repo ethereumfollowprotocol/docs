@@ -107,6 +107,10 @@ export default defineConfig({
               link: '/design/deployments'
             },
             {
+                label: 'Backend Architecture',
+                link: '/design/backend'
+            },
+            {
               label: 'Glossary',
               link: '/design/glossary'
             }
