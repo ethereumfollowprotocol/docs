@@ -43,3 +43,45 @@ Enable public networking for the API by clicking on the API section, then the 'S
 It will take a few hours to sync all EFP data, you can still call the api but the data will not be up to date.
 
 #### ENV variables
+Most of the Environment variables are set appropriately and should not be changed unless you know exactly what you're doing.  However there are a few settings than can be customized to fit your needs.  As a general rule, if they're not listed below then you probably should leave them as is.
+
+##### Indexers (Indexer-8453, Indexer-10, Indexer-1)
+| Variable Name                   | Description                                                             |
+|---------------------------------|-------------------------------------------------------------------------|
+| `PRIMARY_RPC_BASE`              | Primary RPC URL for Base chain                                          |
+| `PRIMARY_RPC_OP`                | Primary RPC URL for Optimism chain                                      |
+| `PRIMARY_RPC_ETH`               | Primary RPC URL for Ethereum mainnet                                    |
+| `SECONDARY_RPC_BASE`            | Fallback RPC URL for Base chain                                         |
+| `SECONDARY_RPC_OP`              | Fallback RPC URL for Optimism chain                                     |
+| `SECONDARY_RPC_ETH`             | Fallback RPC URL for Ethereum mainnet                                   |
+| `RECOVER_HISTORY`               | Flag to start the indexer in recovery mode ('true' or 'false')          |
+| `START_BLOCK`                   | Block number to start recovering history from, if in recovery mode      |
+| `BATCH_SIZE`                    | Number of events to batch before uploading                              |
+| `CHAIN_ID`                      | Chain id (8453, 10 or 1)                                                |
+
+##### Service Manager
+| Variable Name                   | Description                                              |
+|---------------------------------|----------------------------------------------------------|
+| `ENS_API_URL`                   | URL for the ENS worker to use for lookups                |
+| `EFP_CACHE_INTERVAL`            | Interval (in milliseconds) to update address cache       |
+| `EFP_MUTUALS_INTERVAL`          | Interval (in milliseconds) to update mutual follows      |
+| `LEADERBOARD_RANKING_INTERVAL`  | Interval (in milliseconds) to update leaderboard         |
+| `RECENT_FOLLOWS_INTERVAL`       | Interval (in milliseconds) to update recent activity     |
+| `RECOMMENDED_INTERVAL`          | Interval (in milliseconds) to update recommended accts   |
+| `ENSMETADATA_INTERVAL`          | Interval (in milliseconds) to update ENS metadata cache  |
+| `HEARTBEAT_INTERVAL`            | Interval (in milliseconds) to call heartbeat URL         |
+
+##### API
+| Variable Name                   | Description                                             |
+|---------------------------------|---------------------------------------------------------|
+| `CACHE_TTL`                     | Amount of seconds to wait before expiring cache record  |
+| `POAP_API_TOKEN`                | Auth token for POAP.xyz api                             |
+
+##### PgBouncer
+(see [PgBouncer Docs](https://www.pgbouncer.org/config.html) for more information)
+| Variable Name                     | Description                                         |
+|-----------------------------------|-----------------------------------------------------|
+| `PGBOUNCER_DEFAULT_POOL_SIZE`     | Amount of connections per pool                      |
+| `PGBOUNCER_MAX_CLIENT_CONN`       | Maximum number of client connections                |
+| `PGBOUNCER_POOL_MODE`             | 'Session' or 'Transaction'                          |
+| `PGBOUNCER_QUERY_TIMEOUT`         | Amount of seconds to wait before dropping query     |
