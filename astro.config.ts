@@ -118,10 +118,54 @@ export default defineConfig({
         },
         {
           label: 'Public API',
-          collapsed: true,
-          autogenerate: {
-            directory: 'api'
-          },
+          collapsed: false,
+          items: [
+            {
+                label: 'Introduction',
+                link: '/api'
+            },
+            {
+                label: 'Discover',
+                link: '/api/discover'
+            },
+            {
+                label: 'Export State',
+                link: '/api/exportstate'
+            },
+            {
+                label: 'Leaderboard',
+                collapsed: true,
+                autogenerate: {
+                    directory: 'api/Leaderboard'
+                },
+            },
+            {
+                label: 'Lists',
+                collapsed: true,
+                autogenerate: {
+                    directory: 'api/Lists'
+                },
+            },
+            {
+                label: 'Stats',
+                link: '/api/stats'
+            },
+            {
+                label: 'Token',
+                collapsed: true,
+                autogenerate: {
+                    directory: 'api/Token'
+                },
+            },
+            {
+                label: 'Users',
+                collapsed: true,
+                autogenerate: {
+                    directory: 'api/Users'
+                },
+            },
+          ],
+          
           badge: {
             text: '/api/v1',
             variant: 'tip'
