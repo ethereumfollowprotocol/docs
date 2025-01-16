@@ -8,9 +8,8 @@ The backend architecture for EFP is comprised of the following components
 
 - [Database](https://hub.docker.com/_/postgres) (Postgres)
 - [PGBouncer](https://hub.docker.com/r/pgbouncer/pgbouncer) (a connection pooler for Postgres)
-- [Indexer](https://github.com/ethereumfollowprotocol/indexer) for Base
-- [List-Records-Indexers](https://github.com/ethereumfollowprotocol/list-records-indexer) for Optimism and Ethereum Mainnet
-- Service Manager (updates ens data, leaderboard, cache, mutuals counts)
+- [Indexers](https://github.com/ethereumfollowprotocol/indexer) for Base, Optimism and Ethereum Mainnet
+- [Service Manager](https://github.com/ethereumfollowprotocol/services) (updates ens data, leaderboard, cache, mutuals counts)
 - [API](https://github.com/ethereumfollowprotocol/api) (Can be deployed as a cloudflare worker)
 - [Redis](https://hub.docker.com/_/redis) Cache for the API
 
@@ -23,7 +22,9 @@ All of these components can be set up separately, whether locally or using exter
 
 Deploying the EFP-Silo template on Railway will set up all of the aforementioned components with default parameters set. 
 
-[EFP-Silo](https://railway.app/template/pDGEZm?referralCode=AavWEU) Click the 'Deploy Now' button.
+[EFP-Silo](https://railway.app/template/pDGEZm?referralCode=AavWEU) Click the link or the button below.
+
+[![Deploy on Railway](https://railway.com/button.svg)](https://railway.app/template/pDGEZm?referralCode=AavWEU)
 
 #### Configuration
 
@@ -42,10 +43,24 @@ Enable public networking for the API by clicking on the API section, then the 'S
 #### Syncing
 It will take a few hours to sync all EFP data, you can still call the api but the data will not be up to date.
 
+#### Service Manager
+The services module handles several jobs that run on intervals:
+- Building the list of all addresses in the EFP database
+- Building the Leaderboard Ranking
+- Tracking Mutual follows
+- Shuffling the recommended accounts list 
+- Refreshing ENS metadata
+- Building a list of accounts with recent activity
+
+The intervals for running these jobs can be adjusted to suit your needs.  Additionally the accounts that appear in the recommended follows can be customized by forking the services repo and editing '/src/services/recommended/lists.ts'.  Once you've edited the file, go to the 'Settings' tab on the services module and update the 'Source Repo' to point to your forked github repository.
+
+![Services Settings](/services-settings-repo.png)
+
+
 #### ENV variables
 Most of the Environment variables are set appropriately and should not be changed unless you know exactly what you're doing.  However there are a few settings than can be customized to fit your needs.  As a general rule, if they're not listed below then you probably should leave them as is.
 
-##### Indexers (Indexer-8453, Indexer-10, Indexer-1)
+##### Indexers (Indexer-base, Indexer-op, Indexer-eth)
 | Variable Name                   | Description                                                             |
 |---------------------------------|-------------------------------------------------------------------------|
 | `PRIMARY_RPC_BASE`              | Primary RPC URL for Base chain                                          |
@@ -54,10 +69,11 @@ Most of the Environment variables are set appropriately and should not be change
 | `SECONDARY_RPC_BASE`            | Fallback RPC URL for Base chain                                         |
 | `SECONDARY_RPC_OP`              | Fallback RPC URL for Optimism chain                                     |
 | `SECONDARY_RPC_ETH`             | Fallback RPC URL for Ethereum mainnet                                   |
-| `RECOVER_HISTORY`               | Flag to start the indexer in recovery mode ('true' or 'false')          |
+| `RECOVER_HISTORY`               | Boolean Flag to start the indexer in recovery mode                      |
 | `START_BLOCK`                   | Block number to start recovering history from, if in recovery mode      |
 | `BATCH_SIZE`                    | Number of events to batch before uploading                              |
 | `CHAIN_ID`                      | Chain id (8453, 10 or 1)                                                |
+| `RECORDS_ONLY`                  | Boolean flag that specifies whether the indexer should listen for just ListOps |
 
 ##### Service Manager
 | Variable Name                   | Description                                              |

@@ -95,27 +95,33 @@ export default defineConfig({
               link: '/design/list-ops'
             },
             {
-                label: 'Interpreting EFP Data',
-                link: '/design/interpreting-state'
-              },
-            {
-              label: 'EFP Multisig',
-              link: '/design/multisig'
-            },
-            {
-              label: 'Deployments',
-              link: '/design/deployments'
-            },
-            {
-                label: 'Backend Architecture',
-                link: '/design/backend'
-            },
-            {
               label: 'Glossary',
               link: '/design/glossary'
             }
           ]
         },
+        {
+            label: 'Production',
+            collapsed: false,
+            items: [
+              {
+                  label: 'Interpreting EFP Data',
+                  link: '/production/interpreting-state'
+                },
+              {
+                label: 'EFP Multisig',
+                link: '/production/multisig'
+              },
+              {
+                label: 'Deployments',
+                link: '/production/deployments'
+              },
+              {
+                  label: 'EFP Silo',
+                  link: '/production/silo'
+              }
+            ]
+          },
         {
           label: 'Public API',
           collapsed: false,
