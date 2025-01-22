@@ -1,20 +1,8 @@
 ---
-title: Running EFP
+title: EFP Railway Template
 ---
 
-## EFP Silo
 
-The backend architecture for EFP is comprised of the following components
-
-- [Database](https://hub.docker.com/_/postgres) (Postgres)
-- [PGBouncer](https://hub.docker.com/r/pgbouncer/pgbouncer) (a connection pooler for Postgres)
-- [Indexers](https://github.com/ethereumfollowprotocol/indexer) for Base, Optimism and Ethereum Mainnet
-- [Service Manager](https://github.com/ethereumfollowprotocol/services) (updates ens data, leaderboard, cache, mutuals counts)
-- [API](https://github.com/ethereumfollowprotocol/api) (Can be deployed as a cloudflare worker)
-- [Redis](https://hub.docker.com/_/redis) Cache for the API
-
-All of these components can be set up separately, whether locally or using external hosts.  The quickest way to stand up all of the backend infrastructure is to use the 'EFP-Silo' template on [Railway](https://railway.app)
-![EFP Backend Design](/backend-design.png)
 
 
 ---
@@ -51,12 +39,17 @@ Once your link is generated, you can use it to call your API the same way you wo
 
 ![Generate Link](/api-link-generated.png)
 
-![Call Endpoin](/api-link-call.png)
+![Call Endpoint](/api-link-call.png)
 
-### ENS Worker
+### Setup ENS Worker
 The API uses V3X Labs' [enstate](https://github.com/v3xlabs/enstate) to provide ENS data.  This service is available at https://ens.ethfollow.xyz. EFP is happy to provide use of this endpoint to the community but please do not abuse it.  
 
-Anyone can deploy this ENS worker repository to cloudflare or host their own instance locally. Read more about deploying [here](https://github.com/v3xlabs/enstate?tab=readme-ov-file#-cloudflare-workers).  Once you've deployed the ENS worker, just update the API's [environment variables](#api) to point to your instance.
+Enable public networking for the ENS Worker by clicking on the 'enstate' section, then the 'Settings' tab and scrolling down to 'Networking'.  Click 'Generate Domain' to have Railway create a random public link for you.  Or click 'Custom Domain' to use an already existing domain name.
+
+Once public networking is enabled for the API and ENS Worker, they should be redeployed as well as the service manager. Do this by clicking into each of the services, and clicking the three dot menu on the right hand side of your currently deployed instance. Click 'Redeploy' on the menu.
+
+![Three dot menu](/redeploy.png)
+
 
 
 ### Service Manager
@@ -108,7 +101,7 @@ Most of the Environment variables are set appropriately and should not be change
 |---------------------------------|---------------------------------------------------------|
 | `CACHE_TTL`                     | Amount of seconds to wait before expiring cache record  |
 | `POAP_API_TOKEN`                | Auth token for POAP.xyz api                             |
-| `ENS_API_URL`                   | URL for ENS worker (default: https://ens.ethfollow.xyz) |
+| `ENS_API_URL`                   | URL for the ENS worker to use for lookups                                      |
 
 #### PgBouncer
 (see [PgBouncer Docs](https://www.pgbouncer.org/config.html) for more information)

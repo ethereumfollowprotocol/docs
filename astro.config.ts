@@ -117,7 +117,11 @@ export default defineConfig({
                 link: '/production/deployments'
               },
               {
-                  label: 'EFP Silo',
+                  label: 'EFP Infrastructure',
+                  link: '/production/infra'
+              },
+              {
+                  label: 'EFP Railway Template',
                   link: '/production/silo'
               }
             ]
