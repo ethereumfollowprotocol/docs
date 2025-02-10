@@ -5,54 +5,60 @@ title: EFP Multisig
 The EFP multisig is a set of Gnosis Safes on Base, OP Mainnet, and Ethereum Mainnet, and each requires 3 out of 4 signatories to execute a transaction.
 
 ### Multisig Wallet Addresses
-| Chain                 | Address                                    | Gnosis Safe    |
-| --------------------- | ------------------------------------------ | -------------- |
-| Base                  | 0x860bFe7019d6264A991277937ea6002714C3c508 | [Link](https://app.safe.global/home?safe=base:0x860bFe7019d6264A991277937ea6002714C3c508) |
-| OP Mainnet            | 0x860bFe7019d6264A991277937ea6002714C3c508 | [Link](https://app.safe.global/home?safe=oeth:0x860bFe7019d6264A991277937ea6002714C3c508) |
-| Ethereum Mainnet      | 0xeaa7B3B7f9A6c9782Fc17A49C4dfC170193d69Dd | [Link](https://app.safe.global/home?safe=eth:0xeaa7B3B7f9A6c9782Fc17A49C4dfC170193d69Dd) |
+
+| Chain | Address | Gnosis Safe |
+| --- | --- | --- |
+| Base | 0x860bFe7019d6264A991277937ea6002714C3c508 | [Link](https://app.safe.global/home?safe=base:0x860bFe7019d6264A991277937ea6002714C3c508) |
+| OP Mainnet | 0x860bFe7019d6264A991277937ea6002714C3c508 | [Link](https://app.safe.global/home?safe=oeth:0x860bFe7019d6264A991277937ea6002714C3c508) |
+| Ethereum Mainnet | 0xeaa7B3B7f9A6c9782Fc17A49C4dfC170193d69Dd | [Link](https://app.safe.global/home?safe=eth:0xeaa7B3B7f9A6c9782Fc17A49C4dfC170193d69Dd) |
 
 ### Signers
-The signers are the same on all three chains and are controlled by members of the [EFP core team](https://ethfollow.xyz/team).
 
-| Address               | Owner                                      |
-| --------------------- | ------------------------------------------ |
-| 0x983110309620D911731Ac0932219af06091b6744 | brantly.eth |
-| 0x96184444629F3489c4dE199871E6F99568229d8f | brantly.eth |
-| 0xC9C3A4337a1bba75D0860A1A81f7B990dc607334 | 0xthrpw.eth |
+The signers are the same on all three chains and are controlled by members of the [EFP core team](https://efp.app/team).
+
+| Address                                    | Owner              |
+| ------------------------------------------ | ------------------ |
+| 0x983110309620D911731Ac0932219af06091b6744 | brantly.eth        |
+| 0x96184444629F3489c4dE199871E6F99568229d8f | brantly.eth        |
+| 0xC9C3A4337a1bba75D0860A1A81f7B990dc607334 | 0xthrpw.eth        |
 | 0x5B0f3DBdD49614476e4f5fF5Db6fe13d41fCB516 | encrypteddegen.eth |
-
 
 ### EFP Contracts owned by Multisig
 
 ##### Base (Chain ID: 8453)
-| Name                 | Address                                    |
-| -------------------- | ------------------------------------------ |
-| EFPAccountMetadata   | 0x5289fE5daBC021D02FDDf23d4a4DF96F4E0F17EF |
-| EFPListRecords       | 0x41Aa48Ef3c0446b46a5b1cc6337FF3d3716E2A33 |
-| EFPListRegistry      | 0x0E688f5DCa4a0a4729946ACbC44C792341714e08 |
-| EFPListMinter        | 0xDb17Bfc64aBf7B7F080a49f0Bbbf799dDbb48Ce5 |
-| TokenURIProvider     | 0xC8BA343aeaF2b3b3EC79C25f05F4Ef459D9c7eFB |
+
+| Name               | Address                                    |
+| ------------------ | ------------------------------------------ |
+| EFPAccountMetadata | 0x5289fE5daBC021D02FDDf23d4a4DF96F4E0F17EF |
+| EFPListRecords     | 0x41Aa48Ef3c0446b46a5b1cc6337FF3d3716E2A33 |
+| EFPListRegistry    | 0x0E688f5DCa4a0a4729946ACbC44C792341714e08 |
+| EFPListMinter      | 0xDb17Bfc64aBf7B7F080a49f0Bbbf799dDbb48Ce5 |
+| TokenURIProvider   | 0xC8BA343aeaF2b3b3EC79C25f05F4Ef459D9c7eFB |
 
 ##### OP Mainnet (Chain ID: 10)
-| Name                 | Address                                    |
-| -------------------- | ------------------------------------------ |
-| EFPListRecords       | 0x4Ca00413d850DcFa3516E14d21DAE2772F2aCb85 |
+
+| Name           | Address                                    |
+| -------------- | ------------------------------------------ |
+| EFPListRecords | 0x4Ca00413d850DcFa3516E14d21DAE2772F2aCb85 |
 
 ##### Ethereum Mainnet (Chain ID: 1)
-| Name                 | Address                                    |
-| -------------------- | ------------------------------------------ |
-| EFPListRecords       | 0x5289fE5daBC021D02FDDf23d4a4DF96F4E0F17EF |
+
+| Name           | Address                                    |
+| -------------- | ------------------------------------------ |
+| EFPListRecords | 0x5289fE5daBC021D02FDDf23d4a4DF96F4E0F17EF |
 
 ### Privileges
 
-For each of the chains, the multisig has privileged control over the following
-functions in each of the contracts listed below.
+For each of the chains, the multisig has privileged control over the following functions in each of the contracts listed below.
 
 ### EFPAccountMetadata
+
 ---
 
 ##### Pause
+
 Allows the owner to cease all contract interaction
+
 ```
   /**
    * @dev Pauses the contract. Can only be called by the contract owner.
@@ -63,7 +69,9 @@ Allows the owner to cease all contract interaction
 ```
 
 ##### Unpause
+
 Allows the owner to resume all contract interaction
+
 ```
   /**
    * @dev Unpauses the contract. Can only be called by the contract owner.
@@ -74,9 +82,9 @@ Allows the owner to resume all contract interaction
 ```
 
 ##### Add Proxy
-Allows the owner to add an account to a list of privileged addresses which are 
-allowed to update account metadata.  This allows the List Minter to set default 
-lists and metadata during the minting process.
+
+Allows the owner to add an account to a list of privileged addresses which are allowed to update account metadata. This allows the List Minter to set default lists and metadata during the minting process.
+
 ```
   /**
    * @dev Add proxy address.
@@ -89,7 +97,9 @@ lists and metadata during the minting process.
 ```
 
 ##### Remove Proxy
+
 Allows the owner to remove an account from the list of privileged proxy addresses
+
 ```
   /**
    * @dev Remove proxy address.
@@ -102,9 +112,13 @@ Allows the owner to remove an account from the list of privileged proxy addresse
 ```
 
 ### EFPListRecords
+
 ---
+
 ##### Pause
+
 Allows the owner to cease all contract interaction
+
 ```
   /**
    * @dev Pauses the contract. Can only be called by the contract owner.
@@ -115,7 +129,9 @@ Allows the owner to cease all contract interaction
 ```
 
 ##### Unpause
+
 Allows the owner to resume all contract interaction
+
 ```
   /**
    * @dev Unpauses the contract. Can only be called by the contract owner.
@@ -126,9 +142,13 @@ Allows the owner to resume all contract interaction
 ```
 
 ### EFPListRegistry
+
 ---
+
 ##### Pause
+
 Allows the owner to cease all contract interaction
+
 ```
   /**
    * @dev Pauses the contract. Can only be called by the contract owner.
@@ -139,7 +159,9 @@ Allows the owner to cease all contract interaction
 ```
 
 ##### Unpause
+
 Allows the owner to resume all contract interaction
+
 ```
   /**
    * @dev Unpauses the contract. Can only be called by the contract owner.
@@ -150,7 +172,9 @@ Allows the owner to resume all contract interaction
 ```
 
 ##### Set TokenURIProvider
+
 Allows the owner to set the TokenURIProvider contract address
+
 ```
   /**
    * @notice Sets the token URI provider.
@@ -163,7 +187,9 @@ Allows the owner to set the TokenURIProvider contract address
 ```
 
 ##### Set PriceOracle
-Allows the owner to set the `priceOracle` contract address.  This contract is currentlet unset.
+
+Allows the owner to set the `priceOracle` contract address. This contract is currentlet unset.
+
 ```
   /**
    * @notice Sets the price oracle.
@@ -176,7 +202,9 @@ Allows the owner to set the `priceOracle` contract address.  This contract is cu
 ```
 
 ##### Withdraw
+
 Allows the owner to withdraw Ether from the contract
+
 ```
   /**
    * @notice Withdraws Ether from the contract.
@@ -194,7 +222,9 @@ Allows the owner to withdraw Ether from the contract
 ```
 
 ##### Set MintState
+
 Allows the owner to modify limitations when minting lists
+
 ```
   /// @notice Sets the mint state.
   /// @param _mintState The new mint state.
@@ -205,8 +235,9 @@ Allows the owner to modify limitations when minting lists
 ```
 
 ##### Set MaxMintBatchSize
-Allows the owner to modify limitations on the maximum number of lists that can be 
-minted in one transanction
+
+Allows the owner to modify limitations on the maximum number of lists that can be minted in one transanction
+
 ```
   /// @notice Sets the max mint batch size.
   /// @param _maxMintBatchSize The new max mint batch size.
@@ -218,9 +249,13 @@ minted in one transanction
 ```
 
 ### EFPListMinter
+
 ---
+
 ##### Pause
+
 Allows the owner to cease all contract interaction
+
 ```
   /**
    * @dev Pauses the contract. Can only be called by the contract owner.
@@ -231,7 +266,9 @@ Allows the owner to cease all contract interaction
 ```
 
 ##### Unpause
+
 Allows the owner to resume all contract interaction
+
 ```
   /**
    * @dev Unpauses the contract. Can only be called by the contract owner.
@@ -242,9 +279,13 @@ Allows the owner to resume all contract interaction
 ```
 
 ### TokenURIProvider
+
 ---
+
 ##### Set BaseURI
+
 Allows the owner to set the BaseURI use for contructing token URIs
+
 ```
   /**
    * @dev Sets the base URI for token URIs

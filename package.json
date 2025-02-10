@@ -51,7 +51,7 @@
     "typed-query-selector": "^2.11.0",
     "typescript": "^5.3.3"
   },
-  "homepage": "https://docs.ethfollow.xyz",
+  "homepage": "https://docs.efp.app",
   "sideEffects": false,
   "private": true
 }

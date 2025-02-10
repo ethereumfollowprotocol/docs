@@ -4,14 +4,14 @@
 <br />
 
 <p align="center">
-  <a href="https://ethfollow.xyz" target="_blank" rel="noopener noreferrer">
-    <img width="275" src="https://docs.ethfollow.xyz/logo.png" alt="EFP logo" />
+  <a href="https://efp.app" target="_blank" rel="noopener noreferrer">
+    <img width="275" src="https://docs.efp.app/logo.png" alt="EFP logo" />
   </a>
 </p>
 <br />
 <p align="center">
   <a href="https://pr.new/ethereumfollowprotocol/api"><img src="https://developer.stackblitz.com/img/start_pr_dark_small.svg" alt="Start new PR in StackBlitz Codeflow" /></a>
-  <a href="https://discord.ethfollow.xyz"><img src="https://img.shields.io/badge/chat-discord-blue?style=flat&logo=discord" alt="discord chat" /></a>
+  <a href="https://discord.efp.app"><img src="https://img.shields.io/badge/chat-discord-blue?style=flat&logo=discord" alt="discord chat" /></a>
   <a href="https://x.com/efp"><img src="https://img.shields.io/twitter/follow/efp?label=%40efp&style=social&link=https%3A%2F%2Fx.com%2Fefp" alt="x account" /></a>
 </p>
 

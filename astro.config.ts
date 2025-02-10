@@ -6,7 +6,7 @@ import { defineConfig } from 'astro/config'
 import spotlightjs from '@spotlightjs/astro'
 import starlightLinksValidator from 'starlight-links-validator'
 
-const SITE_URL = 'https://docs.ethfollow.xyz/'
+const SITE_URL = 'https://docs.efp.app/'
 
 // https://astro.build/config
 export default defineConfig({
@@ -33,7 +33,7 @@ export default defineConfig({
       },
       social: {
         github: 'https://github.com/ethereumfollowprotocol',
-        discord: 'https://discord.ethfollow.xyz',
+        discord: 'https://discord.efp.app',
         'x.com': 'https://x.com/efp'
       },
       locales: {
@@ -201,7 +201,7 @@ export default defineConfig({
         },
         {
           label: 'Forum',
-          link: 'https://forum.ethfollow.xyz/'
+          link: 'https://forum.efp.app/'
         },
         {
           label: 'Discord',
@@ -269,7 +269,7 @@ export default defineConfig({
           attrs: {
             name: 'twitter:domain',
             property: 'twitter:domain',
-            content: 'ethfollow.xyz'
+            content: 'efp.app'
           }
         },
         {
@@ -277,7 +277,7 @@ export default defineConfig({
           attrs: {
             name: 'twitter:url',
             property: 'twitter:url',
-            content: 'https://ethfollow.xyz'
+            content: 'https://efp.app'
           }
         },
         {
