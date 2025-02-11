@@ -19,7 +19,7 @@ export default defineConfig({
     spotlightjs(),
     tailwind({ applyBaseStyles: false, configFile: 'tailwind.config.ts' }),
     starlight({
-      title: 'Ethereum Follow Protocol Documentation',
+      title: 'EFP Docs',
       tagline: 'Ethereum Follow Protocol',
       description: 'Ethereum Follow Protocol technical documentation',
       favicon: '/favicon.ico',
@@ -101,81 +101,81 @@ export default defineConfig({
           ]
         },
         {
-          label: 'Production',
-          collapsed: false,
-          items: [
-            {
-              label: 'Interpreting EFP Data',
-              link: '/production/interpreting-state'
-            },
-            {
-              label: 'EFP Multisig',
-              link: '/production/multisig'
-            },
-            {
-              label: 'Deployments',
-              link: '/production/deployments'
-            },
-            {
-              label: 'EFP Infrastructure',
-              link: '/production/infra'
-            },
-            {
-              label: 'EFP Railway Template',
-              link: '/production/silo'
-            }
-          ]
-        },
+            label: 'Production',
+            collapsed: false,
+            items: [
+              {
+                  label: 'Interpreting EFP Data',
+                  link: '/production/interpreting-state'
+                },
+              {
+                label: 'EFP Multisig',
+                link: '/production/multisig'
+              },
+              {
+                label: 'Deployments',
+                link: '/production/deployments'
+              },
+              {
+                  label: 'EFP Infrastructure',
+                  link: '/production/infra'
+              },
+              {
+                  label: 'EFP Railway Template',
+                  link: '/production/silo'
+              }
+            ]
+          },
         {
           label: 'Public API',
           collapsed: false,
           items: [
             {
-              label: 'Introduction',
-              link: '/api'
+                label: 'Introduction',
+                link: '/api'
             },
             {
-              label: 'Discover',
-              link: '/api/discover'
+                label: 'Discover',
+                link: '/api/discover'
             },
             {
-              label: 'Export State',
-              link: '/api/exportstate'
+                label: 'Export State',
+                link: '/api/exportstate'
             },
             {
-              label: 'Leaderboard',
-              collapsed: true,
-              autogenerate: {
-                directory: 'api/Leaderboard'
-              }
+                label: 'Leaderboard',
+                collapsed: true,
+                autogenerate: {
+                    directory: 'api/Leaderboard'
+                },
             },
             {
-              label: 'Lists',
-              collapsed: true,
-              autogenerate: {
-                directory: 'api/Lists'
-              }
+                label: 'Lists',
+                collapsed: true,
+                autogenerate: {
+                    directory: 'api/Lists'
+                },
             },
             {
-              label: 'Stats',
-              link: '/api/stats'
+                label: 'Stats',
+                link: '/api/stats'
             },
             {
-              label: 'Token',
-              collapsed: true,
-              autogenerate: {
-                directory: 'api/Token'
-              }
+                label: 'Token',
+                collapsed: true,
+                autogenerate: {
+                    directory: 'api/Token'
+                },
             },
             {
-              label: 'Users',
-              collapsed: true,
-              autogenerate: {
-                directory: 'api/Users'
-              }
-            }
+                label: 'Users',
+                collapsed: true,
+                autogenerate: {
+                    directory: 'api/Users'
+                },
+            },
           ],
-
+          
           badge: {
             text: '/api/v1',
             variant: 'tip'
