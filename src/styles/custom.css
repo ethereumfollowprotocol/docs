@@ -113,7 +113,6 @@ body {
   margin: 0;
   padding: 0;
   scroll-behavior: smooth;
-
 }
 
 html {
@@ -155,7 +154,6 @@ header {
   backdrop-filter: blur(16px);
   border-bottom: 1px solid #0f111a14 !important;
 }
-
 
 p > a {
   text-decoration: none !important;
@@ -218,7 +216,7 @@ a.site-title > img {
 }
 
 ::selection {
-  background-color: #FFBDE3;
+  background-color: #ffbde3;
   color: rgb(36, 36, 36);
 }
 
@@ -253,16 +251,17 @@ a.site-title > img {
 
 a.action {
   font-size: 1.5rem;
-  color: #ffffff;
+  color: #333333;
   font-weight: 600;
 }
 
 a.primary {
-  background-image: linear-gradient(to bottom, #FFDE60, #FFA997) !important;
+  background-color: #ffde60 !important;
+  color: #333333;
 }
 
 a.minimal {
-  background: -webkit-linear-gradient(270deg, #FFDE60, #FFA997) !important;
+  background: #ffde60 !important;
   -webkit-background-clip: text !important;
   background-clip: text !important;
   -webkit-text-fill-color: transparent !important;

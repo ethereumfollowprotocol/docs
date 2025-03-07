@@ -77,11 +77,11 @@ export default {
         accent: {
           '50': '#fdf2f8',
           '100': '#fce7f3',
-          '200': '#6aa2fc',
-          '300': '#6aa2fc',
+          '200': '#ffde60',
+          '300': '#ffde60',
           '400': '#f472b6',
           '500': '#ec4899',
-          '600': '#4287f5'
+          '600': '#EFCB3C'
         },
         gray: colors.zinc
       },
