@@ -14,6 +14,7 @@ Get incoming actions received from other users by Address or ENS Name
 #### Query Parameters
 - `opcode` (number, optional): Specifies the type of operation to return [1 for follow, 2 for un-follow, 3 for tag, 4 for un-tag, 0 for any]  
 - `interval` (string, optional): Specifies the time range of notifications to return [hour, day, week, month, all].
+- `start` (number, optional): Specifies the starting timestamp to begin the interval, default value is now. [unix timestamp ex. 1741159543] 
 
 - `tag` (string, optional): Specifies a single tag string, of which each account in the response should have at least one.
 - `limit` (number, optional): Specifies the amount of records to return in the response. If not specifed, default value is 10.
@@ -25,6 +26,7 @@ Get incoming actions received from other users by Address or ENS Name
 A request to this endpoint with no query parameters specified will default to:
 - opcode = all 
 - interval = week
+- start = (current timestamp of now)
 - tag = ""
 - limit = 10
 - offset = 0
