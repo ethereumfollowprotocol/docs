@@ -127,7 +127,11 @@ export default defineConfig({
             {
               label: 'EFP Railway Template',
               link: '/production/silo'
-            }
+            },
+            {
+                label: 'Emergency Response',
+                link: '/production/emergency-response'
+            },
           ]
         },
         {

@@ -1,0 +1,88 @@
+---
+title: Emergency Response
+---
+
+# EFP Emergency Response
+
+So, you've found a critical bug and something is seriously wrong with the data coming from your latest greatest contract.  In most cases, the `pause` function can be called on an affected contract from the [EFP multisig](https://docs.efp.app/production/multisig/) and the contract can simply be redeployed with a fix.  Then the new contract and data can be used in the indexer in place of the bad one.  However in some cases, there may be correct data from a bad contract that needs to be preserved.  Its important to understand how the entire EFP system works to be able to judge whether data from a questionable contract needs to be saved. 
+
+## Affected Contracts
+
+Determine which contracts are affected.  Having to pause one of the contracts is not the end of the world, and properly identifying the extent of the bug will help prevent introducing second order issues in contract interactions.  For instance, if a bug is found in a second or third iteration of the list records contract this would only require pausing that specific contract and not all previous deployed versions or unaffected contracts like the list registry or list minter.  This would limit the affected users to only those who have specified the affected list records contract as their list storage location.
+
+#### List Minter Contract
+BASE: [0xDb17Bfc64aBf7B7F080a49f0Bbbf799dDbb48Ce5](https://basescan.org/address/0xDb17Bfc64aBf7B7F080a49f0Bbbf799dDbb48Ce5)
+
+If the bug is in a List Minter contract:
+Call the `pause` function in the List Minter contract and record the tx hash and block height at the time of the tx.  
+- If there is bad list data in any of the lists minted from the affected list minter contract, users will still be able to reset their lists.
+- If lists were minted to an incorrect recipient, the users can  mint new lists from the new contract.
+- The old list minter contract should be marked as 'deprecated' and removed from any relevant list records indexers in all regions.
+
+If a new list minter is deployed, the account metadata contract proxy records must also be updated.  In the AccountMetadata contract, `removeProxy()` should be called with the old list minter's contract address, and `addProxy()` should be called with the new list minter's contract address.
+
+It should also be noted that if the list minter contract is paused, users will still be able to mint new lists by interacting directly with the registry, list records and account metadata contracts.  If minting needs to be completely disabled, the registry contract must also be paused.
+
+#### List Records Contract(s)
+BASE: [0x41Aa48Ef3c0446b46a5b1cc6337FF3d3716E2A33](https://basescan.org/address/0x41Aa48Ef3c0446b46a5b1cc6337FF3d3716E2A33)
+
+OP: [0x4Ca00413d850DcFa3516E14d21DAE2772F2aCb85](https://optimistic.etherscan.io/address/0x4Ca00413d850DcFa3516E14d21DAE2772F2aCb85)
+
+MAINNET: [0x5289fE5daBC021D02FDDf23d4a4DF96F4E0F17EF](https://etherscan.io/address/0x5289fE5daBC021D02FDDf23d4a4DF96F4E0F17EF)
+
+If the bug is in a List Records contract:
+Determine how many of the list records contracts are affected.
+Call the `pause` function in the List Records contract and record the tx hash and block height at the time of the tx.  
+- If there is bad list operation data in any of the list records from the affected list record contract, users may have to re-execute any list operations that were called against the affected list operations contract
+- If the list records contract is deprecated, users may have to migrate their existing list data from the old list records contract.
+- The old list records contract should be marked as 'deprecated' and removed from any relevant list records indexers in all regions.
+
+#### Account Metadata Contract
+BASE: [0x5289fE5daBC021D02FDDf23d4a4DF96F4E0F17EF](https://basescan.org/address/0x5289fE5daBC021D02FDDf23d4a4DF96F4E0F17EF)
+
+If the bug is in the Account Metadata contract:
+Call the `pause` function in the Account Metadata contract and record the tx hash and block height at the time of the tx.  
+- If there is bad account metadata in any of the records from the affected accouint metadata contract, users may have to re-execute any transactions that were called against the affected contract
+- If the list records contract is deprecated, users may have to migrate their existing list data from the old list records contract.
+
+#### List Registry Contract
+BASE: [0x0E688f5DCa4a0a4729946ACbC44C792341714e08](https://basescan.org/address/0x0E688f5DCa4a0a4729946ACbC44C792341714e08)
+
+If the bug is in the List Registry contract:
+Call the `pause` function in the Account Metadata contract and record the tx hash and block height at the time of the tx.
+- If there is a bug in the list registry contract, it is likely that the entire set of lists and user data will have to be migrated to a new contract
+- Once the list registry contract is paused, users will no longer be able to mint new lists.  However they will still be able to interact with existing lists (update roles, add/remove list operations)
+
+### Worst Case Scenario
+If the nature of a bug is undetermined and all other avenues are exhausted, there remains a final option of pausing ALL contracts and preventing interaction with any of the EFP contracts.  This is a last ditch effort that should only be pursued if there are no other options, as pausing all contracts will prevent users from interacting with any aspect of the EFP system
+
+Pausing and unpausing all contracts will not compromise data, as long as all contracts are unpaused.  It is recommended that the contracts be unpaused in the following order, with minimal time elapsed between the execution of each respective `unpause` contract call:
+1. Any List Records contracts
+2. Account Metadata
+3. List Registry
+4. List Minter
+
+## Response
+
+All `pause` and `unpause` function calls must be executed with EFP multisig via [Safe Wallet](https://app.safe.global).  The function selectors for both `pause` and `unpause` functions are the same across all contracts, respectively.
+
+### Pause Function
+
+Function selector `0x8456cb59`
+
+The `pause` transaction can be found in the EFP Safe Wallet under 'Saved Transactions' in the transaction builder
+
+### Unpause Function
+
+Function selector `0x3f4ba83a`
+
+The `unpause` transaction can be found in the EFP Safe Wallet under 'Saved Transactions' in the transaction builder
+
+## Further Considerations
+- EFP Indexers recognize `Pause` and `Unpause` events and consume records appropriately based on the emission of these events.  However, if a list records contract is found to have a bug, there may be intact data that needs to be recorded and preserved prior to the emission of a `Pause` event, or after an `Unpause` event.  Indexers may need to be updated to disregard events after a certain block height in order to exclude bad data that occurred prior to a `Pause` event from being consumed and processed.
+
+- Ethereum Identity Kit should have a lockdown mode where all contract addresses are zeroed out to prevent transaction prompting, or users receive a 'Maintenance' message.
+
+- efp.app should similarly have a 'Maintenance' mode where a banner is displayed notifying users that the api is available but minting new lists and creating list operations are temporarily disabled.
+
+- As the usage of EFP evolves, it is expected that users will interact with efp.app less and interact with the EFP system through third party applications and services.   This means that over time more users will interact with EFP via the use of Ethereum Identity Kit components.  Care should be taken to ensure that EIK supports various failure modes, and all component functionality can be enabled or disabled as necessary.
