@@ -14,6 +14,10 @@ export default defineConfig({
   prefetch: true,
   output: 'static',
   trailingSlash: 'ignore',
+  redirects: {
+    '/api': 'https://ethidentitykit.com/docs/api',
+    '/api/[...slug]': 'https://ethidentitykit.com/docs/api/[...slug]'
+  },
   integrations: [
     sentry(),
     spotlightjs(),
