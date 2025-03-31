@@ -16,8 +16,7 @@ export default defineConfig({
   trailingSlash: 'ignore',
   redirects: {
     '/': '/intro',
-    '/api': 'https://ethidentitykit.com/docs/api',
-    '/api/[...slug]': 'https://ethidentitykit.com/docs/api/[...slug]'
+    '/api': 'https://ethidentitykit.com/docs/api'
   },
   integrations: [
     sentry(),
