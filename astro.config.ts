@@ -15,6 +15,7 @@ export default defineConfig({
   output: 'static',
   trailingSlash: 'ignore',
   redirects: {
+    '/': '/intro',
     '/api': 'https://ethidentitykit.com/docs/api',
     '/api/[...slug]': 'https://ethidentitykit.com/docs/api/[...slug]'
   },
@@ -129,9 +130,9 @@ export default defineConfig({
               link: '/production/silo'
             },
             {
-                label: 'Emergency Response',
-                link: '/production/emergency-response'
-            },
+              label: 'Emergency Response',
+              link: '/production/emergency-response'
+            }
           ]
         },
         {
@@ -176,10 +177,6 @@ export default defineConfig({
           label: 'Bug Bounty',
           link: '/bugbounty'
         }
-        // {
-        //   label: 'Airdrop',
-        //   link: '/bugbounty'
-        // }
       ],
       head: [
         {
