@@ -1,5 +1,5 @@
 ---
-title: EFP Follow bot
+title: Telegram Bot
 ---
 
 ![Follow Bot Start](/follow-bot-start.png)
@@ -20,11 +20,13 @@ Here are the available commands to interact with the **EFP Follow Bot**:
 
 ![Follow Bot Subscribe](/follow-bot-subscribe.png)
 
-`/subscribe <address_or_ens>`
+`/subscribe <address_or_ens> <address_or_ens> <address_or_ens>`
 
-    Subscribe to updates for a specific Ethereum address or ENS name. Use this command to start receiving notifications about activities related to the specified account.
+    Subscribe to updates for a specific Ethereum address or ENS name. Use this 
+    command to start receiving notifications about activities related to the 
+    specified account. Multiple accounts can be subscribed to at one time
 
-`/sub <address_or_ens>`  
+`/sub <address_or_ens> <address_or_ens> <address_or_ens>`  
 
     Alias for /subscribe. Functions the same way as /subscribe.
 
@@ -32,7 +34,8 @@ Here are the available commands to interact with the **EFP Follow Bot**:
 
 `/unsubscribe <address_or_ens>`
 
-    Unsubscribe from updates for a specific Ethereum address or ENS name. Use this command to stop receiving notifications for a specific account.
+    Unsubscribe from updates for a specific Ethereum address or ENS name. Use 
+    this command to stop receiving notifications for a specific account.
 
 `/unsub <address_or_ens>` 
 
@@ -40,14 +43,17 @@ Here are the available commands to interact with the **EFP Follow Bot**:
 
 `/unsub all`
 
-    Unsubscribe from all accounts. This command will stop all notifications for the current chat.
+    Unsubscribe from all accounts. This command will stop all notifications for 
+    the current chat.
 
 ![Follow Bot List](/follow-bot-list.png)
 
 `/list`
 
-    List all subscriptions for this chat. Use this command to view all the Ethereum addresses or ENS names you are currently subscribed to.
+    List all subscriptions for this chat. Use this command to view all the 
+    Ethereum addresses or ENS names you are currently subscribed to.
 
 `/help`
 
-    Show this help message. Use this command to display a list of all available commands and their descriptions.
+    Show this help message. Use this command to display a list of all available 
+    commands and their descriptions.

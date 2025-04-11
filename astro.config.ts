@@ -129,7 +129,7 @@ export default defineConfig({
               link: '/production/silo'
             },
             {
-                label: 'EFP Follow Bot',
+                label: 'Telegram Bot',
                 link: '/production/follow-bot'
             },
             {
