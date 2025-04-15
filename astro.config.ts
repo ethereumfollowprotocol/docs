@@ -129,6 +129,10 @@ export default defineConfig({
               link: '/production/silo'
             },
             {
+                label: 'Telegram Bot',
+                link: '/production/follow-bot'
+            },
+            {
               label: 'Emergency Response',
               link: '/production/emergency-response'
             }
