@@ -2,6 +2,8 @@
 
 > Ethereum Follow Protocol (EFP) is an onchain social graph protocol for Ethereum accounts.
 
+## Documentation 
+
 - [EFP-Silo Deployment Guide](https://docs.efp.app/production/silo): Guide for deploying the EFP-Silo template on Railway with configuration instructions.
 - [EFP Frequently Asked Questions](https://docs.efp.app/faq): To provide frequently asked questions about the Ethereum Follow Protocol and its functionalities.
 - [EFP Logos Collection](https://docs.efp.app/design-components/logos): Downloadable EFP logos in multiple formats.
@@ -26,3 +28,16 @@
 - [API Documentation Redirect](https://docs.efp.app/api/): Redirects users to the API documentation for the Eth Identity Kit.
 - [Ethereum Follow Protocol Overview](https://docs.efp.app/): Explains the Ethereum Follow Protocol for creating and managing on-chain social graphs using NFTs.
 - [Account Metadata Overview](https://docs.efp.app/design/account-metadata): Explains how to use Account Metadata for Ethereum accounts in the EFP ecosystem.
+
+## Code Repositories
+
+- [EFP App](https://github.com/ethereumfollowprotocol/app): Ethereum Follow Protocol Web App
+- [EFP Docs](https://github.com/ethereumfollowprotocol/docs): Ethereum Follow Protocol Documentation
+- [EFP API](https://github.com/ethereumfollowprotocol/api): Ethereum Follow Protocol Public API
+- [EFP Services](https://github.com/ethereumfollowprotocol/services): Ethereum Follow Protocol Services
+- [EFP Indexer](https://github.com/ethereumfollowprotocol/indexer): Ethereum Follow Protocol Indexer
+- [EFP Notification Service](https://github.com/ethereumfollowprotocol/notification-service): EFP notifications served piping hot over websocket
+- [EFP Follow-bot](https://github.com/ethereumfollowprotocol/follow-bot): A telegram bot for subscribing to EFP account activity
+- [EFP Contracts](https://github.com/ethereumfollowprotocol/contracts): Core smart contracts of Ethereum Follow Protocol
+- [EFP Replay](https://github.com/ethereumfollowprotocol/replay): EFP Historical Event Recovery
+- [EFP Onchain](https://github.com/ethereumfollowprotocol/onchain): Tools and example scripts for recovering EFP data onchain

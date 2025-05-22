@@ -179,6 +179,10 @@ export default defineConfig({
         {
           label: 'Bug Bounty',
           link: '/bugbounty'
+        },
+        {
+          label: 'LLMs.txt',
+          link: '/llmstxt'
         }
       ],
       head: [
