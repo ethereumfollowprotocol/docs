@@ -2,52 +2,25 @@
 title: llms.txt
 ---
 
-## Markdown for Machines
->_Large language models increasingly rely on website information, but face a critical limitation: context windows are too small to handle most websites in their entirety. Converting complex HTML pages with navigation, ads, and JavaScript into LLM-friendly plain text is both difficult and imprecise._
-
->_While websites serve both human readers and LLMs, the latter benefit from more concise, expert-level information gathered in a single, accessible location. This is particularly important for use cases like development environments, where LLMs need quick access to programming documentation and APIs._
-
-> -- from https://llmstxt.org/
-
-
 ## EFP Context files
 
-In accordance with the [llms.txt](https://llmstxt.org/) standard, EFP provides two LLM context files:
+The following context files adhere to the [llms.txt standard](https://llmstxt.org/).
 
-- [https://docs.efp.app/llms.txt](https://docs.efp.app/llms.txt) Minimal EFP context for remote agents [<a href="https://docs.efp.app/llms.txt" download="llms.txt">Download</a>]
-- [https://docs.efp.app/llms-full.txt](https://docs.efp.app/llms-full.txt) Full EFP context for local agents [<a href="https://docs.efp.app/llms-full.txt" download="llms-full.txt">Download</a>]
+- **Minimal**: [https://docs.efp.app/llms.txt](https://docs.efp.app/llms.txt) [<a href="https://docs.efp.app/llms.txt" download="llms.txt">Download</a>]
+- **Full**: [https://docs.efp.app/llms-full.txt](https://docs.efp.app/llms-full.txt) [<a href="https://docs.efp.app/llms-full.txt" download="llms-full.txt">Download</a>]
 
 ---
-> ⚠️ **CAUTION**
->
-> EFP's implementation of `llms.txt` is experimental.  Users should remain aware that large language models and agents can 'hallucinate' responses or return otherwise inaccurate data.  Any data returned from an LLM or AI Agent should not be used for critical operations and should be used for educational purposes only
+⚠️ **CAUTION**
+
+Large language models and agents can sometimes ‘hallucinate’ responses or return otherwise inaccurate data.
+
 ---
 
 ### Why Use `llms.txt`?
 
-`llms.txt` is a standardized file format designed to help **Large Language Models (LLMs)** discover and understand the content and capabilities of a website or service. Here are key reasons to adopt it:
+From [llmstxt.org](https://llmstxt.org/):
 
-#### 1. Improves LLM Discovery
+>_Large language models increasingly rely on website information, but face a critical limitation: context windows are too small to handle most websites in their entirety. Converting complex HTML pages with navigation, ads, and JavaScript into LLM-friendly plain text is both difficult and imprecise._
 
-Gives LLMs a clear, machine-readable way to index important site content, enabling better answers and interactions when users ask questions about the site.
-
-#### 2. Enables Smarter LLM Integrations
-
-When an LLM knows what your site offers — including `API` endpoints, documentation, product pages, or support materials — it can guide users more effectively to the right resources.
-
-#### 3. Increases Visibility and Usage
-
-Structured exposure through `llms.txt` can boost traffic to your site, tools, or APIs by making them more accessible in AI-driven interfaces like ChatGPT or other assistants.
-
-#### 4. Enhances Content Control
-
-Site owners can explicitly define what content they want LLMs to use or ignore, offering more editorial control over how their services are presented in AI conversations.
-
-#### 5. Supports AI Assistant Use Cases
-
-Helps your service become part of the emerging _AI-native web_, where users rely on assistants to interact with APIs, fetch data, or answer questions about your platform.
-
-#### 6. Simple to Implement
-
-Like `robots.txt` or `sitemap.xml`, it’s just a static text file served at a known location.
+>_While websites serve both human readers and LLMs, the latter benefit from more concise, expert-level information gathered in a single, accessible location. This is particularly important for use cases like development environments, where LLMs need quick access to programming documentation and APIs._
 
