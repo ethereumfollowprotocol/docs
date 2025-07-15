@@ -129,8 +129,8 @@ export default defineConfig({
               link: '/production/silo'
             },
             {
-                label: 'Telegram Bot',
-                link: '/production/follow-bot'
+              label: 'Telegram Bot',
+              link: '/production/follow-bot'
             },
             {
               label: 'Emergency Response',
@@ -162,7 +162,7 @@ export default defineConfig({
         },
         {
           label: 'Forum',
-          link: 'https://forum.efp.app/'
+          link: 'https://forum.ethfollow.xyz/'
         },
         {
           label: 'Discord',
