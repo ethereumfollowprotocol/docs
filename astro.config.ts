@@ -157,6 +157,10 @@ export default defineConfig({
           ]
         },
         {
+          label: 'LLMs.txt',
+          link: '/llmstxt'
+        },
+        {
           label: 'FAQ',
           link: '/faq'
         },
