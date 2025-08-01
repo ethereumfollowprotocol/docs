@@ -21,7 +21,7 @@ This guide outlines the steps required to add support for indexing EFP contract 
 Add a new client configuration for your chain:
 
 ```typescript
-import { newChain } from 'viem/chains' // Import your chain from viem/chains
+import { targetChain } from 'viem/chains' // Import your chain from viem/chains
 
 export const evmClients = {
   // ... existing clients
@@ -29,8 +29,8 @@ export const evmClients = {
     createPublicClient({
       key: 'new-chain-client',
       name: 'New Chain Client', 
-      chain: newChain,
-      transport: fallback([http(env.PRIMARY_RPC_NEW), http(env.SECONDARY_RPC_NEW)], { rank: false }),
+      chain: targetChain,
+      transport: fallback([http(environment.PRIMARY_RPC_NEW), http(environment.SECONDARY_RPC_NEW)], { rank: false }),
       batch: { multicall: true }
     }).extend(walletActions)
 }
