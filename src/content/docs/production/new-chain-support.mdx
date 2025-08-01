@@ -2,6 +2,8 @@
 title: New Chain Support
 ---
 
+{/* eslint-disable unicorn/prevent-abbreviations */}
+
 # Adding New Chain Support to EFP Indexer
 
 This guide outlines the steps required to add support for indexing EFP contract events on a new blockchain network.
@@ -30,7 +32,7 @@ export const evmClients = {
       key: 'new-chain-client',
       name: 'New Chain Client', 
       chain: targetChain,
-      transport: fallback([http(environment.PRIMARY_RPC_NEW), http(environment.SECONDARY_RPC_NEW)], { rank: false }),
+      transport: fallback([http(env.PRIMARY_RPC_NEW), http(env.SECONDARY_RPC_NEW)], { rank: false }),
       batch: { multicall: true }
     }).extend(walletActions)
 }
