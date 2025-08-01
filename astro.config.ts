@@ -139,6 +139,10 @@ export default defineConfig({
             {
               label: 'Emergency Response',
               link: '/production/emergency-response'
+            },
+            {
+              label: 'New Chain Support',
+              link: '/production/new-chain-support'
             }
           ]
         },

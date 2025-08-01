@@ -74,7 +74,8 @@ module.exports = {
           ProcessEnv: true,
           ImportMetaEnv: true,
           Props: true,
-          Env: true
+          Env: true,
+          getEnvVariable: true
         },
         checkFilenames: false
       }
