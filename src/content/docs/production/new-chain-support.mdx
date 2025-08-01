@@ -59,7 +59,7 @@ interface EnvironmentVariables {
 Add RPC endpoint configuration for the new chain:
 
 ```typescript
-export const env = Object.freeze({
+export const environment = Object.freeze({
   // ... existing config
   PRIMARY_RPC_NEW: getEnvVariable('PRIMARY_RPC_NEW'),
   SECONDARY_RPC_NEW: getEnvVariable('SECONDARY_RPC_NEW'),
