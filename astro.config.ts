@@ -91,6 +91,10 @@ export default defineConfig({
               link: '/design/list-records'
             },
             {
+              label: 'List Records Namespace',
+              link: '/design/list-record-namespace'
+            },
+            {
               label: 'Tags',
               link: '/design/tags'
             },

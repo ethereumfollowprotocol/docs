@@ -1,0 +1,130 @@
+---
+title: Record Version & Type Namespace Proposal
+---
+
+## **1  Purpose & Scope**
+
+The List Record header contains **two 1‑byte fields**:
+
+* **`version`** – serialization format of the record’s payload.  
+* **`type`** – semantic meaning of the payload (address, URL, ENS name, …).
+
+Until now only `version 0x01` / `type 0x01` (Ethereum Address) have been defined. This proposal unlocks the remaining 254 × 254 combinations while reserving specific ranges for core evolution *and* an explicit **testing sandbox**.
+
+It additionally provides:
+
+* A formal **field‑level specification** (Section 3\)  
+* A community **template** for proposing record‑types (Section 4\)  
+* A **worked example** (Section 5\)  
+* **Implementation guidance** (Section 6\)
+
+## **2  Namespace, Governance & Testing Space**
+
+`version` and `type` are each a single byte (`uint8`). They appear in‑order at the start of every encoded record (`0xVV TT …`).
+
+| Field | Size | Core‑reserved Range | Community Range | Testing | Notes |
+| ----- | ----- | ----- | ----- | ----- | ----- |
+| `version` | 1 B | `0x00 – 0x7F` | `0x80 – 0xFE` | **`0xFF`** | `0xFF` \= free‑for‑all *testing* version; never assigned by the protocol. |
+| `type` | 1 B | `0x00 – 0x7F` | `0x80 – 0xFF` | n/a | When `version = 0xFF`, any `type` value may be used experimentally. |
+
+### **2.1 Allocation workflow**
+
+1. **Core space** (`0x00 – 0x7F`)  
+   * Submit an EFPIP PR to `ethereumfollowprotocol/specs`.  
+   * Requires two maintainer approvals.  
+   * High threshold for acceptance  
+2. **Community space** (`0x80 – 0xFE`)  
+   * Open a PR adding your filled‑in template (Section 4\) to `community/records/`.  
+   * First PR merged wins the value.  
+   * Frivolous requests will be rejected.  
+3. **Testing space** (`version 0xFF`)  
+   * No registration required; intended for throw‑away experiments and CI fixtures.  
+   * Records using this version **MUST NOT** appear on production lists intended for end‑users.  
+4. Dormant allocations (e.g, \> 365 days with no contract/use) may be reclaimed.
+
+## **3  Wire Format**
+
+```
++----------+----------+---------------------------+
+| version  |  type    |  data (variable length)  |
+| uint8    |  uint8   |  bytes                   |
++----------+----------+---------------------------+
+```
+
+* **Byte order:** Big‑endian as written (`0xVV TT …`).  
+* **Record prefix \= `0xVVTT`** for easy ranged queries.  
+* **`data` length:** Defined per `(version,type)` combo; MUST fit within overall List Op.  
+* **Testing space:** When `version = 0xFF`, payloads may be *any* format; clients MAY ignore them.
+
+## **4  Template for a New Record‑Type**
+
+```
+### <Name> Record  (version 0xVV, type 0xTT)
+* **Summary:** <concise description>
+* **Motivation / Use‑case:** <why it belongs on an EFP list>
+* **Field specification:**
+  | Offset | Size | Type | Description |
+  |-------:|-----:|------|-------------|
+  | 0      | … B  | …    | … |
+  | …      | …    | …    | … |
+* **Canonical Encoding:** `0xVVTT<data>`
+* **Validation Rules:**
+  1. …
+  2. …
+* **Backwards compatibility:** Behaviour in old clients.
+* **Reference Implementation:** (optional) Solidity / TS / Rust.
+```
+
+## **5  Worked Example – ENS Name Record**
+
+| Field | Value |
+| :---- | :---- |
+| `version` | `0x80` *(first community version)* |
+| `type` | `0x81` *(ENS Name)* |
+| `data` | Normalised ENS label, UTF‑8, ≤ 255 bytes |
+
+### **Encoded example (`vitalik.eth`)**
+
+```
+┌ version  = 0x80
+├ type     = 0x81
+└ data     = 76 69 74 61 6c 69 6b 2e 65 74 68
+```
+
+Hex stream: `0x8081766974616c696b2e657468`
+
+Validation rules:
+
+1. `data.length ≤ 255` bytes.  
+2. ENS label passes \[EIP‑137\] normalisation.
+
+## **6  Implementation Considerations**
+
+### **6.1 Smart‑contracts**
+
+* No storage layout change – still two header bytes.  
+* Helper libs should expose `uint8 version, uint8 rType`.  
+* Contracts **SHOULD** reject `version 0xFF` on production networks.
+
+### **6.2 Indexers & APIs**
+
+* Index `version` and `type` separately and combined (`uint16`).  
+* Records with `version 0xFF` MAY be dropped from public APIs or flagged as experimental.
+
+### **6.3 Wallet / UI**
+
+* Show human‑friendly labels for known codes.  
+* For unknown or testing codes: "Experimental record 0xVVTT".
+
+---
+
+## **7  FAQ**
+
+1. **Why a dedicated testing version?** It guarantees the protocol will never adopt those prefixes, protecting test data from future conflicts.  
+2. **Can I deploy a list using `version 0xFF`?** Yes for dev/staging; but main‑net indexers & UIs may ignore it.  
+3. **Can `type 0xFF` ever be core?** Yes – except under `version 0xFF`, all other `(version,type)` combos remain allocatable.
+
+---
+
+*Last updated: 2025‑06‑12*
+
