@@ -137,12 +137,12 @@ export default defineConfig({
               link: '/production/follow-bot'
             },
             {
-              label: 'Emergency Response',
-              link: '/production/emergency-response'
+              label: 'Adding a New Chain',
+              link: '/production/new-chain-support'
             },
             {
-              label: 'New Chain Support',
-              link: '/production/new-chain-support'
+              label: 'Emergency Response',
+              link: '/production/emergency-response'
             }
           ]
         },
