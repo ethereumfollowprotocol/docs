@@ -7,13 +7,16 @@ permissions:
   contents: read
   pull-requests: write
   issues: write
-  actions: read
+  actions: read    
 
 jobs:
   ai-review:
-    uses: ethereumfollowprotocol/workflow-automation/.github/workflows/pr-review.yml@v1.0.9
+    uses: ethereumfollowprotocol/workflow-automation/.github/workflows/pr-review.yml@v1.0.10
     with:
-      config-profile: "default"
+      config-profile: "frontend"
+      enable-security-review: true
+      enable-quality-review: true
+      enable-documentation-review: true
     secrets:
       CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.DEV_OPS_BOT_CLAUDE_CODE_OAUTH_TOKEN }}
       APP_ID: ${{ secrets.DEV_OPS_BOT_APP_ID }}
