@@ -17,14 +17,14 @@ permissions:
 
 jobs:
   ai-response:
-    uses: ethereumfollowprotocol/workflow-automation/.github/workflows/issue-response.yml@v1.0.9
+    uses: ethereumfollowprotocol/workflow-automation/.github/workflows/issue-response.yml@v1.0.14
     with:
-      config-profile: "default"
+      config-profile: "frontend"
       bot-mention: "@efp-dev-ops"
       enable-auto-labeling: true
       enable-escalation: true
     secrets:
-      CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.DEV_OPS_BOT_CLAUDE_CODE_OAUTH_TOKEN }}
-      APP_ID: ${{ secrets.DEV_OPS_BOT_APP_ID }}
-      PRIVATE_KEY: ${{ secrets.DEV_OPS_BOT_PRIVATE_KEY }}
-      ALLOWED_USER_LIST: ${{ secrets.DEV_OPS_BOT_ALLOWED_USER_LIST }}
+      DEV_OPS_BOT_CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.DEV_OPS_BOT_CLAUDE_CODE_OAUTH_TOKEN }}
+      DEV_OPS_BOT_APP_ID: ${{ secrets.DEV_OPS_BOT_APP_ID }}
+      DEV_OPS_BOT_PRIVATE_KEY: ${{ secrets.DEV_OPS_BOT_PRIVATE_KEY }}
+      DEV_OPS_BOT_ALLOWED_USER_LIST: ${{ secrets.DEV_OPS_BOT_ALLOWED_USER_LIST }}
