@@ -25,7 +25,7 @@
 - [EFP Emergency Response](https://docs.efp.app/production/emergency-response): Outlines procedures for responding to bugs in EFP contracts and managing affected data.
 - [Ethereum Follow Protocol Overview](https://docs.efp.app/intro): Explains the Ethereum Follow Protocol, its roles, and functionality for managing social graphs on Ethereum.
 - [EFP Multisig Overview](https://docs.efp.app/production/multisig): This page provides information about the EFP multisig wallet, its addresses, signers, and contract privileges.
-- [API Documentation Redirect](https://docs.efp.app/api/): Redirects users to the API documentation for the Eth Identity Kit.
+- [EFP Public API (Ethereum Identity Kit)](https://ethidentitykit.com/docs/api/): HTTP API reference for indexing and retrieving EFP data.
 - [Ethereum Follow Protocol Overview](https://docs.efp.app/): Explains the Ethereum Follow Protocol for creating and managing on-chain social graphs using NFTs.
 - [Account Metadata Overview](https://docs.efp.app/design/account-metadata): Explains how to use Account Metadata for Ethereum accounts in the EFP ecosystem.
 
