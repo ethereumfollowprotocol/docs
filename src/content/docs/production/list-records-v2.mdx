@@ -1,0 +1,62 @@
+---
+title: List Records V2 
+---
+
+## Intent
+This update address two issues:
+- Preventing the risk of being frontrun during the slot claiming process 
+- Ensuring correct list records storage location in the case of identical deployment addresses on different chains
+
+## List Records V2 Contract Changes
+An additional check was added to the `_claimListManager` function to ensure that 
+the slot cannot be claimed by any other address than that specified in the slot 
+data itself.
+
+#### List Storage Location: Slot Construction
+The existing list storage location structure is unaffected, however the 32 byte 
+slot is now constructed using an address for the first 20 bytes and a pseudo 
+random nonce for the last 12 bytes
+
+For example, a list storage location using the current structure would look like 
+this:
+```solidity
+0x010100000000000000000000000000000000000000000000000000000000000000015289fe5dabc021d02fddf23d4a4df96f4e0f17ef5550010c08608cc567bf432829280f99b40f7717290d6313134992e4971fa50e
+```
+This list storage location can be interpreted as follows
+```solidity
+{
+    Version: 0x01,
+    Type: 0x01,  
+    Chain: 0x0000000000000000000000000000000000000000000000000000000000000001,
+    ListRecordsContract: 0x5289fe5dabc021d02fddf23d4a4df96f4e0f17ef,
+    Slot: 0x5550010c08608cc567bf432829280f99b40f7717290d6313134992e4971fa50e // 38587947120907837207653958898632315929230182373855930657826753963097023554830
+}
+```
+
+Using the new slot construction method, if user with address 
+`0xc9c3a4337a1bba75d0860a1a81f7b990dc607334` was claiming then the slot would be 
+constructed like so:
+```solidity
+0xc9c3a4337a1bba75d0860a1a81f7b990dc607334000000000000000000000001
+```
+or 
+```solidity
+0xc9c3a4337a1bba75d0860a1a81f7b990dc607334c021d02fddf23d4a4df96f4e
+```
+Note that the first 40 characters (or 20 bytes) is the address of the account 
+claiming the slot
+
+## List Minter V2 Contract Changes
+In the 'easyMint' and 'easyMintTo' functions, an additional check was added to 
+prevent the assignment of an incorrect list records storage location in the case 
+of an identical deployment addresses for list records contracts on different 
+chains.
+
+```solidity
+uint256 currentChain = block.chainid;
+if (recordsContract == address(listRecordsL1) && currentChain == chain) {
+    listRecordsL1.claimListManagerForAddress(slot, msg.sender);
+}
+```
+Prior to this update a list could have the wrong contract set as the list's 
+storage location, if the contracts shared the same address.

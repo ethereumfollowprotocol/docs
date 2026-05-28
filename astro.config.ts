@@ -125,6 +125,10 @@ export default defineConfig({
               link: '/production/deployments'
             },
             {
+              label: 'ListRecordsV2',
+              link: '/production/list-records-v2'
+            },
+            {
               label: 'EFP Infrastructure',
               link: '/production/infra'
             },
