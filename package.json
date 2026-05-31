@@ -24,6 +24,7 @@
     "@fontsource/ibm-plex-mono": "^5.2.7",
     "@fontsource/inter": "^5.2.8",
     "@sentry/astro": "^10.55.0",
+    "@tailwindcss/typography": "^0.5.19",
     "@tailwindcss/vite": "^4.1.18",
     "@total-typescript/ts-reset": "^0.6.1",
     "@types/bun": "^1.2.21",
