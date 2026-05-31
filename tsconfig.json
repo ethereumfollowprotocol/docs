@@ -17,6 +17,6 @@
     "baseUrl": "."
   },
   "include": ["src", "public"],
-  "files": [".eslintrc.cjs", ".prettierrc.mjs", "astro.config.ts", "tailwind.config.ts"],
+  "files": [".eslintrc.cjs", ".prettierrc.mjs", "astro.config.ts", "src/content.config.ts"],
   "exclude": ["dist", "node_modules", "_"]
 }
