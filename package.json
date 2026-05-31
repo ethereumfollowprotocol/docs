@@ -13,7 +13,7 @@
     "lint": "eslint --fix . --ext='js,cjs,mjs,ts,tsx,d.ts,astro,md,mdx,json' --report-unused-disable-directives --max-warnings=0 --cache",
     "format": "prettier --write . --ignore-path='.eslintignore' --ignore-unknown --cache",
     "typecheck": "tsc --project tsconfig.json --noEmit",
-    "clean": "rm -rf .astro dist node_modules bun.lockb pnpm-lock.yaml"
+    "clean": "rm -rf .astro dist node_modules bun.lock pnpm-lock.yaml"
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.6",
