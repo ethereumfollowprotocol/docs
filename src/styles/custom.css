@@ -164,6 +164,60 @@ p > a:hover {
   transform: scale(1.1);
 }
 
+/*
+ * Typography overrides migrated from tailwind.config.ts (@tailwindcss/typography).
+ * Starlight renders docs in .sl-markdown-content (not .prose); mirror rules here
+ * so content pages keep the same appearance. .prose pages use the plugin config.
+ */
+.sl-markdown-content :is(h2, h3, h4, h5, h6) a:not(:where(.not-content *)) {
+  color: #f9fafb;
+  border-bottom-color: transparent;
+}
+
+.sl-markdown-content :is(h2, h3, h4, h5, h6) a:hover:not(:where(.not-content *)) {
+  color: #4b5563;
+}
+
+.sl-markdown-content blockquote:not(:where(.not-content *)) {
+  font-size: 90%;
+  color: #71717a;
+  border-inline-start-color: #3f3f46;
+}
+
+.sl-markdown-content blockquote p::before,
+.sl-markdown-content blockquote p::after {
+  display: none;
+}
+
+.sl-markdown-content
+  a:not(:where(.not-content *, .action, .primary, .minimal, .site-title *)):not(header a) {
+  text-decoration: none;
+  border-bottom: 2px solid #155e75;
+  color: #22d3ee;
+  transition:
+    color 0.2s ease,
+    border-color 0.2s ease,
+    background 0.2s ease;
+}
+
+.sl-markdown-content
+  a:not(:where(.not-content *, .action, .primary, .minimal, .site-title *)):not(header
+    a):hover {
+  color: #18181b !important;
+  border-bottom-color: #a5f3fc !important;
+  background: #a5f3fc;
+  transform: none;
+}
+
+.sl-markdown-content :not(pre) > code:not(:where(.not-content *))::before,
+.sl-markdown-content :not(pre) > code:not(:where(.not-content *))::after {
+  content: unset !important;
+}
+
+.sl-markdown-content :not(pre) > code:not(:where(.not-content *)) {
+  font-weight: normal;
+}
+
 .hero {
   margin-left: 20px;
   margin-right: 20px;
