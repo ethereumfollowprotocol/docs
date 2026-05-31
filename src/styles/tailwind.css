@@ -9,12 +9,12 @@
 @theme {
   --breakpoint-xs: 20rem;
 
-  --color-accent-50: #fdf2f8;
-  --color-accent-100: #fce7f3;
-  --color-accent-200: #ffde60;
-  --color-accent-300: #ffde60;
-  --color-accent-400: #f472b6;
-  --color-accent-500: #ec4899;
+  --color-accent-50: #fffbeb;
+  --color-accent-100: #fef3c7;
+  --color-accent-200: #fde68a;
+  --color-accent-300: #fcd34d;
+  --color-accent-400: #ffde60;
+  --color-accent-500: #facc15;
   --color-accent-600: #efcb3c;
 
   --color-gray-50: var(--color-zinc-50);
@@ -29,6 +29,6 @@
   --color-gray-900: var(--color-zinc-900);
   --color-gray-950: var(--color-zinc-950);
 
-  --font-serif: Inter, ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif;
+  --font-serif: ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif;
   --font-sans: InterVariable, Inter, ui-sans-serif, system-ui, sans-serif;
 }
