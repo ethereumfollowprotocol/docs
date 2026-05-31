@@ -1,9 +1,9 @@
 import process from 'node:process'
 import sentry from '@sentry/astro'
-import tailwind from '@astrojs/tailwind'
 import starlight from '@astrojs/starlight'
+import starlightDocSearch from '@astrojs/starlight-docsearch'
+import tailwindcss from '@tailwindcss/vite'
 import { defineConfig } from 'astro/config'
-import spotlightjs from '@spotlightjs/astro'
 import starlightLinksValidator from 'starlight-links-validator'
 
 const SITE_URL = 'https://docs.efp.app/'
@@ -18,10 +18,11 @@ export default defineConfig({
     '/': '/intro',
     '/api': 'https://ethidentitykit.com/docs/api'
   },
+  vite: {
+    plugins: [tailwindcss()]
+  },
   integrations: [
     sentry(),
-    spotlightjs(),
-    tailwind({ applyBaseStyles: false, configFile: 'tailwind.config.ts' }),
     starlight({
       title: 'EFP Docs',
       tagline: 'Ethereum Follow Protocol',
@@ -264,8 +265,8 @@ export default defineConfig({
         }
       ],
       customCss: [
-        './src/styles/custom.css',
         './src/styles/tailwind.css',
+        './src/styles/custom.css',
         '@fontsource/inter/400.css',
         '@fontsource/inter/500.css',
         '@fontsource/inter/700.css',
