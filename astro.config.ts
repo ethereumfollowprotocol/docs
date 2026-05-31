@@ -36,11 +36,23 @@ export default defineConfig({
         useStarlightDarkModeSwitch: true,
         useStarlightUiThemeColors: true
       },
-      social: {
-        github: 'https://github.com/ethereumfollowprotocol',
-        discord: 'https://discord.efp.app',
-        'x.com': 'https://x.com/efp'
-      },
+      social: [
+        {
+          icon: 'github',
+          label: 'GitHub',
+          href: 'https://github.com/ethereumfollowprotocol'
+        },
+        {
+          icon: 'discord',
+          label: 'Discord',
+          href: 'https://discord.efp.app'
+        },
+        {
+          icon: 'x.com',
+          label: 'X',
+          href: 'https://x.com/efp'
+        }
+      ],
       locales: {
         root: {
           label: 'English',
