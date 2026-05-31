@@ -186,6 +186,13 @@ export default defineConfig({
       ],
       head: [
         {
+          tag: 'meta',
+          attrs: {
+            name: 'algolia-site-verification',
+            content: 'C3213343673844A1'
+          }
+        },
+        {
           tag: 'link',
           attrs: {
             rel: 'icon',
@@ -274,15 +281,16 @@ export default defineConfig({
         '@fontsource/ibm-plex-mono/600.css'
       ],
       plugins: [
+        starlightDocSearch({
+          appId: 'ZNH496WHXH',
+          apiKey: '4164846664e653d5c81702851b2d3de1',
+          indexName: 'EFP docs'
+        }),
         // https://starlight-links-validator.vercel.app/configuration/#configuration-options
         starlightLinksValidator()
       ]
     })
   ],
-  experimental: {
-    clientPrerender: true,
-    contentCollectionCache: !import.meta.env.DEV
-  },
   server: {
     port: Number(process.env.PORT || 4321)
   }
