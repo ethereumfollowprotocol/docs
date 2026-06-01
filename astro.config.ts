@@ -5,6 +5,8 @@ import starlightDocSearch from '@astrojs/starlight-docsearch'
 import tailwindcss from '@tailwindcss/vite'
 import { defineConfig } from 'astro/config'
 import starlightLinksValidator from 'starlight-links-validator'
+import starlightLlmsTxt from 'starlight-llms-txt'
+import { llmsTxtOptionalLinks } from './src/llms-txt-optional-links'
 
 const SITE_URL = 'https://docs.efp.app/'
 
@@ -293,6 +295,12 @@ export default defineConfig({
         '@fontsource/ibm-plex-mono/600.css'
       ],
       plugins: [
+        starlightLlmsTxt({
+          projectName: 'Ethereum Follow Protocol',
+          promote: ['intro*', 'design/**'],
+          exclude: ['llmstxt', 'playground/**'],
+          optionalLinks: [...llmsTxtOptionalLinks]
+        }),
         starlightDocSearch({
           appId: 'ZNH496WHXH',
           apiKey: '4164846664e653d5c81702851b2d3de1',
