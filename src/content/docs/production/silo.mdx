@@ -67,7 +67,7 @@ The intervals for running these jobs can be adjusted to suit your needs. Additio
 
 ### ENV variables
 
-Most of the Environment variables are set appropriately and should not be changed unless you know exactly what you're doing. However there are a few settings than can be customized to fit your needs. As a general rule, if they're not listed below then you probably should leave them as is.
+Most of the Environment variables are set appropriately and should not be changed unless you know exactly what you're doing. However there are a few settings that can be customized to fit your needs. As a general rule, if they're not listed below then you probably should leave them as is.
 
 #### Indexers (Indexer-base, Indexer-op, Indexer-eth)
 
@@ -108,4 +108,11 @@ Most of the Environment variables are set appropriately and should not be change
 
 #### PgBouncer
 
-(see [PgBouncer Docs](https://www.pgbouncer.org/config.html) for more information) | Variable Name | Description | |-----------------------------------|-----------------------------------------------------| | `PGBOUNCER_DEFAULT_POOL_SIZE` | Amount of connections per pool | | `PGBOUNCER_MAX_CLIENT_CONN` | Maximum number of client connections | | `PGBOUNCER_POOL_MODE` | 'Session' or 'Transaction' | | `PGBOUNCER_QUERY_TIMEOUT` | Amount of seconds to wait before dropping query |
+(see [PgBouncer Docs](https://www.pgbouncer.org/config.html) for more information)
+
+| Variable Name                 | Description                                     |
+| ----------------------------- | ----------------------------------------------- |
+| `PGBOUNCER_DEFAULT_POOL_SIZE` | Amount of connections per pool                  |
+| `PGBOUNCER_MAX_CLIENT_CONN`   | Maximum number of client connections            |
+| `PGBOUNCER_POOL_MODE`         | 'Session' or 'Transaction'                      |
+| `PGBOUNCER_QUERY_TIMEOUT`     | Amount of seconds to wait before dropping query |

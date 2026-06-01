@@ -34,7 +34,7 @@ If the only known information is a user address, then the following steps can be
 If the only known information is a list number, then the following steps can be taken to determine the list user
 
 1. Obtain the list storage location from the registry contract which includes the chainId, listRecords contract address, and slot using function getListStorageLocation(tokenId).
-2. Query the list metadata record in the listRecords contract using the slot to verify the 'user' role. While at this step we will know the user address, we do not yet know if the user role is valid without checking for the existance of a 'primary-list' record that matches this list id and the user's address.
+2. Query the list metadata record in the listRecords contract using the slot to verify the 'user' role. While at this step we will know the user address, we do not yet know if the user role is valid without checking for the existence of a 'primary-list' record that matches this list id and the user's address.
 3. Retrieve the user's primary list by querying the account metadata contract using the user address.
 4. Retrieve the list record from the listRecords contract using the slot and ensure it matches the list metadata record and list storage location in the registry.
 
@@ -42,7 +42,7 @@ If the only known information is a list number, then the following steps can be 
 
 If the only known information is the slot (i.e. you're looking at a raw list operation and want to determine the list to which it applies)
 
-1. Query the list metadata record in the listRecords contract using the slot to find the 'user' role. While at this step we will know the user address, we do not yet know if the user role is valid without checking for the existance of a 'primary-list' record that matches this list id and the user's address.
+1. Query the list metadata record in the listRecords contract using the slot to find the 'user' role. While at this step we will know the user address, we do not yet know if the user role is valid without checking for the existence of a 'primary-list' record that matches this list id and the user's address.
 2. Retrieve the user's primary list by querying the account metadata contract using the user address.
 
 ### Interpreting an example List Operation
