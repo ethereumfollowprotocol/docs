@@ -30,6 +30,8 @@ module.exports = {
       extends: 'plugin:mdx/recommended',
       rules: {
         '@typescript-eslint/no-unused-vars': ['off'],
+        // MDX parser does not provide parserServices; type-aware rules need parserOptions.project.
+        '@typescript-eslint/consistent-type-imports': ['off'],
         'no-unused-vars': ['off'],
         'mdx/no-unused-expressions': ['off']
       },

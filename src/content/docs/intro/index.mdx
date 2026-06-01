@@ -63,7 +63,6 @@ Each record has a record type, but only one record type is supported at launch:
 
 While a user may interact with the EFP smart contracts in any order (no order is enforced in the smart contracts), it's recommended that to prevent frontrunning a user should first claim a slot number in their chosen List Storage Location, then next mint their EFP NFT and set their List Storage Location (with the chain, smart contract address, and secured slot number).
 
-
 ---
 
 ## Tags
@@ -77,11 +76,9 @@ List Records can have zero or more tags. A few tags are standardized with specif
 ## Standard Tags
 
 - **no tag**
-
   - If a List Record has no tags, it is interpreted as a simple follow without further categorization.
 
 - **"block"**
-
   - This tag means neither the user nor the blocked account should see each other’s activity in a relevant app.
   - List Records with this tag are not included in Followers count, even if the List Record has other tags.
   - If both “block” and “mute” tags are present, “block” takes precedence.
@@ -117,13 +114,11 @@ Apps should first check the Primary List value for an Ethereum account, and if s
 
 Only Primary Lists are counted as Followers.
 
-
 ---
 
 ## Social Graph
 
 The social graph is formed from the union of all Primary Lists. The User role of each Primary List determines which Ethereum account is following the Ethereum addresses in that List.
-
 
 ### Followers
 

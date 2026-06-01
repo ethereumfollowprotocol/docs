@@ -11,11 +11,9 @@ List Records can have zero or more tags. A few tags are standardized with specif
 ## Standard Tags
 
 - **no tag**
-
   - If a List Record has no tags, it is interpreted as a simple follow without further categorization.
 
 - **"block"**
-
   - This tag means neither the user nor the blocked account should see each other’s activity in a relevant app.
   - List Records with this tag are not included in Followers count, even if the List Record has other tags.
   - If both “block” and “mute” tags are present, “block” takes precedence.
@@ -60,4 +58,4 @@ Tags are encoded as UTF-8 strings.
 
 ## Restrictions
 
-Tags are restricted to alpha-numerics (upper and lowercase A - Z, 0 - 9) and _most_ emojis.  Neither the UI nor the API will accept anything other than these characters.
+Tags are restricted to alpha-numerics (upper and lowercase A - Z, 0 - 9) and _most_ emojis. Neither the UI nor the API will accept anything other than these characters.

@@ -75,6 +75,7 @@ forge script script/DeployListRecords.s.sol \
 After successful deployment, save the contract address from the deployment output. You'll need this for the indexer configuration.
 
 Example output:
+
 ```
 == Logs ==
   EFP List Records deployed at: 0x1234567890123456789012345678901234567890
@@ -93,12 +94,14 @@ import { targetChain } from 'viem/chains' // Import your chain from viem/chains
 
 export const evmClients = {
   // ... existing clients
-  'CHAIN_ID': () =>
+  CHAIN_ID: () =>
     createPublicClient({
       key: 'new-chain-client',
-      name: 'New Chain Client', 
+      name: 'New Chain Client',
       chain: targetChain,
-      transport: fallback([http(env.PRIMARY_RPC_NEW), http(env.SECONDARY_RPC_NEW)], { rank: false }),
+      transport: fallback([http(env.PRIMARY_RPC_NEW), http(env.SECONDARY_RPC_NEW)], {
+        rank: false
+      }),
       batch: { multicall: true }
     }).extend(walletActions)
 }
@@ -130,7 +133,7 @@ Add RPC endpoint configuration for the new chain:
 export const environment = Object.freeze({
   // ... existing config
   PRIMARY_RPC_NEW: getEnvVariable('PRIMARY_RPC_NEW'),
-  SECONDARY_RPC_NEW: getEnvVariable('SECONDARY_RPC_NEW'),
+  SECONDARY_RPC_NEW: getEnvVariable('SECONDARY_RPC_NEW')
 })
 ```
 
@@ -190,6 +193,7 @@ The **EFP List Records Contract** must be deployed on the new chain using the st
 ## Testing the Integration
 
 1. **Start the database:**
+
    ```bash
    bun database
    ```
@@ -197,6 +201,7 @@ The **EFP List Records Contract** must be deployed on the new chain using the st
 2. **Set environment variables for the new chain**
 
 3. **Run the indexer:**
+
    ```bash
    bun dev
    ```
@@ -209,16 +214,19 @@ The **EFP List Records Contract** must be deployed on the new chain using the st
 ## Common Issues and Solutions
 
 ### RPC Connection Issues
+
 - Verify RPC endpoints are accessible and support required methods
 - Check if RPC has rate limiting that might affect batch requests
 - Ensure WebSocket support if using WebSocket transport
 
-### Contract Event Issues  
+### Contract Event Issues
+
 - Confirm contract addresses are correct for the target chain
 - Verify contracts were deployed with expected ABIs
 - Check that START_BLOCK is set to the deployment block or earlier
 
 ### Chain ID Conflicts
+
 - Ensure the chain ID doesn't conflict with existing supported chains
 - Verify chain ID in environment matches the actual network chain ID
 
@@ -232,6 +240,7 @@ The indexer is designed to be chain-agnostic:
 - **Configuration:** Chain-specific settings are externalized to environment variables
 
 The indexer automatically:
+
 - Handles chain reconnection and fault tolerance
 - Processes events in chronological order across all configured contracts
 - Stores chain-specific metadata for proper data segregation
@@ -240,6 +249,7 @@ The indexer automatically:
 ## Support
 
 After adding a new chain, the indexer will:
+
 - Start processing events from the START_BLOCK
 - Handle historical event recovery if RECOVER_HISTORY=true
 - Provide the same API functionality as existing chains
