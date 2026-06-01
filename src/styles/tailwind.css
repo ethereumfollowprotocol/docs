@@ -1,10 +1,10 @@
 @layer base, starlight, theme, components, utilities;
 
 @import '@astrojs/starlight-tailwind';
-@plugin '@tailwindcss/typography';
-@config '../../tailwind.config.ts';
 @import 'tailwindcss/theme.css' layer(theme);
 @import 'tailwindcss/utilities.css' layer(utilities);
+@plugin '@tailwindcss/typography';
+@config '../../tailwind.config.ts';
 
 @theme {
   --breakpoint-xs: 20rem;

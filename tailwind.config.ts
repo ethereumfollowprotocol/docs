@@ -13,11 +13,7 @@ const linkHeadingStyles = {
 export default {
   theme: {
     extend: {
-      typography: ({
-        theme
-      }: {
-        theme: (path: string) => string | number | Record<string, unknown> | unknown[] | undefined
-      }) => ({
+      typography: () => ({
         DEFAULT: {
           css: {
             'h2 a': linkHeadingStyles,
