@@ -6,7 +6,7 @@ import { defineConfig } from 'astro/config'
 import spotlightjs from '@spotlightjs/astro'
 import starlightLinksValidator from 'starlight-links-validator'
 
-const SITE_URL = 'https://docs.efp.app/'
+const SITE_URL = 'https://docs.efp.rip/'
 
 // https://astro.build/config
 export default defineConfig({
